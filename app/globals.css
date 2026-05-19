@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #080b0f;
+  --color-surface: #0d1117;
+  --color-footer: #050709;
+  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-gold: #16634b;
+  --color-gold-soft: rgba(22, 99, 75, 0.15);
+  --color-amber: #e8b84b;
+  --color-cream: #f0ece4;
+  --color-muted: rgba(240, 236, 228, 0.45);
+  --color-gold-faint: rgba(22, 99, 75, 0.35);
+  --font-head: var(--font-syne), ui-sans-serif, sans-serif;
+  --font-body: var(--font-dm-sans), ui-sans-serif, sans-serif;
+  --radius-card: 16px;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-smooth: 350ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg font-body font-light leading-relaxed text-cream antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  button {
+    @apply cursor-pointer font-body;
+  }
+}
+
+@layer components {
+  .section-inner {
+    @apply mx-auto max-w-[1200px] px-5 py-[72px] md:px-8 md:py-[100px];
+  }
+
+  .section-tag {
+    @apply mb-4 inline-flex items-center gap-2 text-[0.7rem] tracking-[0.22em] text-gold uppercase;
+  }
+
+  .section-tag::before {
+    content: "";
+    @apply block h-px w-5 bg-gold;
+  }
+
+  .section-title {
+    @apply font-head text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] font-extrabold tracking-tight text-cream;
+  }
+
+  .section-subtitle {
+    @apply mt-4 max-w-[520px] text-base text-muted;
+  }
+
+  .hero-eyebrow {
+    @apply mb-5 inline-flex items-center gap-2.5 text-[0.72rem] font-medium tracking-[0.22em] text-gold uppercase;
+  }
+
+  .hero-eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-gold;
+  }
+
+  .hero-lines::before,
+  .hero-lines::after {
+    content: "";
+    @apply absolute right-0 left-0 h-px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(22, 99, 75, 0.2) 40%,
+      rgba(22, 99, 75, 0.2) 60%,
+      transparent 100%
+    );
+  }
+
+  .hero-lines::before {
+    top: 20%;
+  }
+
+  .hero-lines::after {
+    top: 80%;
+  }
+
+  .stat-item + .stat-item::before {
+    content: "";
+    @apply absolute top-[10%] bottom-[10%] left-0 w-px bg-border;
+  }
+
+  .bike-img::before {
+    content: "";
+    @apply absolute inset-0;
+    background: radial-gradient(
+      ellipse at 50% 60%,
+      rgba(22, 99, 75, 0.05) 0%,
+      transparent 70%
+    );
+  }
+
+  .delivery-visual::before {
+    content: "";
+    @apply absolute -top-[60px] -right-[60px] h-[200px] w-[200px] rounded-full;
+    background: radial-gradient(
+      circle,
+      rgba(22, 99, 75, 0.12) 0%,
+      transparent 70%
+    );
+  }
+
+  .why-card::after {
+    content: "";
+    @apply absolute right-0 bottom-0 left-0 h-0.5 origin-center scale-x-0 transition-transform duration-[400ms];
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  }
+
+  .why-card:hover::after {
+    @apply scale-x-100;
+  }
+
+  .reveal {
+    @apply translate-y-[30px] opacity-0 transition-[opacity,transform] duration-700 ease-out;
+  }
+
+  .reveal.visible {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+
+  .reveal-delay-4 {
+    transition-delay: 0.4s;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-border bg-black/40 px-4 py-3.5 text-[0.9rem] text-cream outline-none transition-colors placeholder:text-cream/20 focus:border-gold/50 focus:shadow-[0_0_0_1px_rgba(22,99,75,0.4)];
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden rounded-lg bg-gold px-9 py-4 font-head text-[0.85rem] font-bold tracking-wider text-black uppercase shadow-[0_8px_32px_rgba(22,99,75,0.4)] transition-all duration-350 hover:-translate-y-0.5 hover:bg-amber hover:shadow-[0_10px_40px_rgba(22,99,75,0.55)];
+    transition-timing-function: var(--ease-smooth);
+  }
+
+  .btn-primary::after {
+    content: "";
+    @apply absolute inset-0 bg-white/15 opacity-0 transition-opacity duration-200;
+  }
+
+  .btn-primary:hover::after {
+    @apply opacity-100;
+  }
+
+  .bike-card {
+    transition:
+      transform var(--duration-smooth) var(--ease-smooth),
+      border-color var(--duration-smooth) var(--ease-smooth),
+      box-shadow var(--duration-smooth) var(--ease-smooth);
+  }
+
+  .bike-card:hover {
+    @apply -translate-y-1;
+  }
+
+  .filter-tab {
+    transition:
+      background var(--duration-smooth) var(--ease-smooth),
+      border-color var(--duration-smooth) var(--ease-smooth),
+      color var(--duration-smooth) var(--ease-smooth);
+  }
+
+  .mobile-menu-panel {
+    transition: transform 0.4s var(--ease-smooth);
+  }
+
+  .menu-overlay {
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-bar {
+    transition:
+      background var(--duration-smooth) var(--ease-smooth),
+      border-color var(--duration-smooth) var(--ease-smooth),
+      backdrop-filter var(--duration-smooth) var(--ease-smooth);
+  }
+
+  .form-submit {
+    @apply relative w-full overflow-hidden rounded-lg bg-gold px-9 py-4.5 font-head text-[0.9rem] font-bold tracking-wider text-black uppercase transition-all duration-350 hover:-translate-y-0.5 hover:bg-amber hover:shadow-[0_8px_32px_rgba(22,99,75,0.35)];
+    transition-timing-function: var(--ease-smooth);
+  }
+
+  .form-submit::after {
+    content: "";
+    @apply absolute inset-0 bg-white/15 opacity-0 transition-opacity duration-200;
+  }
+
+  .form-submit:hover:not(:disabled)::after {
+    @apply opacity-100;
+  }
+
+  .btn-ghost {
+    @apply rounded-lg border border-border px-7 py-4 text-[0.85rem] font-medium tracking-wide text-cream transition-all hover:border-gold/40 hover:text-gold;
+  }
+
+  .btn-nav {
+    @apply rounded-md bg-gold px-5 py-2.5 text-[0.78rem] font-semibold tracking-widest text-black uppercase shadow-[0_4px_20px_rgba(22,99,75,0.35)] transition-all hover:-translate-y-px hover:bg-amber hover:shadow-[0_6px_28px_rgba(22,99,75,0.5)];
+  }
+}
+
+@layer utilities {
+  .animate-wa-pulse {
+    animation: wa-pulse 2.5s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@keyframes wa-pulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 24px rgba(37, 211, 102, 0.45);
+  }
+  50% {
+    box-shadow: 0 4px 40px rgba(37, 211, 102, 0.7);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
