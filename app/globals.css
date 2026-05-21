@@ -12,6 +12,7 @@
   --color-cream: #f0ece4;
   --color-muted: rgba(240, 236, 228, 0.45);
   --color-gold-faint: rgba(22, 99, 75, 0.35);
+  --color-brand-tint: #0b3d2e;
   --font-head: var(--font-syne), ui-sans-serif, sans-serif;
   --font-body: var(--font-dm-sans), ui-sans-serif, sans-serif;
   --radius-card: 16px;
@@ -93,6 +94,92 @@
 
   .hero-lines::after {
     top: 80%;
+  }
+
+  .hero-media {
+    @apply object-cover;
+    object-position: 68% 44%;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-media {
+      object-position: 72% 42%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-media {
+      object-position: 82% 40%;
+    }
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 11, 15, 0.72) 0%,
+        rgba(8, 11, 15, 0.2) 22%,
+        transparent 48%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(8, 11, 15, 0.95) 0%,
+        rgba(8, 11, 15, 0.55) 38%,
+        transparent 72%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(8, 11, 15, 0.92) 0%,
+        rgba(8, 11, 15, 0.45) 42%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 85% 70% at 72% 42%,
+        transparent 0%,
+        rgba(11, 61, 46, 0.22) 100%
+      ),
+      linear-gradient(180deg, rgba(11, 61, 46, 0.18) 0%, rgba(11, 61, 46, 0.08) 100%);
+  }
+
+  .hero-vignette {
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.45);
+  }
+
+  .hero-stats-glass {
+    @apply border border-white/10 bg-white/[0.06] shadow-[0_-12px_48px_rgba(0,0,0,0.4)] backdrop-blur-2xl;
+  }
+
+  .hero-text-glow {
+    text-shadow:
+      0 2px 28px rgba(0, 0, 0, 0.55),
+      0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-bar-hero {
+    @apply border-transparent bg-black/20 backdrop-blur-xl;
+  }
+
+  .fleet-card {
+    @apply border border-border bg-glass backdrop-blur-xl transition-all duration-500;
+    transition-timing-function: var(--ease-smooth);
+  }
+
+  .fleet-card-media img {
+    @apply object-cover object-center;
+  }
+
+  .fleet-card:hover {
+    @apply border-brand-tint/40 shadow-[0_20px_60px_rgba(0,0,0,0.55),0_0_32px_rgba(11,61,46,0.22)];
+    transform: translateY(-4px);
+  }
+
+  .fleet-card-cta {
+    @apply border border-brand-tint/40 bg-[rgba(11,61,46,0.25)] transition-all duration-350;
+    transition-timing-function: var(--ease-smooth);
+  }
+
+  .fleet-card-cta:hover {
+    @apply border-brand-tint bg-brand-tint text-cream shadow-[0_4px_20px_rgba(11,61,46,0.45)];
   }
 
   .stat-item + .stat-item::before {

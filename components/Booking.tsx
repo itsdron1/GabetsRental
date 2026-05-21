@@ -2,7 +2,7 @@
 
 import { type FormEvent, useState } from "react";
 import Reveal from "@/components/Reveal";
-import { bikes, trustItems } from "@/lib/data";
+import { bikes, formatBikePriceFull, trustItems } from "@/lib/data";
 import { WHATSAPP_BOOKING_URL } from "@/lib/constants";
 
 export default function Booking() {
@@ -99,8 +99,8 @@ export default function Booking() {
                 <select className="input-field appearance-none" defaultValue="">
                   <option value="">— Select a model —</option>
                   {bikes.map((bike) => (
-                    <option key={bike.name} value={bike.name}>
-                      {bike.name} ({bike.price}/day)
+                    <option key={bike.id} value={bike.name}>
+                      {bike.name} (IDR {formatBikePriceFull(bike.priceIdr)}/day)
                     </option>
                   ))}
                 </select>

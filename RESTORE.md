@@ -1,4 +1,4 @@
-# Gabet's Rental Bali — восстановление сайта
+# G-BIKE Rental Bali — восстановление сайта
 
 ## Что в архиве
 

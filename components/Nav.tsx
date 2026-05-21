@@ -34,16 +34,14 @@ export default function Nav() {
     <>
       <nav
         className={`nav-bar fixed top-0 right-0 left-0 z-[100] flex items-center justify-between px-5 py-4 md:px-8 ${
-          scrolled
-            ? "border-b border-border bg-bg/92 backdrop-blur-xl"
-            : "bg-gradient-to-b from-bg/90 to-transparent backdrop-blur-none"
+          scrolled ? "border-b border-border bg-bg/92 backdrop-blur-xl" : "nav-bar-hero"
         }`}
       >
         <Link
           href="/"
           className="font-head text-xl font-extrabold tracking-[0.06em] text-cream"
         >
-          Gabet&apos;s <span className="text-gold">Rental</span> Bali
+          G-BIKE <span className="text-gold">Rental</span> Bali
         </Link>
 
         <ul className="hidden items-center gap-9 lg:flex">

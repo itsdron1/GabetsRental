@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="mb-14 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <span className="mb-4 block font-head text-[1.4rem] font-extrabold tracking-[0.06em] text-cream">
-              Gabet&apos;s <span className="text-gold">Rental</span> Bali
+              G-BIKE <span className="text-gold">Rental</span> Bali
             </span>
             <p className="max-w-[280px] text-sm leading-relaxed text-muted">
               Premium scooter rental with island-wide delivery. Trusted by travelers, digital
@@ -21,11 +21,11 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-2.5">
               {[
-                "Honda Vario 125",
-                "Honda PCX 160",
-                "Yamaha NMAX 155",
-                "Honda ADV 160",
-                "Yamaha Aerox",
+                "Harley-Davidson Heritage Softail Classic",
+                "BMW F800GS",
+                "Yamaha YZF-R6",
+                "Ducati Monster 795",
+                "Yamaha XMAX 250",
               ].map((name) => (
                 <li key={name}>
                   <a
@@ -90,7 +90,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@gabetsrentalbali.com"
+                  href="mailto:hello@gbikerentalbali.com"
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
                   Email Us
@@ -101,7 +101,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-border pt-7 text-center text-[0.78rem] text-cream/25 sm:flex-row sm:text-left">
-          <span>© 2024 Gabet&apos;s Rental Bali. All rights reserved.</span>
+          <span>© 2024 G-BIKE Rental Bali. All rights reserved.</span>
           <span>Built for adventurers. 🌴 Bali, Indonesia</span>
         </div>
       </div>

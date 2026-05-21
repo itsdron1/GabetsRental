@@ -15,7 +15,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Gabet's Rental Bali — Premium Scooter Rental",
+  title: "G-BIKE Rental Bali — Premium Scooter Rental",
   description:
     "Premium scooter rental with island-wide delivery across Bali. Top-condition bikes, transparent pricing — freedom starts at your doorstep.",
 };
