@@ -8,7 +8,7 @@ import { scrollToId } from "@/lib/scroll";
 const HERO_IMAGE = "/hero-cinematic-ultra.png";
 
 const stats = [
-  { num: "50+", label: "Bikes in Fleet" },
+  { num: "20+", label: "Bikes in Fleet" },
   { num: "24h", label: "Support" },
   { num: "All Bali", label: "Delivery Coverage" },
   { num: "5★", label: "Avg Rating" },
@@ -85,14 +85,14 @@ export default function Hero() {
           delay={2}
         >
           <div className="max-w-[720px]">
-            <div className="hero-eyebrow">Premium Scooter Rental — Bali</div>
+            <div className="hero-eyebrow">Premium Big Bike Rental — Bali</div>
             <h1 className="mb-6 font-head text-[clamp(2.4rem,7.5vw,6.5rem)] leading-[0.95] font-extrabold tracking-tight text-cream">
               Ride Bali
               <br />
               <em className="block font-normal text-gold not-italic">Your Way.</em>
             </h1>
             <p className="mb-10 max-w-[480px] text-[clamp(0.95rem,2vw,1.15rem)] leading-relaxed text-cream/80">
-              Top-condition scooters, island-wide delivery, no hidden fees. Freedom starts at
+              Top-condition big bikes, island-wide delivery, no hidden fees. Freedom starts at
               your doorstep.
             </p>
             <div className="flex flex-wrap items-center gap-4">

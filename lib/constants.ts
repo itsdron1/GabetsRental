@@ -5,5 +5,9 @@ export const WHATSAPP_BOOKING_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${enc
 )}`;
 
 export const WHATSAPP_CHAT_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  "Hi G-BIKE Rental Bali! I'd like to book a scooter.",
+  "Hi G-BIKE Rental Bali! I'd like to book a bike.",
+)}`;
+
+export const WHATSAPP_DELIVERY_NORTH_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hi G-BIKE Rental Bali! I'd like to inquire about delivery to North Bali / Singaraja.",
 )}`;

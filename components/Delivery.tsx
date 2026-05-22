@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import { WHATSAPP_DELIVERY_NORTH_URL } from "@/lib/constants";
 import { deliveryPerks, deliveryZones } from "@/lib/data";
 
 export default function Delivery() {
@@ -13,7 +14,7 @@ export default function Delivery() {
             <div className="section-tag">Delivery</div>
             <h2 className="section-title">We Bring the Bike to You</h2>
             <p className="section-subtitle mb-10">
-              No need to come to us — tell us where you&apos;re staying and your scooter will be
+              No need to come to us — tell us where you&apos;re staying and your bike will be
               ready at your door.
             </p>
 
@@ -44,15 +45,28 @@ export default function Delivery() {
                 {deliveryZones.map((zone) => (
                   <div
                     key={zone.name}
-                    className="flex items-center justify-between rounded-lg border-l-2 border-gold bg-black/30 px-4 py-3 text-sm"
+                    className="delivery-zone-row flex flex-col gap-2 rounded-lg border-l-2 border-gold bg-black/30 px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                   >
-                    <span className="font-medium text-cream">{zone.name}</span>
+                    <span className="min-w-0 font-medium leading-snug text-cream">
+                      {zone.name}
+                    </span>
                     {zone.free ? (
-                      <span className="rounded bg-gold/10 px-2 py-0.5 text-[0.72rem] font-semibold tracking-widest text-amber uppercase">
+                      <span className="delivery-price-free shrink-0 self-start sm:self-center">
                         {zone.price}
                       </span>
+                    ) : zone.contact ? (
+                      <a
+                        href={WHATSAPP_DELIVERY_NORTH_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="delivery-price-contact shrink-0 self-start sm:self-center"
+                      >
+                        {zone.price}
+                      </a>
                     ) : (
-                      <span className="font-semibold text-gold">{zone.price}</span>
+                      <span className="shrink-0 self-start font-semibold tabular-nums text-gold sm:self-center">
+                        {zone.price}
+                      </span>
                     )}
                   </div>
                 ))}

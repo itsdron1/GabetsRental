@@ -24,7 +24,7 @@ export default function Booking() {
         <div className="grid items-start gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <Reveal>
             <div className="section-tag">Reservations</div>
-            <h2 className="section-title mb-5">Reserve Your Scooter</h2>
+            <h2 className="section-title mb-5">Reserve Your Bike</h2>
             <p className="mb-10 text-muted">
               Fill in the form and we&apos;ll confirm your booking via WhatsApp within 30 minutes.
               No payment upfront required.

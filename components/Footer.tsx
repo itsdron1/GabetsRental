@@ -10,7 +10,7 @@ export default function Footer() {
               G-BIKE <span className="text-gold">Rental</span> Bali
             </span>
             <p className="max-w-[280px] text-sm leading-relaxed text-muted">
-              Premium scooter rental with island-wide delivery. Trusted by travelers, digital
+              Premium big bike rental with island-wide delivery. Trusted by travelers, digital
               nomads, and expats across Bali since 2018.
             </p>
           </div>

@@ -207,6 +207,21 @@
     );
   }
 
+  .delivery-price-free {
+    @apply inline-flex items-center rounded-md border border-brand-tint/50 px-2.5 py-1 text-[0.72rem] font-bold tracking-widest text-cream uppercase;
+    background: rgba(11, 61, 46, 0.45);
+    box-shadow: 0 0 20px rgba(11, 61, 46, 0.35);
+  }
+
+  .delivery-price-contact {
+    @apply inline-flex items-center rounded-md border border-gold/35 bg-[rgba(11,61,46,0.2)] px-3 py-1 text-[0.72rem] font-semibold tracking-wide text-gold uppercase transition-all duration-300;
+    transition-timing-function: var(--ease-smooth);
+  }
+
+  .delivery-price-contact:hover {
+    @apply border-brand-tint bg-brand-tint text-cream shadow-[0_4px_20px_rgba(11,61,46,0.45)];
+  }
+
   .why-card::after {
     content: "";
     @apply absolute right-0 bottom-0 left-0 h-0.5 origin-center scale-x-0 transition-transform duration-[400ms];

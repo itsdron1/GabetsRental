@@ -1,4 +1,9 @@
-export type BikeCategory = "cruiser" | "sport" | "adventure" | "scooter";
+export type BikeCategory =
+  | "cruiser"
+  | "sport"
+  | "adventure"
+  | "enduro"
+  | "scooter";
 
 export type Bike = {
   id: string;
@@ -27,6 +32,7 @@ export const filterTabs = [
   { id: "cruiser", label: "Cruiser" },
   { id: "sport", label: "Sport" },
   { id: "adventure", label: "Adventure / Touring" },
+  { id: "enduro", label: "Enduro" },
   { id: "scooter", label: "Scooter" },
 ] as const;
 
@@ -159,6 +165,31 @@ export const bikes: Bike[] = [
     tagline: "Heritage touring",
   },
   {
+    id: "honda-crf150",
+    name: "Honda CRF150",
+    category: "enduro",
+    priceIdr: 300_000,
+    image: "/bikes/honda-crf150.png",
+    tagline: "Lightweight trail ready",
+  },
+  {
+    id: "yamaha-wr155",
+    name: "Yamaha WR155",
+    category: "enduro",
+    priceIdr: 300_000,
+    image: "/bikes/yamaha-wr155.png",
+    tagline: "Agile off-road fun",
+  },
+  {
+    id: "kawasaki-klx230",
+    name: "Kawasaki KLX230",
+    category: "enduro",
+    priceIdr: 500_000,
+    image: "/bikes/kawasaki-klx230.png",
+    badge: "Trail Pro",
+    tagline: "Confident dirt explorer",
+  },
+  {
     id: "yamaha-xmax-250",
     name: "Yamaha XMAX 250",
     category: "scooter",
@@ -185,13 +216,20 @@ export const bikes: Bike[] = [
   },
 ];
 
-export const deliveryZones = [
+export type DeliveryZone = {
+  name: string;
+  price: string;
+  free?: boolean;
+  contact?: boolean;
+};
+
+export const deliveryZones: DeliveryZone[] = [
   { name: "Canggu / Seminyak / Kuta", price: "Free", free: true },
-  { name: "Ubud / Tegallalang", price: "50,000 IDR" },
-  { name: "Uluwatu / Bukit", price: "40,000 IDR" },
-  { name: "Sanur / Nusa Dua", price: "30,000 IDR" },
-  { name: "Airport / Ngurah Rai", price: "60,000 IDR" },
-  { name: "North Bali / Singaraja", price: "Contact Us" },
+  { name: "Ubud / Tegallalang", price: "200,000 IDR" },
+  { name: "Uluwatu / Bukit", price: "200,000 IDR" },
+  { name: "Sanur / Nusa Dua", price: "100,000 IDR" },
+  { name: "Airport / Ngurah Rai", price: "100,000 IDR" },
+  { name: "North Bali / Singaraja", price: "Contact Us", contact: true },
 ];
 
 export const whyCards = [
@@ -212,8 +250,8 @@ export const whyCards = [
   },
   {
     icon: "🪪",
-    title: "No License? No Problem",
-    text: "We assist guests without an International Driving License navigate Bali safely and legally. Ask us about local regulations.",
+    title: "Driver License",
+    text: "We assist guests with an International Driving License navigate Bali safely and legally. Ask us about local regulations.",
   },
   {
     icon: "💳",
@@ -241,7 +279,7 @@ export const deliveryPerks = [
   {
     icon: "📍",
     title: "Airport Pick-Up Available",
-    text: "Land at Ngurah Rai and find your scooter waiting. Seamless handover, zero waiting time.",
+    text: "Land at Ngurah Rai and find your bike waiting. Seamless handover, zero waiting time.",
   },
 ];
 

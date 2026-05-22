@@ -12,6 +12,7 @@ const categoryLabels: Record<Bike["category"], string> = {
   cruiser: "Cruiser",
   sport: "Sport",
   adventure: "Adventure / Touring",
+  enduro: "Enduro",
   scooter: "Scooter",
 };
 

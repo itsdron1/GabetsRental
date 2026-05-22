@@ -34,8 +34,8 @@ export default function Fleet() {
           <div className="section-tag">Our Fleet</div>
           <h2 className="section-title">Premium Motorcycle Catalog</h2>
           <p className="section-subtitle">
-            Cruisers, sport bikes, adventure tourers, and scooters — curated for the
-            ultimate Bali riding experience.
+            Cruisers, sport bikes, adventure tourers, enduro machines, and scooters —
+            curated for the ultimate Bali riding experience.
           </p>
         </Reveal>
 
