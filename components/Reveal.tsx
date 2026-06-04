@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { observeReveal, unobserveReveal } from "@/lib/reveal-observer";
 
 type RevealProps = {
   children: ReactNode;
@@ -15,21 +16,8 @@ export default function Reveal({ children, className = "", delay, once = true }:
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            if (once) observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
+    observeReveal(el, { once });
+    return () => unobserveReveal(el);
   }, [once]);
 
   const delayClass = delay ? `reveal-delay-${delay}` : "";

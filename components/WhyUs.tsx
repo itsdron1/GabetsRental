@@ -3,7 +3,7 @@ import { whyCards } from "@/lib/data";
 
 export default function WhyUs() {
   return (
-    <section id="why" className="relative z-[1] bg-bg">
+    <section id="why" className="section-deferred relative z-[1] bg-bg">
       <div className="section-inner">
         <Reveal className="mx-auto mb-16 max-w-xl text-center">
           <div className="section-tag mx-auto">Why Choose Us</div>
@@ -12,6 +12,9 @@ export default function WhyUs() {
             <br />
             Not Just Tourists
           </h2>
+          <p className="section-subtitle mx-auto mt-4">
+            Why riders choose our premium bike rental Bali service for daily hire and long trips.
+          </p>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

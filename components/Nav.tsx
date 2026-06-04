@@ -1,23 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { type MouseEvent, useEffect, useState } from "react";
 import { scrollToId } from "@/lib/scroll";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "#fleet", label: "Fleet" },
-  { href: "#delivery", label: "Delivery" },
   { href: "#why", label: "Why Us" },
+  { href: "/tour-packages", label: "Tour Packages" },
   { href: "#booking", label: "Book" },
 ];
 
 export default function Nav() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
+    let ticking = false;
+    const update = () => {
+      setScrolled(window.scrollY > 60);
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -26,8 +39,37 @@ export default function Nav() {
 
   const handleMobileNav = (href: string) => {
     closeMenu();
-    const id = href.replace("#", "");
-    setTimeout(() => scrollToId(id), 200);
+    if (href.startsWith("#") && isHomePage) {
+      const id = href.replace("#", "");
+      setTimeout(() => scrollToId(id), 200);
+    }
+  };
+
+  const resolveHref = (href: string) => {
+    if (!href.startsWith("#")) return href;
+    return isHomePage ? href : `/${href}`;
+  };
+
+  const isActiveLink = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/tour-packages") return pathname === "/tour-packages";
+    return false;
+  };
+
+  const linkClassName = (active: boolean) =>
+    `text-[0.8rem] font-medium tracking-[0.12em] uppercase transition-colors ${
+      active ? "text-cream" : "text-muted hover:text-cream"
+    }`;
+
+  const mobileLinkClassName = (active: boolean) =>
+    `border-b border-border py-3.5 font-head text-xl font-bold transition-colors ${
+      active ? "text-gold" : "text-muted hover:text-gold"
+    }`;
+
+  const handleInlineAnchor = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#") || !isHomePage) return;
+    e.preventDefault();
+    scrollToId(href.replace("#", ""));
   };
 
   return (
@@ -41,18 +83,19 @@ export default function Nav() {
           href="/"
           className="font-head text-xl font-extrabold tracking-[0.06em] text-cream"
         >
-          G-BIKE <span className="text-gold">Rental</span> Bali
+          G-DRIVE <span className="text-gold">Bike Rental</span> Bali
         </Link>
 
         <ul className="hidden items-center gap-9 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-[0.8rem] font-medium tracking-[0.12em] text-muted uppercase transition-colors hover:text-cream"
+              <Link
+                href={resolveHref(link.href)}
+                onClick={(e) => handleInlineAnchor(e, link.href)}
+                className={linkClassName(isActiveLink(link.href))}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -87,28 +130,21 @@ export default function Nav() {
         }`}
       >
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
-            href={link.href}
+            href={resolveHref(link.href)}
             onClick={(e) => {
-              e.preventDefault();
               handleMobileNav(link.href);
+              if (link.href.startsWith("#") && isHomePage) {
+                e.preventDefault();
+                scrollToId(link.href.replace("#", ""));
+              }
             }}
-            className="border-b border-border py-3.5 font-head text-xl font-bold text-muted transition-colors hover:text-gold"
+            className={mobileLinkClassName(isActiveLink(link.href))}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
-        <a
-          href="#booking"
-          onClick={(e) => {
-            e.preventDefault();
-            handleMobileNav("#booking");
-          }}
-          className="border-b border-border py-3.5 font-head text-xl font-bold text-muted transition-colors hover:text-gold"
-        >
-          Book Now
-        </a>
       </div>
     </>
   );

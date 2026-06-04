@@ -1,4 +1,19 @@
-import { WHATSAPP_NUMBER } from "@/lib/constants";
+import Link from "next/link";
+import {
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_URL,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_NUMBER,
+} from "@/lib/constants";
+import { LOCAL_AREAS } from "@/lib/seo";
+
+const fleetLinks = [
+  { label: "Harley-Davidson Heritage Softail", href: "#fleet" },
+  { label: "BMW F800GS Adventure", href: "#fleet" },
+  { label: "Yamaha YZF-R6 Sport", href: "#fleet" },
+  { label: "Kawasaki Z900", href: "#fleet" },
+  { label: "Ducati Monster 795", href: "#fleet" },
+];
 
 export default function Footer() {
   return (
@@ -7,11 +22,15 @@ export default function Footer() {
         <div className="mb-14 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <span className="mb-4 block font-head text-[1.4rem] font-extrabold tracking-[0.06em] text-cream">
-              G-BIKE <span className="text-gold">Rental</span> Bali
+              G-DRIVE <span className="text-gold">Bike Rental</span> Bali
             </span>
-            <p className="max-w-[280px] text-sm leading-relaxed text-muted">
-              Premium big bike rental with island-wide delivery. Trusted by travelers, digital
-              nomads, and expats across Bali since 2018.
+            <p className="max-w-[300px] text-sm leading-relaxed text-muted">
+              Premium motorcycle rental Bali — big bike rental, sport bike rental, and motorbike
+              hire with delivery. Trusted by travellers and expats since 2018.
+            </p>
+            <p className="mt-4 max-w-[300px] text-xs leading-relaxed text-cream/35">
+              Also known as Gabet&apos;s Rental Bali · Motorcycle rental service · Bali,
+              Indonesia
             </p>
           </div>
 
@@ -20,40 +39,50 @@ export default function Footer() {
               Fleet
             </h4>
             <ul className="flex flex-col gap-2.5">
-              {[
-                "Harley-Davidson Heritage Softail Classic",
-                "BMW F800GS",
-                "Yamaha YZF-R6",
-                "Ducati Monster 795",
-                "Yamaha XMAX 250",
-              ].map((name) => (
-                <li key={name}>
+              {fleetLinks.map((item) => (
+                <li key={item.label}>
                   <a
-                    href="#fleet"
+                    href={item.href}
                     className="text-sm text-muted transition-colors hover:text-cream"
                   >
-                    {name}
+                    {item.label}
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/#fleet"
+                  className="text-sm font-medium text-gold transition-colors hover:text-cream"
+                >
+                  View full fleet →
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-gold uppercase">
-              Zones
+              Delivery Zones
             </h4>
             <ul className="flex flex-col gap-2.5">
-              {["Canggu", "Seminyak", "Ubud", "Uluwatu", "Airport"].map((zone) => (
+              {LOCAL_AREAS.map((zone) => (
                 <li key={zone}>
                   <a
                     href="#delivery"
                     className="text-sm text-muted transition-colors hover:text-cream"
                   >
-                    {zone}
+                    Bike rental {zone}
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="#delivery"
+                  className="text-sm text-muted transition-colors hover:text-cream"
+                >
+                  Airport / Ngurah Rai
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -67,18 +96,16 @@ export default function Footer() {
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
-                  WhatsApp
+                  WhatsApp {WHATSAPP_DISPLAY}
                 </a>
               </li>
               <li>
-                <a
-                  href="https://instagram.com"
+                <Link
+                  href="/tour-packages"
                   className="text-sm text-muted transition-colors hover:text-cream"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
-                  Instagram
-                </a>
+                  Motorcycle Tours Bali
+                </Link>
               </li>
               <li>
                 <a
@@ -90,10 +117,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@gbikerentalbali.com"
+                  href={CONTACT_EMAIL_URL}
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
-                  Email Us
+                  {CONTACT_EMAIL}
                 </a>
               </li>
             </ul>
@@ -101,8 +128,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-border pt-7 text-center text-[0.78rem] text-cream/25 sm:flex-row sm:text-left">
-          <span>© 2024 G-BIKE Rental Bali. All rights reserved.</span>
-          <span>Built for adventurers. 🌴 Bali, Indonesia</span>
+          <span>© 2024 G-DRIVE Bike Rental Bali. All rights reserved.</span>
+          <span>Motorbike rental Bali · 🌴 Indonesia</span>
         </div>
       </div>
     </footer>

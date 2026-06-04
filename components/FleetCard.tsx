@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import type { Bike } from "@/lib/data";
 import { formatBikePrice, formatBikePriceFull } from "@/lib/data";
 import { getBikeImagePath } from "@/lib/bike-images";
 import { scrollToId } from "@/lib/scroll";
+import { getBikeImageAlt } from "@/lib/seo";
 
 type FleetCardProps = {
   bike: Bike;
@@ -17,17 +20,20 @@ const categoryLabels: Record<Bike["category"], string> = {
 };
 
 export default function FleetCard({ bike }: FleetCardProps) {
+  const imageAlt = getBikeImageAlt(bike);
+
   return (
     <article className="fleet-card group flex h-full flex-col overflow-hidden rounded-2xl">
       <div className="fleet-card-media relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-t-2xl bg-[#0f1419]">
         <Image
           src={getBikeImagePath(bike)}
-          alt={bike.name}
+          alt={imageAlt}
+          title={imageAlt}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          quality={90}
+          quality={80}
           loading="lazy"
-          className="object-cover object-center transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.04]"
+          className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-transparent to-transparent opacity-80" />
         {bike.badge && (
@@ -35,7 +41,7 @@ export default function FleetCard({ bike }: FleetCardProps) {
             {bike.badge}
           </span>
         )}
-        <span className="absolute top-3.5 right-3.5 z-10 rounded-full border border-white/10 bg-black/40 px-2.5 py-1 text-[0.62rem] font-medium tracking-widest text-cream/80 uppercase backdrop-blur-md">
+        <span className="absolute top-3.5 right-3.5 z-10 rounded-full border border-white/10 bg-black/55 px-2.5 py-1 text-[0.62rem] font-medium tracking-widest text-cream/80 uppercase">
           {categoryLabels[bike.category]}
         </span>
       </div>

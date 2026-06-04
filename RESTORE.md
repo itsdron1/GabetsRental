@@ -25,10 +25,15 @@ npm run build
 npm start
 ```
 
-## WhatsApp
+## Контакты
 
-Номер задаётся в `lib/constants.ts` → `WHATSAPP_NUMBER`.
+- WhatsApp: `lib/whatsapp.ts` → `WHATSAPP_NUMBER` (или `NEXT_PUBLIC_WHATSAPP_NUMBER` в `.env.local`)
+- Email: `lib/whatsapp.ts` → `CONTACT_EMAIL`
 
 ## Дата бэкапа
 
-2026-05-19
+2026-06-04 — `C:\Users\MSI\Desktop\g-drive-bike-rental-bali-backup-2026-06-03.zip` (~34 MB)
+
+Исключено из архива: `node_modules`, `.next`, `*.zip`, `tmp-tour-packages`.
+
+Предыдущий: 2026-05-19

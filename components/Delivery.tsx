@@ -1,21 +1,29 @@
 import Reveal from "@/components/Reveal";
-import { WHATSAPP_DELIVERY_NORTH_URL } from "@/lib/constants";
+import {
+  GOOGLE_MAPS_GABETS_PUB_EMBED_URL,
+  GOOGLE_MAPS_GABETS_PUB_URL,
+  WHATSAPP_DELIVERY_NORTH_URL,
+} from "@/lib/constants";
 import { deliveryPerks, deliveryZones } from "@/lib/data";
 
 export default function Delivery() {
   return (
     <section
       id="delivery"
-      className="relative z-[1] bg-gradient-to-b from-bg to-[#070a0e]"
+      className="section-deferred relative z-[1] bg-gradient-to-b from-bg to-[#070a0e]"
     >
       <div className="section-inner">
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           <Reveal>
             <div className="section-tag">Delivery</div>
             <h2 className="section-title">We Bring the Bike to You</h2>
-            <p className="section-subtitle mb-10">
-              No need to come to us — tell us where you&apos;re staying and your bike will be
-              ready at your door.
+            <p className="section-subtitle mb-6">
+              Motorcycle hire Bali with delivery to your villa, hotel, or Airbnb — bike rental
+              Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur, and Nusa Dua covered.
+            </p>
+            <p className="mb-10 max-w-[520px] text-sm leading-relaxed text-muted">
+              Free delivery in South Bali hotspots. Need a bike elsewhere on the island? Message us
+              on WhatsApp — we arrange motorcycle rental across Bali daily.
             </p>
 
             <div className="flex flex-col gap-7">
@@ -36,10 +44,27 @@ export default function Delivery() {
           </Reveal>
 
           <Reveal delay={2}>
-            <div className="delivery-visual relative overflow-hidden rounded-2xl border border-border bg-glass p-8 backdrop-blur-md md:p-10">
-              <div className="mb-7 flex aspect-[4/3] flex-col items-center justify-center gap-2.5 rounded-[10px] border border-border bg-gradient-to-br from-[#0c1018] to-[#111820] text-xs tracking-widest text-gold/30 uppercase">
-                <span className="text-[2.5rem]">🗺️</span>
-                Add delivery zones map here
+            <div className="delivery-visual relative overflow-hidden rounded-2xl border border-border bg-glass p-8 md:p-10">
+              <div className="relative mb-7 aspect-[4/3] overflow-hidden rounded-[10px] border border-border bg-[#0c1018]">
+                <iframe
+                  src={GOOGLE_MAPS_GABETS_PUB_EMBED_URL}
+                  title="Gabets Pub location on Google Maps"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+                <a
+                  href={GOOGLE_MAPS_GABETS_PUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-0.5 bg-gradient-to-t from-black/90 via-black/70 to-transparent px-4 pt-10 pb-3 transition-colors hover:from-black hover:via-black/80"
+                >
+                  <span className="font-head text-sm font-bold text-cream">Gabets Pub</span>
+                  <span className="text-[0.65rem] tracking-widest text-gold uppercase">
+                    Open in Google Maps
+                  </span>
+                </a>
               </div>
               <div className="flex flex-col gap-2.5">
                 {deliveryZones.map((zone) => (

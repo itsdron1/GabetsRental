@@ -1,6 +1,6 @@
 import type { Bike } from "@/lib/data";
 
-const EXT = ".png";
+const EXT = ".webp";
 
 function normalizeSlug(value: string): string {
   return value
