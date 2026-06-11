@@ -1,7 +1,7 @@
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "628133838886";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "628133737779";
 
-export const WHATSAPP_DISPLAY = "+62 813 383 8886";
+export const WHATSAPP_DISPLAY = "+62 813 3737779";
 
 export const CONTACT_EMAIL = "kaifotourbali@gmail.com";
 
