@@ -10,19 +10,27 @@ const svg = readFileSync(join(root, "public", "favicon.svg"));
 const pngTargets = [
   { size: 16, out: "public/favicon-16x16.png" },
   { size: 32, out: "public/favicon-32x32.png" },
+  { size: 48, out: "public/favicon-48x48.png" },
   { size: 180, out: "public/apple-touch-icon.png" },
-  { size: 192, out: "public/icon-192.png" },
-  { size: 512, out: "public/icon-512.png" },
+  { size: 192, out: "public/android-chrome-192x192.png" },
+  { size: 512, out: "public/android-chrome-512x512.png" },
 ];
 
 for (const { size, out } of pngTargets) {
   const buf = await sharp(svg).resize(size, size).png().toBuffer();
   writeFileSync(join(root, out), buf);
+
   if (size === 180) {
     writeFileSync(join(root, "app", "apple-icon.png"), buf);
   }
   if (size === 512) {
     writeFileSync(join(root, "app", "icon.png"), buf);
+  }
+  if (size === 192) {
+    writeFileSync(join(root, "public", "icon-192.png"), buf);
+  }
+  if (size === 512) {
+    writeFileSync(join(root, "public", "icon-512.png"), buf);
   }
 }
 
@@ -35,4 +43,4 @@ writeFileSync(join(root, "public", "favicon.ico"), ico);
 writeFileSync(join(root, "app", "favicon.ico"), ico);
 writeFileSync(join(root, "app", "icon.svg"), svg);
 
-console.log("Favicons generated.");
+console.log("Favicons generated in public/ and app/.");
