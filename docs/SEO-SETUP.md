@@ -29,7 +29,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-       # optional, GA4
 
 - Business name: **Gabet's Rental Bali** (alternate: G-DRIVE Bike Rental Bali)
 - Category: Motorcycle rental / Vehicle rental
-- Phone: +62 813 999 2772
+- Phone: +62 813 373 7779
 - Website: production URL
 - Service area: Bali (Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur, Nusa Dua)
 - Link Google Maps listing (Gabets Pub / pickup point)
