@@ -3,7 +3,7 @@ import HeroActions from "@/components/HeroActions";
 import HeroParallaxMedia from "@/components/HeroParallaxMedia";
 
 const stats = [
-  { num: "20+", label: "Bikes in Fleet" },
+  { num: "50+", label: "Bikes in Fleet" },
   { num: "24h", label: "Support" },
   { num: "All Bali", label: "Delivery Coverage" },
   { num: "5★", label: "Avg Rating" },
@@ -14,7 +14,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-label="Hero"
-      className="relative isolate flex min-h-svh w-full flex-col justify-end overflow-hidden"
+      className="relative isolate flex min-h-[100svh] w-full flex-col justify-end overflow-hidden md:min-h-[680px] md:justify-center md:pt-24 lg:min-h-[760px] xl:min-h-[820px]"
     >
       <HeroParallaxMedia />
 
