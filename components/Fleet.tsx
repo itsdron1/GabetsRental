@@ -1,21 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import FleetCard from "@/components/FleetCard";
 import Reveal from "@/components/Reveal";
 import { bikes, filterTabs, type FilterTabId } from "@/lib/data";
 
 export default function Fleet() {
   const [activeFilter, setActiveFilter] = useState<FilterTabId>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const deferredQuery = useDeferredValue(searchQuery);
 
-  const visibleBikes = useMemo(
-    () =>
-      bikes.filter(
-        (bike) => activeFilter === "all" || bike.category === activeFilter,
-      ),
-    [activeFilter],
-  );
+  const visibleBikes = useMemo(() => {
+    const q = deferredQuery.trim().toLowerCase();
+    return bikes.filter((bike) => {
+      const matchesCategory =
+        activeFilter === "all" || bike.category === activeFilter;
+      if (!matchesCategory) return false;
+      if (!q) return true;
+      return (
+        bike.name.toLowerCase().includes(q) ||
+        bike.tagline.toLowerCase().includes(q) ||
+        bike.category.toLowerCase().includes(q)
+      );
+    });
+  }, [activeFilter, deferredQuery]);
 
   const counts = useMemo(() => {
     const map: Record<string, number> = { all: bikes.length };
@@ -47,6 +56,33 @@ export default function Fleet() {
             </Link>
             .
           </p>
+        </Reveal>
+
+        <Reveal className="mb-6">
+          <label className="relative block max-w-md">
+            <span className="sr-only">Search bikes</span>
+            <svg
+              aria-hidden
+              viewBox="0 0 24 24"
+              className="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-muted"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.5-3.5" />
+            </svg>
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by model — Harley, R6, Vespa…"
+              autoComplete="off"
+              className="input-field pl-10"
+            />
+          </label>
         </Reveal>
 
         <Reveal className="mb-10">
@@ -82,7 +118,9 @@ export default function Fleet() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3" role="tabpanel">
           {visibleBikes.length === 0 ? (
             <p className="col-span-full py-16 text-center text-muted">
-              No bikes in this category.
+              {deferredQuery.trim()
+                ? `No bikes found for “${deferredQuery.trim()}”.`
+                : "No bikes in this category."}
             </p>
           ) : (
             visibleBikes.map((bike) => <FleetCard key={bike.id} bike={bike} />)
