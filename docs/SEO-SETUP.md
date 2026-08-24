@@ -13,9 +13,11 @@
 ## Environment variables
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://your-production-domain.com
+NEXT_PUBLIC_SITE_URL=https://gdrivebikerentalbali.com
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=   # from Search Console HTML tag method
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-       # optional, GA4
+NEXT_PUBLIC_GTM_ID=                     # Google Tag Manager
+NEXT_PUBLIC_GA4_ID=G-                   # optional, GA4 (prefer via GTM)
+NEXT_PUBLIC_META_PIXEL_ID=              # Meta Pixel (prefer via GTM)
 ```
 
 ## Google Search Console

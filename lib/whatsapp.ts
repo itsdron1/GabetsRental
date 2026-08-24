@@ -8,7 +8,7 @@ export const CONTACT_EMAIL = "kaifotourbali@gmail.com";
 export const CONTACT_EMAIL_URL = `mailto:${CONTACT_EMAIL}`;
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://gabetsrentalbali.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://gdrivebikerentalbali.com";
 
 export function buildWhatsAppMessageUrl(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
