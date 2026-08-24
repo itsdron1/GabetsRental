@@ -2,6 +2,8 @@ import Link from "next/link";
 import {
   CONTACT_EMAIL,
   CONTACT_EMAIL_URL,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
   WHATSAPP_DISPLAY,
   WHATSAPP_NUMBER,
 } from "@/lib/constants";
@@ -94,9 +96,31 @@ export default function Footer() {
               <li>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
                   WhatsApp {WHATSAPP_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted transition-colors hover:text-cream"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted transition-colors hover:text-cream"
+                >
+                  Facebook
                 </a>
               </li>
               <li>
@@ -128,8 +152,20 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-border pt-7 text-center text-[0.78rem] text-cream/25 sm:flex-row sm:text-left">
-          <span>© 2024 G-DRIVE Bike Rental Bali. All rights reserved.</span>
-          <span>Motorbike rental Bali · 🌴 Indonesia</span>
+          <span>
+            © {new Date().getFullYear()} G-DRIVE Bike Rental Bali. All rights reserved.
+          </span>
+          <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <Link href="/privacy-policy" className="transition-colors hover:text-cream/50">
+              Privacy Policy
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/terms" className="transition-colors hover:text-cream/50">
+              Terms
+            </Link>
+            <span aria-hidden>·</span>
+            <span>Motorbike rental Bali · Indonesia</span>
+          </span>
         </div>
       </div>
     </footer>
