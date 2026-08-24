@@ -23,11 +23,8 @@ export const WHATSAPP_DELIVERY_NORTH_URL = buildWhatsAppMessageUrl(
 /** Google Business / reviews & location share link (G-Drive Bike Rental) */
 export const GOOGLE_BUSINESS_URL = "https://share.google/aGjk4xFdmVkUwqLcj";
 
-/** Alias kept for existing imports */
-export const GOOGLE_MAPS_GABETS_PUB_URL = GOOGLE_BUSINESS_URL;
-
 /** Embedded map preview — G-Drive Bike Rental Bali */
-export const GOOGLE_MAPS_GABETS_PUB_EMBED_URL =
+export const GOOGLE_MAPS_EMBED_URL =
   "https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sG-Drive%20Bike%20Rental!6i16!3m1!1sen!5m1!1sen";
 
 export const INSTAGRAM_URL =

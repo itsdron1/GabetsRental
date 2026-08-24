@@ -36,10 +36,9 @@ export default function PrivacyPolicyPage() {
 
           <div className="mt-10 space-y-6 text-sm leading-relaxed text-cream/80">
             <p>
-              This Privacy Policy describes how G-DRIVE Bike Rental Bali (also known as
-              Gabet&apos;s Rental Bali), operating in Bali, Indonesia (&quot;we&quot;,
-              &quot;us&quot;), collects and uses personal information when you use
-              gdrivebikerentalbali.com or contact us to rent a motorcycle or book a tour.
+              This Privacy Policy describes how G-DRIVE Bike Rental Bali, operating in Bali,
+              Indonesia (&quot;we&quot;, &quot;us&quot;), collects and uses personal information when
+              you use gdrivebikerentalbali.com or contact us to rent a motorcycle or book a tour.
             </p>
             <h2 className="font-head text-xl font-bold text-cream">Information we collect</h2>
             <ul className="list-disc space-y-2 pl-5">

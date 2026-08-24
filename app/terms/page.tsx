@@ -37,8 +37,8 @@ export default function TermsPage() {
           <div className="mt-10 space-y-6 text-sm leading-relaxed text-cream/80">
             <p>
               These Terms govern motorcycle, scooter, and car rentals and guided tours offered by
-              G-DRIVE Bike Rental Bali (also known as Gabet&apos;s Rental Bali) in Bali, Indonesia.
-              By submitting a booking request or renting a vehicle, you agree to these Terms.
+              G-DRIVE Bike Rental Bali in Bali, Indonesia. By submitting a booking request or
+              renting a vehicle, you agree to these Terms.
             </p>
             <h2 className="font-head text-xl font-bold text-cream">Eligibility</h2>
             <p>

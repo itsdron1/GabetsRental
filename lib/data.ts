@@ -3,7 +3,8 @@ export type BikeCategory =
   | "sport"
   | "adventure"
   | "enduro"
-  | "scooter";
+  | "scooter"
+  | "cars";
 
 export type Bike = {
   id: string;
@@ -28,12 +29,13 @@ export function formatBikePriceFull(amount: number): string {
 }
 
 export const filterTabs = [
-  { id: "all", label: "All Bikes" },
+  { id: "all", label: "All" },
   { id: "cruiser", label: "Cruiser" },
   { id: "sport", label: "Sport" },
   { id: "adventure", label: "Adventure / Touring" },
   { id: "enduro", label: "Enduro" },
   { id: "scooter", label: "Scooter" },
+  { id: "cars", label: "Cars" },
 ] as const;
 
 export type FilterTabId = (typeof filterTabs)[number]["id"];
@@ -439,6 +441,78 @@ export const bikes: Bike[] = [
     priceIdr: 400_000,
     image: "/bikes/yamaha-xsr155.webp",
     tagline: "Modern retro roadster",
+  },
+  {
+    id: "toyota-avanza",
+    name: "Toyota Avanza",
+    category: "cars",
+    priceIdr: 450_000,
+    image: "/bikes/toyota-avanza.webp",
+    badge: "New",
+    tagline: "Comfortable 7-seater MPV",
+  },
+  {
+    id: "toyota-agya-gr-sport",
+    name: "Toyota Agya GR Sport",
+    category: "cars",
+    priceIdr: 375_000,
+    image: "/bikes/toyota-agya-gr-sport.webp",
+    badge: "New",
+    tagline: "Compact city hatchback",
+  },
+  {
+    id: "toyota-avanza-new",
+    name: "All New Toyota Avanza",
+    category: "cars",
+    priceIdr: 475_000,
+    image: "/bikes/toyota-avanza-new.webp",
+    badge: "New",
+    tagline: "Spacious family MPV",
+  },
+  {
+    id: "toyota-innova-zenix",
+    name: "Toyota Innova Zenix Hybrid EV",
+    category: "cars",
+    priceIdr: 600_000,
+    image: "/bikes/toyota-innova-zenix.webp",
+    badge: "New",
+    tagline: "Premium hybrid 7-seater",
+  },
+  {
+    id: "toyota-innova-reborn",
+    name: "Toyota Innova Reborn",
+    category: "cars",
+    priceIdr: 600_000,
+    image: "/bikes/toyota-innova-reborn.webp",
+    badge: "New",
+    tagline: "Reliable family MPV",
+  },
+  {
+    id: "honda-brio-satya",
+    name: "Honda Brio Satya",
+    category: "cars",
+    priceIdr: 425_000,
+    image: "/bikes/honda-brio-satya.webp",
+    badge: "New",
+    tagline: "Economical city hatchback",
+  },
+  {
+    id: "mitsubishi-xpander",
+    name: "Mitsubishi Xpander",
+    category: "cars",
+    priceIdr: 475_000,
+    image: "/bikes/mitsubishi-xpander.webp",
+    badge: "New",
+    tagline: "Spacious crossover MPV",
+  },
+  {
+    id: "toyota-raize-gr-sport",
+    name: "Toyota Raize GR Sport",
+    category: "cars",
+    priceIdr: 450_000,
+    image: "/bikes/toyota-raize-gr-sport.webp",
+    badge: "New",
+    tagline: "Compact turbo SUV",
   },
 ];
 

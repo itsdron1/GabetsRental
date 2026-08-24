@@ -30,10 +30,6 @@ export default function Footer() {
               Premium motorcycle rental Bali — big bike rental, sport bike rental, and motorbike
               hire with delivery. Trusted by travellers and expats since 2018.
             </p>
-            <p className="mt-4 max-w-[300px] text-xs leading-relaxed text-cream/35">
-              Also known as Gabet&apos;s Rental Bali · Motorcycle rental service · Bali,
-              Indonesia
-            </p>
           </div>
 
           <div>

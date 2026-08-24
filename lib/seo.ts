@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { Bike } from "@/lib/data";
 import type { Tour } from "@/data/tours";
-import { CONTACT_EMAIL, GOOGLE_MAPS_GABETS_PUB_URL } from "@/lib/constants";
+import { CONTACT_EMAIL, FACEBOOK_URL, GOOGLE_BUSINESS_URL, INSTAGRAM_URL } from "@/lib/constants";
 import { SITE_URL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 /**
@@ -13,12 +13,12 @@ import { SITE_URL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/whatsapp";
  *   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
  * Load gtag in app/layout.tsx when the variable is set (see Analytics comment there).
  *
- * Google Business Profile: claim "Gabet's Rental Bali" / G-DRIVE, match NAP to schema below,
+ * Google Business Profile: claim G-DRIVE Bike Rental Bali, match NAP to schema below,
  * link website to SITE_URL, add WhatsApp + hours + service area (Bali).
  */
 
 export const BRAND_NAME = "G-DRIVE Bike Rental Bali";
-export const BUSINESS_NAME = "Gabet's Rental Bali";
+export const BUSINESS_NAME = "G-DRIVE Bike Rental Bali";
 export const DEFAULT_OG_IMAGE = "/hero-cinematic-ultra.webp";
 
 export const HOME_TITLE =
@@ -94,6 +94,7 @@ export function buildPageMetadata({
 
 export function getBikeImageAlt(bike: Bike): string {
   const name = bike.name;
+  if (bike.category === "cars") return `${name} rental Bali — car rental Bali`;
   if (name.includes("Harley")) return `${name} rental Bali — Harley-Davidson rental Bali`;
   if (name.includes("Yamaha YZF-R6")) return "Yamaha R6 rental Bali — sport bike rental Bali";
   if (name.includes("Kawasaki Z900")) return "Kawasaki Z900 rental Bali — superbike rental Bali";
@@ -112,7 +113,7 @@ export function localBusinessJsonLd() {
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#localbusiness`,
     name: BUSINESS_NAME,
-    alternateName: BRAND_NAME,
+    alternateName: "G-DRIVE",
     description:
       "Premium motorcycle rental Bali — big bike rental, sport bike rental, superbike and touring motorcycle hire with island-wide delivery.",
     url: SITE_URL,
@@ -138,8 +139,8 @@ export function localBusinessJsonLd() {
       latitude: -8.8221,
       longitude: 115.0889,
     },
-    hasMap: GOOGLE_MAPS_GABETS_PUB_URL,
-    sameAs: [GOOGLE_MAPS_GABETS_PUB_URL],
+    hasMap: GOOGLE_BUSINESS_URL,
+    sameAs: [GOOGLE_BUSINESS_URL, INSTAGRAM_URL, FACEBOOK_URL],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",

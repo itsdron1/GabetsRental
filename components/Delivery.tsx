@@ -1,7 +1,7 @@
 import Reveal from "@/components/Reveal";
 import {
-  GOOGLE_MAPS_GABETS_PUB_EMBED_URL,
-  GOOGLE_MAPS_GABETS_PUB_URL,
+  GOOGLE_BUSINESS_URL,
+  GOOGLE_MAPS_EMBED_URL,
   WHATSAPP_DELIVERY_NORTH_URL,
 } from "@/lib/constants";
 import { deliveryPerks, deliveryZones } from "@/lib/data";
@@ -47,22 +47,24 @@ export default function Delivery() {
             <div className="delivery-visual relative overflow-hidden rounded-2xl border border-border bg-glass p-8 md:p-10">
               <div className="relative mb-7 aspect-[4/3] overflow-hidden rounded-[10px] border border-border bg-[#0c1018]">
                 <iframe
-                  src={GOOGLE_MAPS_GABETS_PUB_EMBED_URL}
-                  title="Gabets Pub location on Google Maps"
+                  src={GOOGLE_MAPS_EMBED_URL}
+                  title="G-DRIVE Bike Rental Bali location on Google Maps"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
                   className="absolute inset-0 h-full w-full border-0"
                 />
                 <a
-                  href={GOOGLE_MAPS_GABETS_PUB_URL}
+                  href={GOOGLE_BUSINESS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-0.5 bg-gradient-to-t from-black/90 via-black/70 to-transparent px-4 pt-10 pb-3 transition-colors hover:from-black hover:via-black/80"
                 >
-                  <span className="font-head text-sm font-bold text-cream">Gabets Pub</span>
+                  <span className="font-head text-sm font-bold text-cream">
+                    G-DRIVE Bike Rental Bali
+                  </span>
                   <span className="text-[0.65rem] tracking-widest text-gold uppercase">
-                    Open in Google Maps
+                    View on Google
                   </span>
                 </a>
               </div>

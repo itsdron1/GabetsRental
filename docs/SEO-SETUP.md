@@ -29,12 +29,12 @@ NEXT_PUBLIC_META_PIXEL_ID=              # Meta Pixel (prefer via GTM)
 
 ## Google Business Profile
 
-- Business name: **Gabet's Rental Bali** (alternate: G-DRIVE Bike Rental Bali)
+- Business name: **G-DRIVE Bike Rental Bali**
 - Category: Motorcycle rental / Vehicle rental
 - Phone: +62 813 373 7779
 - Website: production URL
 - Service area: Bali (Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur, Nusa Dua)
-- Link Google Maps listing (Gabets Pub / pickup point)
+- Link Google Maps / Google Business listing (G-Drive Bike Rental)
 
 ## Google Analytics 4
 
