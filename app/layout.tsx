@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { DM_Sans, Syne } from "next/font/google";
+import GoogleTagManager from "@/components/GoogleTagManager";
 import { BRAND_NAME, absoluteUrl } from "@/lib/seo";
 import "./globals.css";
 
@@ -98,6 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
       <body>
+        <GoogleTagManager />
         {children}
         <Analytics />
       </body>

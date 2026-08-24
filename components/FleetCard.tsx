@@ -6,6 +6,7 @@ import { formatBikePrice, formatBikePriceFull } from "@/lib/data";
 import { getBikeImagePath } from "@/lib/bike-images";
 import { scrollToId } from "@/lib/scroll";
 import { getBikeImageAlt } from "@/lib/seo";
+import { trackBookClick } from "@/lib/analytics";
 
 type FleetCardProps = {
   bike: Bike;
@@ -17,6 +18,7 @@ const categoryLabels: Record<Bike["category"], string> = {
   adventure: "Adventure / Touring",
   enduro: "Enduro",
   scooter: "Scooter",
+  cars: "Cars",
 };
 
 export default function FleetCard({ bike }: FleetCardProps) {
@@ -63,7 +65,10 @@ export default function FleetCard({ bike }: FleetCardProps) {
           </div>
           <button
             type="button"
-            onClick={() => scrollToId("booking")}
+            onClick={() => {
+              trackBookClick(bike.name);
+              scrollToId("booking");
+            }}
             className="fleet-card-cta shrink-0 rounded-lg px-4 py-2.5 text-[0.75rem] font-semibold tracking-wide text-cream uppercase"
           >
             Book

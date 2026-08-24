@@ -11,6 +11,7 @@ import {
 import { bikes, formatBikePriceFull, trustItems } from "@/lib/data";
 import { WHATSAPP_DISPLAY } from "@/lib/constants";
 import { buildWhatsAppMessageUrl } from "@/lib/whatsapp";
+import { trackBookingSubmit, trackWhatsAppClick } from "@/lib/analytics";
 
 type SubmitStatus = "idle" | "sending" | "success" | "error";
 
@@ -58,13 +59,16 @@ export default function Booking() {
         setStatus("error");
       } else {
         setStatus("success");
+        trackBookingSubmit(data.bike || undefined);
       }
 
+      trackWhatsAppClick("booking_form");
       window.open(whatsappUrl, "_blank");
       form.reset();
     } catch {
       setErrorMessage("Network error. Opening WhatsApp with your booking details.");
       setStatus("error");
+      trackWhatsAppClick("booking_form_error");
       window.open(whatsappUrl, "_blank");
     }
   };
