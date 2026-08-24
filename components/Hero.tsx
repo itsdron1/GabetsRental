@@ -6,6 +6,7 @@ const stats = [
   { num: "50+", label: "Bikes in Fleet" },
   { num: "24h", label: "Support" },
   { num: "All Bali", label: "Delivery Coverage" },
+  // TODO: заменить на реальные отзывы / ссылку на Google Business, когда будут собраны
   { num: "5★", label: "Avg Rating" },
 ];
 
