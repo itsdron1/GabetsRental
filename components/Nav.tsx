@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type MouseEvent, useEffect, useState } from "react";
+import BookingTrigger from "@/components/BookingTrigger";
+import { useBooking } from "@/components/BookingContext";
 import { scrollToId } from "@/lib/scroll";
 
 const navLinks = [
@@ -16,6 +18,7 @@ const navLinks = [
 export default function Nav() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const { openBooking } = useBooking();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -37,8 +40,12 @@ export default function Nav() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const handleMobileNav = (href: string) => {
+  const handleMobileNav = (href: string, trigger?: HTMLElement) => {
     closeMenu();
+    if (href === "#booking") {
+      setTimeout(() => openBooking({ trigger }), 200);
+      return;
+    }
     if (href.startsWith("#") && isHomePage) {
       const id = href.replace("#", "");
       setTimeout(() => scrollToId(id), 200);
@@ -67,6 +74,11 @@ export default function Nav() {
     }`;
 
   const handleInlineAnchor = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === "#booking") {
+      e.preventDefault();
+      openBooking({ trigger: e.currentTarget });
+      return;
+    }
     if (!href.startsWith("#") || !isHomePage) return;
     e.preventDefault();
     scrollToId(href.replace("#", ""));
@@ -100,9 +112,7 @@ export default function Nav() {
           ))}
         </ul>
 
-        <button type="button" onClick={() => scrollToId("booking")} className="btn-nav hidden lg:block">
-          Book Now
-        </button>
+        <BookingTrigger className="btn-nav hidden lg:block">Book Now</BookingTrigger>
 
         <button
           type="button"
@@ -134,11 +144,10 @@ export default function Nav() {
             key={link.href}
             href={resolveHref(link.href)}
             onClick={(e) => {
-              handleMobileNav(link.href);
-              if (link.href.startsWith("#") && isHomePage) {
+              if (link.href === "#booking" || (link.href.startsWith("#") && isHomePage)) {
                 e.preventDefault();
-                scrollToId(link.href.replace("#", ""));
               }
+              handleMobileNav(link.href, e.currentTarget);
             }}
             className={mobileLinkClassName(isActiveLink(link.href))}
           >

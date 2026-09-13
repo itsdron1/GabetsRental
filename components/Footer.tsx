@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BookingTrigger from "@/components/BookingTrigger";
 import {
   CONTACT_EMAIL,
   CONTACT_EMAIL_URL,
@@ -128,12 +129,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#booking"
+                <BookingTrigger
+                  as="a"
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
                   Booking Form
-                </a>
+                </BookingTrigger>
               </li>
               <li>
                 <a

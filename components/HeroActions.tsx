@@ -1,5 +1,6 @@
 "use client";
 
+import BookingTrigger from "@/components/BookingTrigger";
 import { scrollToId } from "@/lib/scroll";
 
 export default function HeroActions() {
@@ -8,9 +9,7 @@ export default function HeroActions() {
       <button type="button" onClick={() => scrollToId("fleet")} className="btn-primary">
         Browse Fleet
       </button>
-      <button type="button" onClick={() => scrollToId("booking")} className="btn-ghost">
-        Make a Booking
-      </button>
+      <BookingTrigger className="btn-ghost">Make a Booking</BookingTrigger>
     </div>
   );
 }

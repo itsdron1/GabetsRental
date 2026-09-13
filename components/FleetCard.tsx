@@ -3,8 +3,8 @@
 import Image from "next/image";
 import type { Bike } from "@/lib/data";
 import { formatBikePrice, formatBikePriceFull } from "@/lib/data";
+import { useBooking } from "@/components/BookingContext";
 import { getBikeImagePath } from "@/lib/bike-images";
-import { scrollToId } from "@/lib/scroll";
 import { getBikeImageAlt } from "@/lib/seo";
 import { trackBookClick } from "@/lib/analytics";
 
@@ -23,6 +23,7 @@ const categoryLabels: Record<Bike["category"], string> = {
 
 export default function FleetCard({ bike }: FleetCardProps) {
   const imageAlt = getBikeImageAlt(bike);
+  const { openBooking } = useBooking();
 
   return (
     <article className="fleet-card group flex h-full flex-col overflow-hidden rounded-2xl">
@@ -65,9 +66,9 @@ export default function FleetCard({ bike }: FleetCardProps) {
           </div>
           <button
             type="button"
-            onClick={() => {
+            onClick={(e) => {
               trackBookClick(bike.name);
-              scrollToId("booking");
+              openBooking({ bikeName: bike.name, trigger: e.currentTarget });
             }}
             className="fleet-card-cta shrink-0 rounded-lg px-4 py-2.5 text-[0.75rem] font-semibold tracking-wide text-cream uppercase"
           >

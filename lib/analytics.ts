@@ -20,8 +20,14 @@ export function trackWhatsAppClick(source?: string): void {
   pushDataLayer("whatsapp_click", source ? { source } : {});
 }
 
-export function trackBookingSubmit(bikeName?: string): void {
-  pushDataLayer("booking_submit", bikeName ? { bike_model: bikeName } : {});
+export function trackBookingSubmit(
+  bikeName?: string,
+  formLocation?: "modal" | "page",
+): void {
+  pushDataLayer("booking_submit", {
+    ...(bikeName ? { bike_model: bikeName } : {}),
+    ...(formLocation ? { form_location: formLocation } : {}),
+  });
 }
 
 export function trackBookClick(bikeModel: string): void {

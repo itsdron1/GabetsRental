@@ -503,6 +503,34 @@
   }
 }
 
+  .booking-modal-backdrop {
+    animation: booking-modal-fade 0.2s ease-out;
+  }
+
+  .booking-modal-panel {
+    animation: booking-modal-in 0.2s ease-out;
+  }
+
+@keyframes booking-modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes booking-modal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -519,7 +547,9 @@
   .animate-wa-pulse,
   .hero-lightbox,
   .hero-lightbox-backdrop,
-  .hero-lightbox-figure {
+  .hero-lightbox-figure,
+  .booking-modal-backdrop,
+  .booking-modal-panel {
     animation: none;
   }
 }

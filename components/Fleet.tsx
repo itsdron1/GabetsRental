@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useDeferredValue, useMemo, useState } from "react";
+import BookingTrigger from "@/components/BookingTrigger";
 import FleetCard from "@/components/FleetCard";
 import Reveal from "@/components/Reveal";
 import { bikes, filterTabs, type FilterTabId } from "@/lib/data";
@@ -47,9 +48,12 @@ export default function Fleet() {
             Bali bike rental with cruisers, sport bikes, adventure tourers, enduro machines, and
             scooters — Harley-Davidson rental Bali, BMW motorcycle rental Bali, Yamaha R6, Kawasaki
             Z900, Ducati, and more. Browse the fleet, then{" "}
-            <Link href="#booking" className="text-gold transition-colors hover:text-cream">
+            <BookingTrigger
+              as="a"
+              className="text-gold transition-colors hover:text-cream"
+            >
               book your motorcycle
-            </Link>{" "}
+            </BookingTrigger>{" "}
             or explore{" "}
             <Link href="/tour-packages" className="text-gold transition-colors hover:text-cream">
               Bali motorcycle tours
