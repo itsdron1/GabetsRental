@@ -22,8 +22,8 @@ export default function Delivery() {
               Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur, and Nusa Dua covered.
             </p>
             <p className="mb-10 max-w-[520px] text-sm leading-relaxed text-muted">
-              Free delivery in South Bali hotspots. Need a bike elsewhere on the island? Message us
-              on WhatsApp — we arrange motorcycle rental across Bali daily.
+              Delivery to Canggu, Seminyak, and Kuta is 200,000 IDR. Need a bike elsewhere on the
+              island? Message us on WhatsApp — we arrange motorcycle rental across Bali daily.
             </p>
 
             <div className="flex flex-col gap-7">

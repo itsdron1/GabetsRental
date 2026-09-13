@@ -524,7 +524,7 @@ export type DeliveryZone = {
 };
 
 export const deliveryZones: DeliveryZone[] = [
-  { name: "Canggu / Seminyak / Kuta", price: "Free", free: true },
+  { name: "Canggu / Seminyak / Kuta", price: "200,000 IDR" },
   { name: "Ubud / Tegallalang", price: "200,000 IDR" },
   { name: "Uluwatu / Bukit", price: "200,000 IDR" },
   { name: "Sanur / Nusa Dua", price: "100,000 IDR" },

@@ -271,7 +271,7 @@ export const HOME_FAQS = [
   },
   {
     q: "Is delivery available for bike rental in Canggu and Seminyak?",
-    a: "Free delivery is included for Canggu, Seminyak, and Kuta. We also deliver to Ubud, Uluwatu, Sanur, Nusa Dua, and the airport.",
+    a: "Delivery to Canggu, Seminyak, and Kuta is 200,000 IDR. We also deliver to Ubud, Uluwatu, Sanur, Nusa Dua, and the airport.",
   },
   {
     q: "Do you offer Bali motorcycle tours?",
