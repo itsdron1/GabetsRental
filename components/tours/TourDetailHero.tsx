@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { Tour } from "@/data/tours";
 import { difficultyClass } from "@/lib/tours";
+import { formatTourFromPrice } from "@/lib/format";
 import { IconClock, IconDistance } from "@/components/tours/icons";
 import { Link } from "@/i18n/navigation";
 import { localizedPath } from "@/i18n/locale";
@@ -73,7 +74,9 @@ export default async function TourDetailHero({ tour }: TourDetailHeroProps) {
                 {t(`difficulties.${tour.difficulty}`)}
               </span>
             )}
-            <span className="font-head text-lg font-extrabold text-gold">{tour.startingPrice}</span>
+            <span className="font-head text-lg font-extrabold text-gold">
+              {t("fromPrice", { price: formatTourFromPrice(tour.startingPrice, locale) })}
+            </span>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">

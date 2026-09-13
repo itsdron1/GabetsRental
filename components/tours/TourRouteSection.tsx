@@ -9,17 +9,24 @@ type TourRouteSectionProps = {
 };
 
 function RouteTimeline({ route }: { route: TourRoute }) {
+  const t = useTranslations("tours.ui");
   return (
     <ol className="relative border-l border-border pl-6">
-      {route.stops.map((stop, index) => (
-        <li key={`${stop.name}-${index}`} className="relative pb-6 last:pb-0">
-          <span className="absolute -left-[1.9rem] flex h-7 w-7 items-center justify-center rounded-full border border-gold/40 bg-brand-tint text-xs font-bold text-cream">
-            {index + 1}
-          </span>
-          <p className="font-head text-base font-bold text-cream">{stop.name}</p>
-          {stop.note && <p className="mt-1 text-sm text-muted">{stop.note}</p>}
-        </li>
-      ))}
+      {route.stops.map((stop, index) => {
+        const name =
+          stop.name === "Return" || stop.name === "Возврат" || stop.name === "Kembali"
+            ? t("returnStop")
+            : stop.name;
+        return (
+          <li key={`${stop.name}-${index}`} className="relative pb-6 last:pb-0">
+            <span className="absolute -left-[1.9rem] flex h-7 w-7 items-center justify-center rounded-full border border-gold/40 bg-brand-tint text-xs font-bold text-cream">
+              {index + 1}
+            </span>
+            <p className="font-head text-base font-bold text-cream">{name}</p>
+            {stop.note && <p className="mt-1 text-sm text-muted">{stop.note}</p>}
+          </li>
+        );
+      })}
     </ol>
   );
 }

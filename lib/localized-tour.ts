@@ -44,7 +44,15 @@ export function localizeTour(tour: Tour, t: { raw: (key: never) => unknown }): T
     riderRequirements: copy.riderRequirements ?? tour.riderRequirements,
     placesToVisit: copy.places ?? tour.placesToVisit,
     faq: copy.faq ?? tour.faq,
-    routes: copy.routes ?? tour.routes,
+    routes: copy.routes
+      ? tour.routes.map((route, index) => ({
+          ...route,
+          ...copy.routes?.[index],
+          stops: copy.routes?.[index]?.stops?.length
+            ? copy.routes[index].stops
+            : route.stops,
+        }))
+      : tour.routes,
   };
 }
 

@@ -1,494 +1,496 @@
 {
   "nav": {
-    "home": "Home",
-    "fleet": "Fleet",
-    "whyUs": "Why Us",
-    "tours": "Tour Packages",
-    "book": "Book",
-    "bookNow": "Book Now",
-    "menu": "Menu",
+    "home": "Главная",
+    "fleet": "Флот",
+    "whyUs": "Почему мы",
+    "tours": "Туры",
+    "book": "Бронь",
+    "bookNow": "Забронировать",
+    "menu": "Меню",
     "brand": "G-DRIVE",
     "brandAccent": "Bike Rental",
     "brandPlace": "Bali"
   },
   "language": {
-    "label": "Language",
+    "label": "Язык",
     "en": "EN",
     "ru": "RU",
     "id": "ID"
   },
   "hero": {
     "ariaLabel": "Hero",
-    "eyebrow": "Premium Motorcycle Rental Bali",
-    "titleLine1": "Ride Bali",
-    "titleLine2": "Your Way.",
-    "body": "Premium motorcycle rental Bali for riders who want more — big bike rental Bali, sport bike rental Bali, superbike rental Bali, and touring machines from Harley-Davidson, Kawasaki, Yamaha, BMW, and Ducati. Rent bike Bali with transparent pricing, island-wide delivery, and no hidden fees.",
-    "browseFleet": "Browse Fleet",
-    "makeBooking": "Make a Booking",
+    "eyebrow": "Премиальная аренда байка на Бали",
+    "titleLine1": "Бали.",
+    "titleLine2": "Твой маршрут.",
+    "body": "Прокат мотоцикла на Бали для тех, кто хочет больше обычного скутера: аренда Harley на Бали, спортбайки, туреры Harley-Davidson, Kawasaki, Yamaha, BMW и Ducati. Прозрачные цены, доставка по острову, без скрытых платежей.",
+    "browseFleet": "Смотреть флот",
+    "makeBooking": "Оставить заявку",
     "stats": {
-      "bikes": "Bikes in Fleet",
-      "support": "Support",
-      "delivery": "Delivery Coverage",
-      "rating": "Avg Rating"
+      "bikes": "Байков во флоте",
+      "support": "Поддержка",
+      "delivery": "Зона доставки",
+      "rating": "Средняя оценка"
     },
     "statValues": {
       "bikes": "50+",
       "support": "24h",
-      "delivery": "All Bali",
+      "delivery": "Весь Бали",
       "rating": "5★"
     }
   },
   "fleet": {
-    "tag": "Our Fleet",
-    "title": "Big Bike & Sport Bike Rental Fleet",
-    "subtitleBefore": "Bali bike rental with cruisers, sport bikes, adventure tourers, enduro machines, and scooters — Harley-Davidson rental Bali, BMW motorcycle rental Bali, Yamaha R6, Kawasaki Z900, Ducati, and more. Browse the fleet, then",
-    "bookLink": "book your motorcycle",
-    "subtitleMid": "or explore",
-    "toursLink": "Bali motorcycle tours",
+    "tag": "Наш флот",
+    "title": "Аренда байка и спортбайка на Бали",
+    "subtitleBefore": "Прокат мотоцикла на Бали: круизеры, спорт, adventure, эндуро и скутеры — аренда Harley на Бали, BMW, Yamaha R6, Kawasaki Z900, Ducati. Выберите модель и",
+    "bookLink": "забронируйте байк",
+    "subtitleMid": "или посмотрите",
+    "toursLink": "мототуры по Бали",
     "subtitleAfter": ".",
-    "searchLabel": "Search bikes",
-    "searchPlaceholder": "Search by model — Harley, R6, Vespa…",
-    "filterAria": "Filter fleet by category",
-    "emptySearch": "No bikes found for “{query}”.",
-    "emptyCategory": "No bikes in this category.",
-    "book": "Book",
-    "perDay": "IDR {price} / day",
+    "searchLabel": "Поиск байков",
+    "searchPlaceholder": "Поиск по модели — Harley, R6, Vespa…",
+    "filterAria": "Фильтр флота по категории",
+    "emptySearch": "Ничего не нашли по запросу «{query}».",
+    "emptyCategory": "В этой категории пока нет байков.",
+    "book": "Бронь",
+    "perDay": "IDR {price} / день",
     "filters": {
-      "all": "All",
-      "cruiser": "Cruiser",
-      "sport": "Sport",
-      "adventure": "Adventure / Touring",
-      "enduro": "Enduro",
-      "scooter": "Scooter",
-      "cars": "Cars"
+      "all": "Все",
+      "cruiser": "Круизер",
+      "sport": "Спорт",
+      "adventure": "Adventure / Туринг",
+      "enduro": "Эндуро",
+      "scooter": "Скутер",
+      "cars": "Авто"
     },
     "badges": {
-      "Flagship": "Flagship",
-      "Popular": "Popular",
-      "Track Ready": "Track Ready",
-      "New": "New",
+      "Flagship": "Флагман",
+      "Popular": "Хит",
+      "Track Ready": "Трек",
+      "New": "Новинка",
       "Adventure": "Adventure",
-      "Trail Pro": "Trail Pro",
-      "City Pick": "City Pick",
-      "Premium": "Premium",
-      "Cruiser": "Cruiser"
+      "Trail Pro": "Трейл",
+      "City Pick": "Город",
+      "Premium": "Премиум",
+      "Cruiser": "Круизер"
     },
     "taglines": {
-      "harley-heritage-softail-classic": "American classic touring",
-      "harley-forty-eight": "Bold urban cruiser",
-      "harley-sportster-iron-883": "Raw Harley attitude",
-      "harley-street-500": "Lightweight Harley entry",
-      "honda-rebel-500": "Neo-retro cruiser",
-      "yamaha-yzf-r6": "Supersport precision",
-      "ducati-monster-795": "Italian naked sport",
-      "kawasaki-z800": "Streetfighter torque",
-      "kawasaki-z900": "Supernaked performance",
-      "kawasaki-zx-25r": "Compact sport four",
-      "bmw-f800gs": "Premium dual-sport",
-      "kawasaki-versys-650": "Versatile tourer",
-      "royal-enfield-himalayan-410": "Go-anywhere explorer",
-      "royal-enfield-scram-411": "Scrambler spirit",
-      "royal-enfield-classic-500": "Heritage touring",
-      "honda-crf150": "Lightweight trail ready",
-      "yamaha-wr155": "Agile off-road fun",
-      "kawasaki-klx230": "Confident dirt explorer",
-      "yamaha-xmax-250": "Premium maxi-scooter",
-      "vespa-sprint": "Iconic Italian style",
-      "vespa-primavera-s": "Elegant city classic",
-      "honda-cbr250rr-abs-spqs": "Flagship twin-cylinder sport",
-      "honda-cbr250rr-sp-abs": "Track-bred twin performance",
-      "kawasaki-ninja-250-abs-custom": "Custom livery sport twin",
-      "kawasaki-w175-black-gloss": "Gloss-finish retro single",
-      "kawasaki-w175-black": "Classic W-series cruiser",
-      "kawasaki-z250sl-custom-black": "Lightweight naked sport",
-      "qjmotor-srv-200-mt": "Compact adventure tourer",
-      "qjmotor-srv-600-v-abs-v4": "V4 sport touring power",
-      "qjmotor-tourino-250-dx-abs": "DX adventure comfort",
-      "royal-enfield-500-blue": "Heritage single-cylinder blue",
-      "royal-enfield-350-army-green": "Military-inspired classic",
-      "royal-enfield-super-meteor-650": "650cc highway cruiser",
-      "sm-sport-v16": "Custom V-twin attitude",
-      "sm-sport-v16-custom-bobber": "Hand-built bobber style",
-      "sm-sport-v16-rusty": "Rat-rod custom character",
-      "suzuki-thunder-150-tracker": "Tracker-style street build",
-      "suzuki-thunder-anarchy": "Raw custom street machine",
-      "tvs-ronin-triumph-style-225": "Neo-retro scrambler vibe",
-      "yamaha-byson-f1": "Budget daily commuter",
-      "yamaha-mt25": "Naked twin street fun",
-      "yamaha-r15m-abs-qs": "Connected supersport tech",
-      "yamaha-r25-black": "Twin-cylinder sport entry",
-      "yamaha-r3-320-blue": "Blue ABS sport triple",
-      "yamaha-scorpio-cafe-racer": "Café racer custom build",
-      "yamaha-scorpio-tracker-black": "Black tracker street style",
-      "yamaha-scorpio-tracker-brown": "Brown tracker custom look",
-      "yamaha-xabre": "Aggressive naked street",
-      "yamaha-xsr155": "Modern retro roadster",
-      "toyota-avanza": "Comfortable 7-seater MPV",
-      "toyota-agya-gr-sport": "Compact city hatchback",
-      "toyota-avanza-new": "Spacious family MPV",
-      "toyota-innova-zenix": "Premium hybrid 7-seater",
-      "toyota-innova-reborn": "Reliable family MPV",
-      "honda-brio-satya": "Economical city hatchback",
-      "mitsubishi-xpander": "Spacious crossover MPV",
-      "toyota-raize-gr-sport": "Compact turbo SUV"
+      "harley-heritage-softail-classic": "Американская классика для туринга",
+      "harley-forty-eight": "Дерзкий городской круизер",
+      "harley-sportster-iron-883": "Харлей без прикрас",
+      "harley-street-500": "Лёгкий вход в Harley",
+      "honda-rebel-500": "Нео-ретро круизер",
+      "yamaha-yzf-r6": "Суперспорт без компромиссов",
+      "ducati-monster-795": "Итальянский нейкед",
+      "kawasaki-z800": "Стритфайтер с характером",
+      "kawasaki-z900": "Супернейкед в полной силе",
+      "kawasaki-zx-25r": "Компактный спорт с четырьмя цилиндрами",
+      "bmw-f800gs": "Премиальный dual-sport",
+      "kawasaki-versys-650": "Универсальный турер",
+      "royal-enfield-himalayan-410": "Исследователь без границ",
+      "royal-enfield-scram-411": "Дух скретблера",
+      "royal-enfield-classic-500": "Классический туринг",
+      "honda-crf150": "Лёгкий и готовый к тропам",
+      "yamaha-wr155": "Живой оффроуд",
+      "kawasaki-klx230": "Уверенный эндуро",
+      "yamaha-xmax-250": "Премиальный макси-скутер",
+      "vespa-sprint": "Итальянский стиль",
+      "vespa-primavera-s": "Элегантная городская классика",
+      "honda-cbr250rr-abs-spqs": "Флагманский спорт twin",
+      "honda-cbr250rr-sp-abs": "Трек в крови",
+      "kawasaki-ninja-250-abs-custom": "Кастомный спорт twin",
+      "kawasaki-w175-black-gloss": "Ретро-сингл в глянце",
+      "kawasaki-w175-black": "Классика линейки W",
+      "kawasaki-z250sl-custom-black": "Лёгкий нейкед",
+      "qjmotor-srv-200-mt": "Компактный adventure",
+      "qjmotor-srv-600-v-abs-v4": "V4 для спорт-туринга",
+      "qjmotor-tourino-250-dx-abs": "Комфортный adventure DX",
+      "royal-enfield-500-blue": "Классический сингл в синем",
+      "royal-enfield-350-army-green": "Военная классика",
+      "royal-enfield-super-meteor-650": "Шоссейный круизер 650cc",
+      "sm-sport-v16": "Кастомный V-twin",
+      "sm-sport-v16-custom-bobber": "Боббер ручной сборки",
+      "sm-sport-v16-rusty": "Rat-rod характер",
+      "suzuki-thunder-150-tracker": "Стрит-трекер",
+      "suzuki-thunder-anarchy": "Сырой кастом",
+      "tvs-ronin-triumph-style-225": "Нео-ретро скретблер",
+      "yamaha-byson-f1": "Бюджетный ежедневный байк",
+      "yamaha-mt25": "Нейкед twin для города",
+      "yamaha-r15m-abs-qs": "Суперспорт с электроникой",
+      "yamaha-r25-black": "Вход в спорт twin",
+      "yamaha-r3-320-blue": "Синий спорт triple с ABS",
+      "yamaha-scorpio-cafe-racer": "Кастомный café racer",
+      "yamaha-scorpio-tracker-black": "Чёрный трекер",
+      "yamaha-scorpio-tracker-brown": "Коричневый трекер",
+      "yamaha-xabre": "Агрессивный стрит",
+      "yamaha-xsr155": "Современный ретро-родстер",
+      "toyota-avanza": "Удобный 7-местный MPV",
+      "toyota-agya-gr-sport": "Компактный городской хэтчбек",
+      "toyota-avanza-new": "Просторный семейный MPV",
+      "toyota-innova-zenix": "Премиальный гибрид на 7 мест",
+      "toyota-innova-reborn": "Надёжный семейный MPV",
+      "honda-brio-satya": "Экономичный городской хэтчбек",
+      "mitsubishi-xpander": "Просторный кроссовер-MPV",
+      "toyota-raize-gr-sport": "Компактный турбо-SUV"
     }
   },
   "delivery": {
-    "tag": "Delivery",
-    "title": "We Bring the Bike to You",
-    "subtitle": "Motorcycle hire Bali with delivery to your villa, hotel, or Airbnb — bike rental Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur, and Nusa Dua covered.",
-    "body": "Delivery to Canggu, Seminyak, and Kuta is {price}. Need a bike elsewhere on the island? Message us on WhatsApp — we arrange motorcycle rental across Bali daily.",
+    "tag": "Доставка",
+    "title": "Привезём байк к вам",
+    "subtitle": "Аренда байка на Бали с доставкой на виллу, в отель или Airbnb — Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur и Nusa Dua в зоне покрытия.",
+    "body": "Доставка в Canggu, Seminyak и Kuta — {price}. Нужен байк в другой части острова? Напишите в WhatsApp — организуем прокат мотоцикла по всему Бали.",
     "southPrice": "200,000 IDR",
     "mapTitle": "G-DRIVE Bike Rental Bali location on Google Maps",
-    "viewOnGoogle": "View on Google",
+    "viewOnGoogle": "Открыть в Google",
     "perks": [
       {
-        "title": "Same-Day Delivery",
-        "text": "Order before 12:00 and your bike arrives the same day — anywhere in South & Central Bali."
+        "title": "Доставка в тот же день",
+        "text": "Заявка до 12:00 — байк приедет сегодня. Юг и центр Бали без ожидания до завтра."
       },
       {
-        "title": "Helmet & Safety Gear Included",
-        "text": "Every rental comes with a certified helmet, lock, and 24/7 roadside WhatsApp support."
+        "title": "Шлем и защита в комплекте",
+        "text": "К каждому прокату — сертифицированный шлем, замок и круглосуточная поддержка в WhatsApp."
       },
       {
-        "title": "Airport Pick-Up Available",
-        "text": "Land at Ngurah Rai and find your bike waiting. Seamless handover, zero waiting time."
+        "title": "Встреча в аэропорту",
+        "text": "Прилетели в Ngurah Rai — байк уже ждёт. Передача без очередей и сюрпризов."
       }
     ],
     "zones": [
       {
         "name": "Canggu / Seminyak / Kuta",
-        "price": "200,000 IDR"
+        "price": "200.000 IDR"
       },
       {
         "name": "Ubud / Tegallalang",
-        "price": "200,000 IDR"
+        "price": "200.000 IDR"
       },
       {
         "name": "Uluwatu / Bukit",
-        "price": "200,000 IDR"
+        "price": "200.000 IDR"
       },
       {
         "name": "Sanur / Nusa Dua",
-        "price": "100,000 IDR"
+        "price": "100.000 IDR"
       },
       {
         "name": "Airport / Ngurah Rai",
-        "price": "100,000 IDR"
+        "price": "100.000 IDR"
       },
       {
         "name": "North Bali / Singaraja",
-        "price": "Contact Us"
+        "price": "Написать нам"
       }
     ]
   },
   "whyUs": {
-    "tag": "Why Choose Us",
-    "titleLine1": "Built for Riders,",
-    "titleLine2": "Not Just Tourists",
-    "subtitle": "Why riders choose our premium bike rental Bali service for daily hire and long trips.",
+    "tag": "Почему мы",
+    "titleLine1": "Для райдеров,",
+    "titleLine2": "а не для галочки",
+    "subtitle": "Поэтому выбирают нашу аренду байка на Бали — и на день, и на длинный маршрут.",
     "cards": [
       {
-        "title": "Freshly Serviced Fleet",
-        "text": "Every bike goes through a full mechanical check between rentals. Oil, tires, brakes — always in perfect condition before it reaches you."
+        "title": "Флот после сервиса",
+        "text": "Каждый байк проходит полный осмотр между арендами. Масло, резина, тормоза — к вам он уезжает в порядке."
       },
       {
-        "title": "Full Insurance Coverage",
-        "text": "All rentals include third-party liability insurance. Ride with peace of mind knowing you're protected across the island."
+        "title": "Страховка включена",
+        "text": "В прокат входит ответственность перед третьими лицами. Едете спокойно — по всему острову."
       },
       {
-        "title": "24/7 WhatsApp Support",
-        "text": "Flat tire at midnight? Got lost near Kintamani? Message us anytime — our team responds within minutes, any time of day."
+        "title": "WhatsApp 24/7",
+        "text": "Прокол в полночь? Заблудились у Kintamani? Пишите в любой час — отвечаем за минуты."
       },
       {
-        "title": "Driver License",
-        "text": "We assist guests with an International Driving License navigate Bali safely and legally. Ask us about local regulations."
+        "title": "Права и правила",
+        "text": "Помогаем гостям с международными правами понять, как легально кататься по Бали. Спросите про местные нюансы."
       },
       {
-        "title": "Transparent Pricing",
-        "text": "The price you see is the price you pay. No surprise fees, no fuel surcharges, no hidden deposits beyond our standard policy."
+        "title": "Честная цена",
+        "text": "Цена на сайте — это цена на месте. Без топливных надбавок и скрытых депозитов сверх стандартных правил."
       },
       {
-        "title": "Flexible Duration",
-        "text": "Rent for 1 day or 3 months. Long-term discounts kick in automatically — the longer you ride, the more you save."
+        "title": "Любой срок",
+        "text": "От одного дня до трёх месяцев. Чем дольше катаете, тем выгоднее — скидка считается сама."
       }
     ]
   },
   "booking": {
-    "tag": "Reservations",
-    "title": "Reserve Your Bike",
-    "modalTitle": "Reserve Your Bike",
-    "introBefore": "Reserve your Bali motorcycle rental — choose a bike from our",
-    "fleetLink": "fleet",
-    "introMid": ", or pair your hire with",
-    "toursLink": "guided motorcycle tours",
-    "introAfter": ". We confirm via WhatsApp within 30 minutes. No payment upfront required.",
+    "tag": "Бронирование",
+    "title": "Забронируйте байк",
+    "modalTitle": "Забронируйте байк",
+    "introBefore": "Оставьте заявку на аренду байка на Бали — выберите модель из",
+    "fleetLink": "флота",
+    "introMid": "или добавьте к прокату",
+    "toursLink": "гид-тур на мотоцикле",
+    "introAfter": ". Подтверждаем в WhatsApp за 30 минут. Предоплата не нужна.",
     "trust": [
-      "Confirmed within 30 minutes",
-      "Free cancellation up to 24h before",
-      "Pay on delivery — no card required",
-      "Helmet & lock included in every rental",
-      "Island-wide delivery available"
+      "Подтверждение за 30 минут",
+      "Бесплатная отмена за 24 часа",
+      "Оплата при доставке — карта не нужна",
+      "Шлем и замок в каждой аренде",
+      "Доставка по всему острову"
     ],
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "firstNamePlaceholder": "John",
-    "lastNamePlaceholder": "Doe",
-    "address": "Delivery Address / Villa / Hotel",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "firstNamePlaceholder": "Иван",
+    "lastNamePlaceholder": "Петров",
+    "address": "Адрес доставки / вилла / отель",
     "addressPlaceholder": "Jl. Batu Bolong No. 99, Canggu",
-    "pickupDate": "Pick-up Date",
-    "returnDate": "Return Date",
-    "chooseBike": "Choose Bike",
-    "selectModel": "— Select a model —",
-    "bikeOption": "{name} (IDR {price}/day)",
-    "specialRequests": "Special Requests (optional)",
-    "specialPlaceholder": "Airport pick-up, extra helmet, child seat, etc.",
-    "whatsapp": "WhatsApp Number",
-    "countryCode": "Country calling code",
-    "searchCountry": "Search country",
+    "pickupDate": "Дата выдачи",
+    "returnDate": "Дата возврата",
+    "chooseBike": "Модель байка",
+    "selectModel": "— Выберите модель —",
+    "bikeOption": "{name} (IDR {price}/день)",
+    "specialRequests": "Пожелания (необязательно)",
+    "specialPlaceholder": "Встреча в аэропорту, второй шлем, детское кресло…",
+    "whatsapp": "Номер WhatsApp",
+    "countryCode": "Код страны",
+    "searchCountry": "Поиск страны",
     "phonePlaceholder": "812 3456 7890",
-    "datePlaceholder": "Select a date",
-    "submit": "Send Booking Request →",
-    "submitAgain": "Send Another Request →",
-    "sending": "Sending...",
-    "success": "Booking sent to our email. WhatsApp opened with your details — send the message to confirm.",
-    "close": "Close",
-    "closeForm": "Close booking form",
+    "datePlaceholder": "Выберите дату",
+    "submit": "Отправить заявку →",
+    "submitAgain": "Отправить ещё одну →",
+    "sending": "Отправляем...",
+    "success": "Заявка ушла на почту. Открыли WhatsApp с вашими данными — отправьте сообщение, чтобы подтвердить.",
+    "close": "Закрыть",
+    "closeForm": "Закрыть форму бронирования",
     "errors": {
-      "firstName": "First name is required.",
-      "pickupDate": "Pick-up date is required.",
-      "bike": "Please select a bike.",
-      "nameTooLong": "Name is too long.",
-      "addressTooLong": "Address is too long.",
-      "requestsTooLong": "Special requests are too long.",
-      "pickupPast": "Pick-up date cannot be in the past.",
-      "returnBeforePickup": "Return date cannot be earlier than pick-up date.",
-      "phoneRequired": "WhatsApp number is required.",
-      "phoneInvalid": "Enter a valid WhatsApp number, e.g. +62 812 3456 7890",
-      "emailFailed": "Email could not be sent. You can still complete your request in WhatsApp.",
-      "network": "Network error. Opening WhatsApp with your booking details."
+      "firstName": "Укажите имя.",
+      "pickupDate": "Укажите дату выдачи.",
+      "bike": "Выберите байк.",
+      "nameTooLong": "Слишком длинное имя.",
+      "addressTooLong": "Слишком длинный адрес.",
+      "requestsTooLong": "Слишком длинный комментарий.",
+      "pickupPast": "Дата выдачи не может быть в прошлом.",
+      "returnBeforePickup": "Дата возврата не может быть раньше выдачи.",
+      "phoneRequired": "Укажите номер WhatsApp.",
+      "phoneInvalid": "Введите настоящий номер, например +62 812 3456 7890",
+      "emailFailed": "Письмо не отправилось. Заявку можно завершить в WhatsApp.",
+      "network": "Сеть сбойнула. Открываем WhatsApp с деталями брони."
     }
   },
   "faq": {
     "tag": "FAQ",
-    "title": "Motorcycle Rental Bali — Questions",
-    "subtitleBefore": "Answers about premium motorcycle rental, delivery zones, and",
-    "toursLink": "Bali motorcycle tours",
+    "title": "Аренда байка на Бали — вопросы",
+    "subtitleBefore": "Коротко про прокат мотоцикла, зоны доставки и",
+    "toursLink": "мототуры по Бали",
     "subtitleAfter": ".",
     "items": [
       {
-        "q": "Do you offer motorcycle rental in Bali for tourists?",
-        "a": "Yes. We provide premium motorcycle rental Bali-wide, including big bike rental Bali, sport bike rental Bali, and scooter options with delivery to Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur, and Nusa Dua."
+        "q": "Можно ли взять байк в аренду на Бали туристам?",
+        "a": "Да. Делаем премиальный прокат мотоцикла по всему Бали: big bike, спортбайки и скутеры с доставкой в Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur и Nusa Dua."
       },
       {
-        "q": "What sport bikes can I rent in Bali?",
-        "a": "Our fleet includes Yamaha R6, Kawasaki Z900, Kawasaki ZX-25R, Ducati Monster, and other superbike rental Bali options — all maintained to premium standards."
+        "q": "Какие спортбайки можно взять в аренду на Бали?",
+        "a": "Во флоте Yamaha R6, Kawasaki Z900, Kawasaki ZX-25R, Ducati Monster и другие — всё на живом сервисе, не «для фото»."
       },
       {
-        "q": "Can I rent a Harley-Davidson in Bali?",
-        "a": "Yes. Harley-Davidson rental Bali is available with Heritage Softail, Sportster, and Street models — ideal for cruising and big bike rental Bali experiences."
+        "q": "Есть ли аренда Harley на Бали?",
+        "a": "Да. Heritage Softail, Sportster и Street — как раз для круизов и ощущения настоящего big bike."
       },
       {
-        "q": "Is delivery available for bike rental in Canggu and Seminyak?",
-        "a": "Delivery to Canggu, Seminyak, and Kuta is 200,000 IDR. We also deliver to Ubud, Uluwatu, Sanur, Nusa Dua, and the airport."
+        "q": "Доставляете в Canggu и Seminyak?",
+        "a": "Доставка в Canggu, Seminyak и Kuta — 200.000 IDR. Также возим в Ubud, Uluwatu, Sanur, Nusa Dua и в аэропорт."
       },
       {
-        "q": "Do you offer Bali motorcycle tours?",
-        "a": "Yes. Explore guided Bali motorcycle tours including volcano routes, rice terraces, temples, and coastal roads — book via our Tour Packages page."
+        "q": "Есть ли туры на мотоцикле по Бали?",
+        "a": "Да. Вулканы, террасы, храмы и побережье — смотрите страницу туров и пишите в WhatsApp."
       }
     ]
   },
   "footer": {
-    "blurb": "Premium motorcycle rental Bali — big bike rental, sport bike rental, and motorbike hire with delivery. Trusted by travellers and expats since 2018.",
-    "fleet": "Fleet",
-    "viewFleet": "View full fleet →",
-    "zones": "Delivery Zones",
-    "bikeRentalIn": "Bike rental {zone}",
+    "blurb": "Аренда байка на Бали — big bike, спорт и обычный прокат мотоцикла с доставкой. С 2018 года катаем путешественников и тех, кто живёт на острове.",
+    "fleet": "Флот",
+    "viewFleet": "Весь флот →",
+    "zones": "Зоны доставки",
+    "bikeRentalIn": "Аренда байка {zone}",
     "airport": "Airport / Ngurah Rai",
-    "contact": "Contact",
-    "tours": "Motorcycle Tours Bali",
-    "bookingForm": "Booking Form",
-    "rights": "© {year} G-DRIVE Bike Rental Bali. All rights reserved.",
-    "privacy": "Privacy Policy",
-    "terms": "Terms",
-    "bottomNote": "Motorbike rental Bali · Indonesia"
+    "contact": "Контакты",
+    "tours": "Мототуры по Бали",
+    "bookingForm": "Форма брони",
+    "rights": "© {year} G-DRIVE Bike Rental Bali. Все права защищены.",
+    "privacy": "Политика конфиденциальности",
+    "terms": "Условия",
+    "bottomNote": "Прокат мотоцикла на Бали · Indonesia"
   },
   "common": {
-    "home": "Home",
-    "whatsappChat": "Chat on WhatsApp",
-    "whatsappTooltip": "Chat with us on WhatsApp",
+    "home": "Главная",
+    "whatsappChat": "Написать в WhatsApp",
+    "whatsappTooltip": "Написать нам в WhatsApp",
     "instagram": "Instagram",
-    "instagramFollow": "Follow us on Instagram",
-    "instagramTooltip": "Follow on Instagram",
+    "instagramFollow": "Мы в Instagram",
+    "instagramTooltip": "Открыть Instagram",
     "facebook": "Facebook",
-    "facebookFollow": "Follow us on Facebook",
-    "facebookTooltip": "Follow on Facebook",
-    "whatsappPrefill": "Hi G-DRIVE Bike Rental Bali! I'd like to book a bike.",
-    "whatsappBookingPrefill": "Hi! I just filled in the booking form on G-DRIVE Bike Rental Bali. Can you confirm my reservation?",
-    "whatsappDeliveryPrefill": "Hi G-DRIVE Bike Rental Bali! I'd like to inquire about delivery to North Bali / Singaraja.",
-    "tourWhatsapp": "🏍️ Tour Booking — G-DRIVE Bike Rental Bali\n\nTour: {title}\nURL: {url}\n\nI'd like to check availability and pricing.",
-    "bookingWhatsappTitle": "🏍️ Booking Request — G-DRIVE Bike Rental Bali",
-    "bookingWhatsappName": "Name: {name}",
+    "facebookFollow": "Мы в Facebook",
+    "facebookTooltip": "Открыть Facebook",
+    "whatsappPrefill": "Привет, G-DRIVE Bike Rental Bali! Хочу забронировать байк.",
+    "whatsappBookingPrefill": "Привет! Я только что отправил заявку на сайте G-DRIVE Bike Rental Bali. Подтвердите, пожалуйста, бронь.",
+    "whatsappDeliveryPrefill": "Привет, G-DRIVE Bike Rental Bali! Нужна доставка на North Bali / Singaraja.",
+    "tourWhatsapp": "🏍️ Бронь тура — G-DRIVE Bike Rental Bali\n\nТур: {title}\nURL: {url}\n\nХочу уточнить даты и цену.",
+    "bookingWhatsappTitle": "🏍️ Заявка на бронь — G-DRIVE Bike Rental Bali",
+    "bookingWhatsappName": "Имя: {name}",
     "bookingWhatsappPhone": "WhatsApp: {phone}",
-    "bookingWhatsappAddress": "Delivery address: {address}",
-    "bookingWhatsappPickup": "Pick-up: {date}",
-    "bookingWhatsappReturn": "Return: {date}",
-    "bookingWhatsappBike": "Bike: {bike}",
-    "bookingWhatsappNotes": "Notes: {notes}",
-    "bookingWhatsappConfirm": "Please confirm my reservation. Thank you!",
+    "bookingWhatsappAddress": "Адрес доставки: {address}",
+    "bookingWhatsappPickup": "Выдача: {date}",
+    "bookingWhatsappReturn": "Возврат: {date}",
+    "bookingWhatsappBike": "Байк: {bike}",
+    "bookingWhatsappNotes": "Пожелания: {notes}",
+    "bookingWhatsappConfirm": "Подтвердите бронь, пожалуйста. Спасибо!",
     "emDash": "—",
-    "backHome": "← Home"
+    "backHome": "← На главную"
   },
   "seo": {
-    "homeTitle": "Big Bike Rental Bali | Sport Bikes, Superbikes & Touring Motorcycles",
-    "homeDescription": "Premium motorcycle rental in Bali. Harley-Davidson, Kawasaki Z900, Yamaha R6, BMW GS, Ducati and more. Delivery across Bali. Book your bike today.",
-    "homeOgAlt": "Premium big bike and sport bike rental Bali — G-DRIVE fleet",
-    "toursTitle": "Motorcycle Tours Bali | Guided Big Bike Adventures",
-    "toursDescription": "Explore Bali with premium motorcycle tours. Scenic routes, volcano rides, waterfalls and coastal adventures.",
-    "toursOgAlt": "Bali motorcycle tour routes map — guided big bike adventures",
-    "localBusinessDescription": "Premium motorcycle rental Bali — big bike rental, sport bike rental, superbike and touring motorcycle hire with island-wide delivery.",
-    "bikeAltHarley": "{name} rental Bali — Harley-Davidson rental Bali",
-    "bikeAltR6": "Yamaha R6 rental Bali — sport bike rental Bali",
-    "bikeAltZ900": "Kawasaki Z900 rental Bali — superbike rental Bali",
-    "bikeAltZx25": "Kawasaki ZX-25R rental Bali",
-    "bikeAltDucati": "Ducati rental Bali — sport bike rental Bali",
-    "bikeAltBmw": "{name} rental Bali — BMW motorcycle rental Bali",
-    "bikeAltSport": "{name} rental in Bali — sport bike rental Bali",
-    "bikeAltAdventure": "{name} rental in Bali — adventure bike rental Bali",
-    "bikeAltCruiser": "{name} rental in Bali — big bike rental Bali",
-    "bikeAltCar": "{name} rental Bali — car rental Bali",
-    "bikeAltDefault": "{name} rental in Bali — premium motorcycle rental Bali",
-    "defaultOgAlt": "Premium motorcycle rental Bali — G-DRIVE Bike Rental",
-    "tourMetaTitle": "{title} | Motorcycle Tour Bali",
-    "tourMetaDescription": "{tagline} Premium guided motorcycle tour in Bali with G-DRIVE — {excerpt}",
-    "tourOgAlt": "{title} — Bali motorcycle tour",
-    "tourNotFound": "Tour Not Found",
-    "breadcrumbHome": "Home",
-    "breadcrumbTours": "Tour Packages",
-    "touristType": "Motorcycle tour",
-    "serviceName": "Motorcycle Rental Service",
-    "serviceType": "Motorcycle rental and guided tours",
-    "contactLanguageEn": "English",
-    "contactLanguageId": "Indonesian",
-    "contactLanguageRu": "Russian"
+    "homeTitle": "Аренда байка на Бали | Прокат Harley, спортбайков и туреров",
+    "homeDescription": "Прокат мотоцикла на Бали: аренда Harley, Kawasaki Z900, Yamaha R6, BMW GS и Ducati. Доставка по острову. Забронируйте байк сегодня.",
+    "homeOgAlt": "Премиальный прокат big bike и спортбайков на Бали — флот G-DRIVE",
+    "toursTitle": "Мототуры по Бали | Маршруты на big bike с гидом",
+    "toursDescription": "Мототуры по Бали: вулканы, террасы, водопады и побережье на премиальных байках. Смотрите маршруты и бронируйте даты.",
+    "toursOgAlt": "Карта мототуров по Бали — маршруты на big bike с гидом",
+    "localBusinessDescription": "Аренда байка на Бали — прокат Harley, спортбайков и туреров с доставкой по острову.",
+    "bikeAltHarley": "Аренда {name} на Бали — аренда Harley на Бали",
+    "bikeAltR6": "Аренда Yamaha R6 на Бали — спортбайк в прокат",
+    "bikeAltZ900": "Аренда Kawasaki Z900 на Бали — супербайк в прокат",
+    "bikeAltZx25": "Аренда Kawasaki ZX-25R на Бали",
+    "bikeAltDucati": "Аренда Ducati на Бали — спортбайк в прокат",
+    "bikeAltBmw": "Аренда {name} на Бали — прокат BMW",
+    "bikeAltSport": "Аренда {name} на Бали — спортбайк в прокат",
+    "bikeAltAdventure": "Аренда {name} на Бали — adventure в прокат",
+    "bikeAltCruiser": "Аренда {name} на Бали — big bike в прокат",
+    "bikeAltCar": "Аренда {name} на Бали — авто в прокат",
+    "bikeAltDefault": "Аренда {name} на Бали — премиальный прокат мотоцикла",
+    "defaultOgAlt": "Аренда байка на Бали — G-DRIVE Bike Rental",
+    "tourMetaTitle": "{title} | Мототур по Бали",
+    "tourMetaDescription": "{tagline} Гид-тур на байке с G-DRIVE — {excerpt}",
+    "tourOgAlt": "{title} — мототур по Бали",
+    "tourNotFound": "Тур не найден",
+    "breadcrumbHome": "Главная",
+    "breadcrumbTours": "Туры",
+    "touristType": "Мототур",
+    "serviceName": "Прокат мотоциклов",
+    "serviceType": "Аренда байка и туры с гидом",
+    "contactLanguageEn": "английский",
+    "contactLanguageId": "индонезийский",
+    "contactLanguageRu": "русский"
   },
   "tours": {
     "index": {
-      "tag": "Tour Packages",
-      "title": "Motorcycle Tours Bali",
-      "subtitleBefore": "Explore Bali with premium motorcycle tours — volcano roads, rice terraces, temples, and coastal adventures on big bikes and sport machines. Pair your tour with",
-      "fleetLink": "motorcycle rental Bali",
-      "subtitleAfter": "from our fleet.",
-      "bookWhatsapp": "Book Tour via WhatsApp",
-      "viewFleet": "View Rental Fleet",
-      "featuredTitle": "Featured Tour Routes",
-      "featuredSubtitle": "Full-day highland loops, coastal explorers, half-day highlights, and fully custom Bali motorcycle tour itineraries.",
-      "includedTitle": "What's Included",
-      "includedText": "Premium bike, fuel, certified helmet, route briefing, and local guide support.",
-      "whyTitle": "Why Ride With Us",
-      "whyText": "Premium fleet, responsive support, and curated Bali routes with cinematic stops.",
-      "flexibleTitle": "Flexible Booking",
-      "flexibleText": "Private and group tours available. Fast confirmation via WhatsApp.",
-      "faqTitle": "Tour FAQ",
-      "customCta": "Need a custom route? We'll build it for you.",
-      "exploreCustom": "Explore Custom Tour",
+      "tag": "Туры",
+      "title": "Мототуры по Бали",
+      "subtitleBefore": "Мототуры по Бали на премиальных байках — вулканы, рисовые террасы, храмы и побережье. Совместите тур с",
+      "fleetLink": "арендой байка на Бали",
+      "subtitleAfter": "из нашего флота.",
+      "bookWhatsapp": "Забронировать тур в WhatsApp",
+      "viewFleet": "Смотреть флот",
+      "featuredTitle": "Маршруты",
+      "featuredSubtitle": "Полный день в горах, побережье, полудневные петли и полностью свой маршрут на Бали.",
+      "includedTitle": "Что входит",
+      "includedText": "Премиальный байк, бензин, сертифицированный шлем, брифинг и гид.",
+      "whyTitle": "Почему с нами",
+      "whyText": "Живой флот, быстрые ответы и маршруты с остановками, которые стоит снимать.",
+      "flexibleTitle": "Гибкая бронь",
+      "flexibleText": "Приват и группа. Подтверждение в WhatsApp без ожидания сутками.",
+      "faqTitle": "Вопросы по турам",
+      "customCta": "Нужен свой маршрут? Соберём под вас.",
+      "exploreCustom": "Смотреть Custom Tour",
       "faqs": [
         {
-          "q": "Do I need a motorcycle license to join a tour?",
-          "a": "Yes, a valid motorcycle license is required for solo riders. International Driving Permit (IDP) is strongly recommended for international guests. Pillion passengers do not need a license."
+          "q": "Нужны ли права, чтобы ехать в туре?",
+          "a": "Для соло-райдера — да, действующие мотоправа. Международные права (IDP) очень желательны. Пассажиру сзади права не нужны."
         },
         {
-          "q": "What is included in the tour package?",
-          "a": "Motorcycle rental, helmet, fuel for route, local guide, drinking water, and basic insurance are included by default. See each tour page for full details."
+          "q": "Что входит в пакет тура?",
+          "a": "Аренда байка, шлем, бензин по маршруту, гид, вода и базовая страховка. Подробности — на странице каждого тура."
         },
         {
-          "q": "Can I request a private or custom route?",
-          "a": "Yes. Our Custom Tour lets you tailor routes for beaches, volcano roads, jungle trails, and cultural destinations based on your riding level."
+          "q": "Можно ли заказать свой маршрут?",
+          "a": "Да. Custom Tour собираем под пляж, вулканы, джунгли и храмы — с учётом вашего опыта."
         }
       ]
     },
     "ui": {
-      "breadcrumb": "Breadcrumb",
-      "twoRoutes": "2 routes",
-      "explore": "Explore Tour",
-      "bookWhatsapp": "Book Now via WhatsApp",
-      "viewAll": "View All Tours",
-      "bookNow": "Book Now",
-      "readyTitle": "Ready to Ride?",
-      "readyBody": "Book {title} via WhatsApp — fast confirmation, flexible dates, and premium big bikes with a local guide.",
-      "includedTitle": "Included & Not Included",
-      "included": "Included",
-      "notIncluded": "Not Included",
-      "safety": "Safety Requirements",
-      "rider": "Rider Requirements",
-      "places": "Places You'll Visit",
-      "description": "Detailed Tour Description",
-      "route": "Route Overview",
-      "info": "Tour Information",
-      "distance": "Distance",
-      "duration": "Duration",
-      "departure": "Departure",
-      "price": "Price",
-      "difficulty": "Difficulty",
-      "faq": "Frequently Asked Questions",
-      "related": "Related Tours",
-      "gallery": "Photo Gallery",
-      "closeGallery": "Close gallery",
-      "flexible": "Flexible",
+      "breadcrumb": "Навигация",
+      "twoRoutes": "2 маршрута",
+      "explore": "Смотреть тур",
+      "bookWhatsapp": "Бронь в WhatsApp",
+      "viewAll": "Все туры",
+      "bookNow": "Забронировать",
+      "readyTitle": "Поехали?",
+      "readyBody": "Бронь {title} в WhatsApp — быстрое подтверждение, гибкие даты и премиальный байк с местным гидом.",
+      "includedTitle": "Входит и не входит",
+      "included": "Входит",
+      "notIncluded": "Не входит",
+      "safety": "Требования безопасности",
+      "rider": "Требования к райдеру",
+      "places": "Куда заедем",
+      "description": "Подробно о туре",
+      "route": "Маршрут",
+      "info": "О туре",
+      "distance": "Дистанция",
+      "duration": "Длительность",
+      "departure": "Выезд",
+      "price": "Цена",
+      "difficulty": "Сложность",
+      "faq": "Частые вопросы",
+      "related": "Похожие туры",
+      "gallery": "Фото",
+      "closeGallery": "Закрыть галерею",
+      "flexible": "Гибко",
       "types": {
-        "half-day": "Half Day",
-        "full-day": "Full Day",
-        "custom": "Custom"
+        "half-day": "Полдня",
+        "full-day": "Полный день",
+        "custom": "Свой маршрут"
       },
       "difficulties": {
-        "Easy": "Easy",
-        "Moderate": "Moderate",
-        "Challenging": "Challenging",
-        "Flexible": "Flexible"
+        "Easy": "Легко",
+        "Moderate": "Средне",
+        "Challenging": "Сложно",
+        "Flexible": "Гибко"
       },
       "includedLabels": {
-        "Motorcycle": "Premium Motorcycle",
-        "Helmet": "Helmet & Safety Gear",
-        "Fuel": "Fuel Included",
-        "Local guide": "Professional Tour Guide",
-        "Drinking water": "Refreshments",
-        "Basic insurance": "Insurance Coverage",
-        "Parking fees": "Parking Fees",
-        "Professional guide": "Professional Tour Guide",
-        "Sarong": "Temple Sarong",
-        "Route planning consultation": "Route planning consultation"
+        "Motorcycle": "Премиальный мотоцикл",
+        "Helmet": "Шлем и защита",
+        "Fuel": "Бензин включён",
+        "Local guide": "Профессиональный гид",
+        "Drinking water": "Вода",
+        "Basic insurance": "Базовая страховка",
+        "Parking fees": "Парковка",
+        "Professional guide": "Профессиональный гид",
+        "Sarong": "Саронг для храма",
+        "Route planning consultation": "Помощь с маршрутом"
       },
-      "cardAlt": "{title} — motorcycle tour Bali, guided big bike adventure",
+      "cardAlt": "{title} — мототур по Бали на big bike с гидом",
       "heroAlts": {
-        "kintamani-highlands": "Balinese temple at sunrise on Lake Bratan — Kintamani Highlands motorcycle tour Bali",
-        "tanah-lot-bedugul-explorer": "Jatiluwih Rice Terraces UNESCO landscape at sunrise — Tanah Lot Bedugul Explorer Bali",
-        "denpasar-tanah-lot-nusa-dua": "Balinese temple on coastal cliffs overlooking the ocean — Denpasar Tanah Lot Nusa Dua tour"
-      }
+        "kintamani-highlands": "Балийский храм на рассвете у Lake Bratan — мототур Kintamani Highlands",
+        "tanah-lot-bedugul-explorer": "Рисовые террасы Jatiluwih на рассвете — тур Tanah Lot Bedugul Explorer",
+        "denpasar-tanah-lot-nusa-dua": "Храм на скалах над океаном — тур Denpasar Tanah Lot Nusa Dua"
+      },
+      "fromPrice": "от IDR {price}",
+      "returnStop": "Возврат"
     },
     "packages": {
       "kintamani-highlands": {
         "title": "Kintamani Highlands",
-        "tagline": "Two volcanic loops through Bali's artistic and highland soul",
+        "tagline": "Две вулканические петли через художественный и горный Бали",
         "description": [
-          "Full Day Tour Bali: The Ultimate Big Bike Adventure. Embark on an unforgettable journey with our Full Day Tour Bali, designed for riders who crave a deeper adventure. As a key part of our Bali Motorcycle Tour Packages, this trip takes you beyond typical tourist spots — into the volcanic heartland where culture, scenery, and open mountain roads converge.",
-          "This tour covers approximately 200 km over 8 hours, making it the ideal choice for those who want to experience the true spirit of Big Bike Rental Bali. The Kintamani Highlands route is available in two curated variations, each offering a distinct perspective on central Bali while sharing the same dramatic volcanic finale.",
-          "Route A winds through Bali's artistic corridor — Sukawati's bustling market stalls, Ubud's royal palace and gallery lanes — before ascending to the rim of the Mount Batur caldera. The return drops through mist-draped terraced coffee farms and the iconic stepped rice terraces of Tegalalang.",
-          "Route B takes the quieter coastal approach, stopping at Lebih black-sand beach before turning inland to the immaculately preserved traditional village of Penglipuran. The route then climbs to the same Kintamani viewpoint and traces back through coffee plantations and Tegalalang.",
-          "Every tour is led by a professional guide riding their own big bike. We specialize in Bali Harley-Davidson Rental and premium touring motorcycles. Guests may ride solo, join a group ride, or participate as a pillion passenger."
+          "Полный день на Бали: настоящий big bike adventure. Этот маршрут уводит дальше открыточных точек — в вулканическое сердце острова, где сходятся культура, виды и открытые горные дороги.",
+          "Около 200 км и 8 часов — как раз чтобы почувствовать, зачем люди берут аренду Harley на Бали и другие туреры. У Kintamani Highlands два варианта, финал у кальдеры общий.",
+          "Маршрут A идёт через художественный коридор: рынок Sukawati, дворец и галереи Ubud — и поднимается на кромку кальдеры Mount Batur. Обратно — сквозь кофейные террасы в тумане и ступени Tegalalang.",
+          "Маршрут B тише: чёрный песок Lebih, традиционная деревня Penglipuran, та же смотровая Kintamani и спуск через плантации и Tegalalang.",
+          "Гид едет на своём big bike. Можно соло, группой или пассажиром сзади."
         ],
         "distance": "±200 KM",
-        "duration": "±8 Hours",
+        "duration": "±8 часов",
         "departureTime": "07:00 WITA",
         "startingPrice": "From IDR 1,700,000",
         "priceNote": "",
         "difficulty": "Moderate",
         "highlights": [
-          "Mount Batur volcanic caldera rim viewpoint",
-          "Tegalalang UNESCO-listed rice terraces",
-          "Penglipuran — one of Bali's most traditional villages",
-          "Sukawati art market and Ubud's cultural heart",
-          "Traditional Balinese coffee and luwak plantation",
-          "Choice of two fully guided route variations"
+          "Смотровая на кальдере Mount Batur",
+          "Рисовые террасы Tegalalang",
+          "Penglipuran — одна из самых цельных деревень Бали",
+          "Рынок Sukawati и культурное сердце Ubud",
+          "Традиционная кофейная плантация и luwak",
+          "Два полностью гидовых варианта маршрута"
         ],
         "included": [
           "Motorcycle",
@@ -500,77 +502,77 @@
           "Parking fees"
         ],
         "notIncluded": [
-          "Temple entrance fees",
-          "Food and beverages",
-          "Personal insurance"
+          "Вход в храмы",
+          "Еда и напитки",
+          "Личная страховка"
         ],
         "toBring": [
-          "Light jacket (highlands reach 18°C)",
-          "Sunscreen",
-          "Camera",
-          "Cash for entrance fees (~IDR 50,000–100,000 per site)",
-          "Comfortable closed-toe shoes"
+          "Лёгкая куртка (в горах до 18°C)",
+          "Солнцезащита",
+          "Камера",
+          "Наличные на входы (~IDR 50.000–100.000 за место)",
+          "Закрытая удобная обувь"
         ],
         "safetyRequirements": [
-          "Valid motorcycle license",
-          "Minimum age 18",
-          "Sober riding"
+          "Действующие мотоправа",
+          "Минимум 18 лет",
+          "Только трезвым"
         ],
         "riderRequirements": [
-          "Basic motorcycle riding experience for solo riders",
-          "No license needed for pillion"
+          "Для соло — базовый опыт вождения",
+          "Пассажиру сзади права не нужны"
         ],
         "places": [
           {
             "title": "Kintamani Volcano Viewpoint",
-            "description": "Stand at the rim of the Mount Batur caldera with sweeping views over the crater lake, volcanic slopes, and morning clouds — the dramatic highland finale of both routes."
+            "description": "Кромка кальдеры Mount Batur: озеро, склоны и утренние облака — общий финал обоих маршрутов."
           },
           {
             "title": "Tegalalang Rice Terraces",
-            "description": "Walk the iconic stepped rice terraces, one of Bali's most photographed landscapes, with time to explore paths and capture panoramic photos."
+            "description": "Знаковые ступенчатые террасы: прогулка по тропам и кадры, из-за которых сюда едут."
           },
           {
             "title": "Ubud & Sukawati Cultural Corridor",
-            "description": "Route A passes Sukawati's art market and Ubud's royal palace and gallery lanes — the artistic heart of central Bali."
+            "description": "Маршрут A проходит рынок Sukawati и дворец Ubud — художественное сердце центрального Бали."
           },
           {
             "title": "Penglipuran Traditional Village",
-            "description": "Route B visits one of Bali's best-preserved traditional villages, with immaculate bamboo-lined lanes and a glimpse of highland village life."
+            "description": "Маршрут B заезжает в одну из самых аккуратных традиционных деревень острова."
           },
           {
             "title": "Traditional Coffee Plantation",
-            "description": "Stop at a working plantation for Balinese coffee, tropical scenery, and optional luwak tasting amid cool mountain air."
+            "description": "Рабочая плантация: балийский кофе, прохлада и по желанию дегустация luwak."
           },
           {
             "title": "Scenic Highland Roads",
-            "description": "Open mountain passes, misty ridges, and winding highland highways make this one of Bali's most rewarding full-day big bike experiences."
+            "description": "Горные перевалы, туман и живые серпантины — один из лучших полных дней на big bike."
           }
         ],
         "faq": [
           {
-            "q": "Can we ride both Route A and Route B in one day?",
-            "a": "The two routes share the Kintamani viewpoint and coffee plantation segments. Combining both in one day would exceed comfortable riding time. We recommend choosing the route that matches your interests, or booking a Custom Tour for a blended itinerary."
+            "q": "Можно ли проехать маршрут A и B за один день?",
+            "a": "Они делят смотровую Kintamani и кофейную плантацию. Склеить оба за день — уже слишком длинно. Лучше выбрать один или собрать Custom Tour."
           },
           {
-            "q": "What is the temperature at Kintamani?",
-            "a": "The Kintamani plateau sits at around 1,500m elevation. Temperatures can drop to 17–20°C, especially in the morning. A light jacket or windbreaker is strongly recommended."
+            "q": "Какая температура в Kintamani?",
+            "a": "Плато около 1 500 м. Утром бывает 17–20°C. Куртка или ветровка очень кстати."
           },
           {
-            "q": "Is the Tegalalang stop included or do we pass by?",
-            "a": "We stop for a proper visit with time to walk the terrace paths and take photos. The standard stop is 30–45 minutes."
+            "q": "Tegalalang — полноценная остановка или проездом?",
+            "a": "Останавливаемся по-настоящему: 30–45 минут на тропы и фото."
           },
           {
-            "q": "Are entrance fees covered in the tour price?",
-            "a": "Basic entrance fees to most sites are included. Some premium viewpoints and temples charge a small additional fee (typically IDR 20,000–50,000) paid on site."
+            "q": "Входы входят в цену?",
+            "a": "Базовые входы в большинство мест — да. Некоторые смотровые и храмы берут небольшую доплату на месте (обычно IDR 20.000–50.000)."
           },
           {
-            "q": "Can beginners ride this route solo?",
-            "a": "Route B is more suitable for riders with limited highland experience. Route A includes more urban traffic through Ubud. If you are new to Bali roads, we recommend riding pillion for the first tour."
+            "q": "Новичок может ехать соло?",
+            "a": "Маршрут B спокойнее для тех, кто мало ездил в горах. A больше городского трафика через Ubud. Если дороги Бали в новинку — лучше первый тур пассажиром."
           }
         ],
         "routes": [
           {
-            "label": "Route A",
+            "label": "Маршрут A",
             "stops": [
               {
                 "name": "Ngurah Rai Airport (Kuta)",
@@ -597,13 +599,13 @@
                 "note": ""
               },
               {
-                "name": "Return",
+                "name": "Возврат",
                 "note": ""
               }
             ]
           },
           {
-            "label": "Route B",
+            "label": "Маршрут B",
             "stops": [
               {
                 "name": "Ngurah Rai Airport (Kuta)",
@@ -630,7 +632,7 @@
                 "note": ""
               },
               {
-                "name": "Return",
+                "name": "Возврат",
                 "note": ""
               }
             ]
@@ -639,27 +641,27 @@
       },
       "bedugul-pupuan-lush-ride": {
         "title": "Bedugul – Pupuan Lush Ride",
-        "tagline": "Bali's greenest corridor — botanical gardens, crater lakes, and a forgotten clove village",
+        "tagline": "Самый зелёный коридор Бали — сад, озёра в кальдере и гвоздичная деревня",
         "description": [
-          "Full Day Tour Bali: The Ultimate Big Bike Adventure. This highland loop is Bali's most lush and atmospheric full-day ride. Designed as part of our premium Bali Motorcycle Tour Packages, the Bedugul–Pupuan route takes you through royal temple grounds, a world-class botanical garden, twin volcanic crater lakes, and the rarely visited clove-farming village of Pupuan.",
-          "Covering approximately 200 km over 8 hours, this tour delivers a complete immersion in Bali's green highland interior — away from coastal crowds and tourist corridors. The roads are smooth, wide, and largely traffic-free once you leave the southern corridor.",
-          "The journey opens at Taman Ayun, the grand moated royal temple of the Mengwi kingdom, before climbing into the Bedugul highlands. The botanical garden here spans over 150 hectares of orchids, ferns, and highland flora. Lake Bratan and its photogenic water temple follow — one of Bali's most iconic images.",
-          "From Bedugul, the route continues north to the far quieter Lake Tamblingan, where jungle tracks skirt the crater's edge. The final destination, Pupuan, is a working clove and coffee village perched on terraced hillsides that see very few tourists.",
-          "Guided by an experienced local rider on a premium big bike. We offer Bali Harley-Davidson Rental and can arrange pillion passengers, group rides, or solo riding."
+          "Полный день в зелени: королевский храм, ботанический сад, два вулканических озера и редко посещаемый Pupuan с гвоздичными террасами.",
+          "Около 200 км и 8 часов в стороне от пляжной толпы. После южного коридора дороги широкие, ровные и почти пустые.",
+          "Старт у Taman Ayun — большого храма с рвом в Mengwi. Дальше подъём в Bedugul: сад на 150 гектарах, Lake Bratan и храм на воде.",
+          "От Bedugul — к тихому Lake Tamblingan по кромке джунглей. Финал в Pupuan: рабочие террасы гвоздики и кофе, туристов почти нет.",
+          "Гид на премиальном байке. Можно соло, группой или сзади."
         ],
         "distance": "±200 KM",
-        "duration": "±8 Hours",
+        "duration": "±8 часов",
         "departureTime": "07:30 WITA",
         "startingPrice": "From IDR 1,700,000",
         "priceNote": "",
         "difficulty": "Easy",
         "highlights": [
-          "Taman Ayun — Mengwi royal temple with moat gardens",
-          "Bedugul Botanical Garden — 150+ hectares of highland flora",
-          "Pura Ulun Danu Bratan — the iconic lake temple",
-          "Lake Tamblingan — untouched volcanic crater lake",
-          "Pupuan — traditional clove and coffee farming village",
-          "Cool highland air throughout the entire route"
+          "Taman Ayun — королевский храм Mengwi с садом и рвом",
+          "Ботанический сад Bedugul — больше 150 гектаров",
+          "Pura Ulun Danu Bratan — храм на озере",
+          "Lake Tamblingan — тихое вулканическое озеро",
+          "Pupuan — деревня гвоздики и кофе",
+          "Прохладный горный воздух весь день"
         ],
         "included": [
           "Motorcycle",
@@ -671,70 +673,70 @@
           "Parking fees"
         ],
         "notIncluded": [
-          "Botanical garden entrance",
-          "Temple donations",
-          "Food and beverages"
+          "Вход в ботанический сад",
+          "Пожертвования в храмах",
+          "Еда и напитки"
         ],
         "toBring": [
-          "Light rain jacket (Bedugul is frequently misty)",
-          "Camera",
-          "Cash for botanical garden entry (~IDR 30,000)",
-          "Comfortable walking shoes"
+          "Лёгкая дождевая куртка (в Bedugul часто туман)",
+          "Камера",
+          "Наличные на вход в сад (~IDR 30.000)",
+          "Удобная обувь для прогулки"
         ],
         "safetyRequirements": [
-          "Valid motorcycle license",
-          "Minimum age 18",
-          "Sober riding"
+          "Действующие мотоправа",
+          "Минимум 18 лет",
+          "Только трезвым"
         ],
         "riderRequirements": [
-          "Suitable for all skill levels; roads are well-maintained"
+          "Подходит почти всем: дороги в хорошем состоянии"
         ],
         "places": [
           {
             "title": "Taman Ayun Temple",
-            "description": "One of Bali's most beautiful royal temples, surrounded by a moat and lush gardens. A UNESCO-listed cultural landmark showcasing traditional Balinese architecture."
+            "description": "Один из самых красивых королевских храмов Бали — ров, сад и архитектура в списке UNESCO."
           },
           {
             "title": "Bedugul Botanical Garden",
-            "description": "The largest botanical garden in Bali, featuring mountain forests, giant tropical plants, and scenic roads perfect for motorcycle touring."
+            "description": "Крупнейший сад острова: горный лес, орхидеи и дороги, по которым приятно ехать на байке."
           },
           {
             "title": "Lake Bratan & Ulun Danu Temple",
-            "description": "One of Bali's most iconic locations. The temple appears to float on the lake, surrounded by cool mountain air and stunning scenery."
+            "description": "Храм словно стоит на воде. Прохлада и кадр, который все узнают."
           },
           {
             "title": "Lake Tamblingan",
-            "description": "A peaceful highland lake hidden among dense rainforest, offering panoramic views and some of the island's most tranquil landscapes."
+            "description": "Тихое озеро в лесу — один из самых спокойных видов на острове."
           },
           {
             "title": "Pupuan Rice Terraces",
-            "description": "A hidden gem featuring endless green rice terraces and quiet countryside roads, ideal for riders seeking authentic Bali."
+            "description": "Бесконечная зелень и пустые дороги — для тех, кто ищет живой Бали без толпы."
           },
           {
             "title": "Scenic Mountain Roads",
-            "description": "Twisting roads through forests, lakes, and mountain passes create one of Bali's most rewarding riding experiences."
+            "description": "Лес, озёра и перевалы — один из самых вкусных полных дней за рулём."
           }
         ],
         "faq": [
           {
-            "q": "Is the Bedugul road safe to ride after rain?",
-            "a": "The main Bedugul highway is well-maintained and safe in most conditions. The optional jungle track around Lake Tamblingan can be slippery after heavy rain — our guide will assess on the day and suggest alternatives if needed."
+            "q": "Безопасна ли дорога в Bedugul после дождя?",
+            "a": "Основная трасса обычно в порядке. Опциональная джунглевая тропа у Lake Tamblingan после ливня скользкая — гид решит на месте."
           },
           {
-            "q": "What is the weather like at Bedugul?",
-            "a": "Bedugul sits at approximately 1,200m elevation. It is cooler than the coast (20–24°C) and frequently misty in the afternoon. We depart early to maximize morning clarity at the lake."
+            "q": "Какая погода в Bedugul?",
+            "a": "Около 1 200 м, 20–24°C, днём часто туман. Выезжаем рано, чтобы застать ясное утро у озера."
           },
           {
-            "q": "Is the botanical garden entrance included?",
-            "a": "The botanical garden entry fee (~IDR 30,000) is not included in the base price and is paid on site."
+            "q": "Вход в ботанический сад входит в цену?",
+            "a": "Нет, около IDR 30.000 платите на месте."
           },
           {
-            "q": "Can we swim at Lake Tamblingan?",
-            "a": "Lake Tamblingan is a protected sacred lake — swimming is not permitted. The visit focuses on the scenic jungle trail and lake views."
+            "q": "Можно ли купаться в Lake Tamblingan?",
+            "a": "Нет, озеро священное. Смотрим тропу и виды."
           },
           {
-            "q": "Is Pupuan worth the extra distance?",
-            "a": "Absolutely. Pupuan is one of the least-visited highland destinations in Bali. The clove and coffee terraces, cool air, and absence of tourist crowds make it a genuine highlight for riders who want an authentic experience."
+            "q": "Стоит ли ехать до Pupuan?",
+            "a": "Да. Мало туристов, прохлада и террасы гвоздики — для тех, кто хочет настоящий горный Бали."
           }
         ],
         "routes": [
@@ -766,7 +768,7 @@
                 "note": ""
               },
               {
-                "name": "Return",
+                "name": "Возврат",
                 "note": ""
               }
             ]
@@ -775,26 +777,26 @@
       },
       "tanah-lot-bedugul-explorer": {
         "title": "Tanah Lot – Bedugul Explorer",
-        "tagline": "Sea temples, UNESCO rice terraces, and crater lakes in one cinematic day",
+        "tagline": "Храм в море, террасы UNESCO и озеро в кальдере — за один кинематографичный день",
         "description": [
-          "Full Day Tour Bali: The Ultimate Big Bike Adventure. The Tanah Lot–Bedugul Explorer is Bali's greatest-hits route — and riding it on a premium big bike elevates every landmark into something personal. This full-day tour is a cornerstone of our Bali Motorcycle Tour Packages, combining coastal drama, royal heritage, UNESCO landscapes, and highland serenity in a single 200 km loop.",
-          "We begin at dawn at Tanah Lot, Bali's most famous sea temple, where the rock formation rises from the ocean as the light turns golden. From there the route turns inland to Puri Kerambitan — a working royal palace that receives very few visitors — before climbing to the Jatiluwih rice terraces, a UNESCO World Cultural Heritage site stretching across entire hillsides.",
-          "The final highland section reaches Lake Bratan and its celebrated water temple, Pura Ulun Danu, before descending back through Taman Ayun royal temple and returning south. The combination of sea, palace, terrace, and lake in one day is unmatched on the island.",
-          "As with all our tours, a professional guide leads on their own big bike. We offer Bali Harley-Davidson Rental for guests who want the iconic touring experience, and welcome solo riders, group riders, and pillion passengers."
+          "Главные хиты острова на премиальном байке: побережье, дворец, террасы UNESCO и высокогорное озеро в одной петле около 200 км.",
+          "На рассвете — Tanah Lot, когда скала поднимается из океана. Дальше Puri Kerambitan, живой королевский дворец почти без туристов, и подъём к Jatiluwih.",
+          "Финал у Lake Bratan и Pura Ulun Danu, спуск через Taman Ayun и возвращение на юг. Море, дворец, террасы и озеро за один день — так мало кто собирает.",
+          "Гид на своём байке. Соло, группа или пассажир сзади."
         ],
         "distance": "±200 KM",
-        "duration": "±8 Hours",
+        "duration": "±8 часов",
         "departureTime": "07:00 WITA",
         "startingPrice": "From IDR 1,700,000",
         "priceNote": "",
         "difficulty": "Easy",
         "highlights": [
-          "Tanah Lot — Bali's most iconic sea temple at golden hour",
-          "Puri Kerambitan — active royal palace rarely visited by tourists",
-          "Jatiluwih — UNESCO World Cultural Heritage rice terraces",
-          "Lake Bratan and the floating Pura Ulun Danu temple",
-          "Taman Ayun — grand royal temple with reflective moat",
-          "A complete cross-section of Bali's landscape in one day"
+          "Tanah Lot на золотом свете",
+          "Puri Kerambitan — живой дворец без толпы",
+          "Jatiluwih — рисовые террасы UNESCO",
+          "Lake Bratan и храм Pura Ulun Danu",
+          "Taman Ayun с отражающим рвом",
+          "Срез всего пейзажа Бали за один день"
         ],
         "included": [
           "Motorcycle",
@@ -807,70 +809,70 @@
           "Parking fees"
         ],
         "notIncluded": [
-          "UNESCO Jatiluwih entrance fee",
-          "Temple donations",
-          "Food and beverages"
+          "Вход в Jatiluwih UNESCO",
+          "Пожертвования в храмах",
+          "Еда и напитки"
         ],
         "toBring": [
-          "Sunscreen",
-          "Camera",
-          "Cash for UNESCO entry (~IDR 40,000)",
-          "Comfortable shoes for terrace walks"
+          "Солнцезащита",
+          "Камера",
+          "Наличные на вход UNESCO (~IDR 40.000)",
+          "Удобная обувь для террас"
         ],
         "safetyRequirements": [
-          "Valid motorcycle license",
-          "Minimum age 18",
-          "Sober riding"
+          "Действующие мотоправа",
+          "Минимум 18 лет",
+          "Только трезвым"
         ],
         "riderRequirements": [
-          "Suitable for all skill levels"
+          "Подходит почти любому уровню"
         ],
         "places": [
           {
             "title": "Tanah Lot Temple",
-            "description": "Bali's most famous sea temple, perched dramatically on a rock formation overlooking the Indian Ocean."
+            "description": "Самый известный морской храм Бали на скале над Индийским океаном."
           },
           {
             "title": "Puri Kerambitan",
-            "description": "A historic royal palace showcasing traditional Balinese architecture and cultural heritage."
+            "description": "Исторический королевский дворец с живой балийской архитектурой."
           },
           {
             "title": "Jatiluwih Rice Terraces",
-            "description": "A UNESCO World Heritage Site featuring vast terraced rice fields and breathtaking mountain scenery."
+            "description": "Объект UNESCO: террасы на целых склонах и горный горизонт."
           },
           {
             "title": "Lake Bratan & Ulun Danu Temple",
-            "description": "One of the most photographed destinations in Bali, offering cool temperatures and spectacular lake views."
+            "description": "Одно из самых снимаемых мест острова — прохлада и озеро."
           },
           {
             "title": "Taman Ayun Temple",
-            "description": "A beautiful royal temple complex surrounded by gardens and water features."
+            "description": "Королевский комплекс с садами и водой."
           },
           {
             "title": "Scenic Highland Roads",
-            "description": "Ride through mountain roads, rural villages, and scenic countryside with panoramic viewpoints throughout the journey."
+            "description": "Горные дороги, деревни и смотровые на всём пути."
           }
         ],
         "faq": [
           {
-            "q": "Do we need to wear a sarong at Tanah Lot?",
-            "a": "Yes, a sarong is required to enter the temple grounds. We provide sarongs for all guests — you do not need to bring your own."
+            "q": "Нужен ли саронг в Tanah Lot?",
+            "a": "Да, на территорию храма. Саронги даём мы — свой везти не нужно."
           },
           {
-            "q": "Is the Jatiluwih entrance fee included?",
-            "a": "Jatiluwih is a UNESCO heritage site with a dedicated entrance fee (~IDR 40,000 per person). This is not included in the base price and is paid on arrival."
+            "q": "Вход в Jatiluwih входит в цену?",
+            "a": "Нет. UNESCO берёт около IDR 40.000 с человека на месте."
           },
           {
-            "q": "Can we have breakfast at Tanah Lot?",
-            "a": "Yes, we schedule an early departure to arrive at Tanah Lot before crowds. There are excellent local warung cafés at the site for breakfast. Food is not included in the tour price."
+            "q": "Можно позавтракать у Tanah Lot?",
+            "a": "Да, выезжаем рано, до толпы. У храма хорошие варунги. Еда в цену не входит."
           },
           {
-            "q": "How long do we spend at Jatiluwih?",
-            "a": "The standard stop is 45–60 minutes, allowing time to walk the main terrace path and take photos. Extended stays can be arranged on a Custom Tour."
+            "q": "Сколько времени на Jatiluwih?",
+            "a": "Обычно 45–60 минут на главную тропу и фото. Дольше — в Custom Tour."
           },
           {
-            "q": "Is this route suitable for beginner riders?",
-            "a": "Yes. The roads on this route are well-maintained and the route avoids the most congested urban roads. It is one of our most recommended routes for first-time Bali riders."
+            "q": "Подойдёт ли маршрут новичкам?",
+            "a": "Да. Дороги в порядке, самых забитых городских кусков избегаем. Один из лучших первых туров на Бали."
           }
         ],
         "routes": [
@@ -902,7 +904,7 @@
                 "note": ""
               },
               {
-                "name": "Return",
+                "name": "Возврат",
                 "note": ""
               }
             ]
@@ -911,27 +913,26 @@
       },
       "denpasar-tanah-lot-nusa-dua": {
         "title": "Denpasar, Tanah Lot & Nusa Dua",
-        "tagline": "Bali's capital, its most iconic temple, and its most refined coastline — in four hours",
+        "tagline": "Столица, главный храм и самый ухоженный берег — за четыре часа",
         "description": [
-          "Half Day Tour Bali: Premium Big Bike Adventure. Experience the thrill of riding through the island with our Half Day Tour Bali — designed for riders who want to explore the essence of Bali in a limited time. This 4-hour guided ride delivers a perfect combination of scenic routes, cultural landmarks, and smooth open roads.",
-          "As part of our comprehensive Bali Motorcycle Tour Packages, this tour covers approximately 100 km. It is the ideal choice for a quick yet memorable introduction to big bike touring — specifically curated for those seeking a premium Big Bike Rental Bali experience without committing to a full day.",
-          "The journey begins in Denpasar, navigating the vibrant pulse of Bali's capital past the Bajra Sandhi Monument and Puputan Square. From there the route sweeps west to the coastal majesty of Tanah Lot, Bali's most photographed sea temple, before finishing at the upscale beachfront promenade of Nusa Dua.",
-          "Every tour is led by a professional guide on a high-performance motorcycle, ensuring expert navigation. We specialize in Bali Harley-Davidson Rental, providing an iconic riding experience that perfectly complements the island's beauty. Guests may ride solo, join a group ride, or participate as a pillion passenger.",
-          "For independent exploration, also see Self Ride Motorcycle Rental Bali. For more time and distance, upgrade to our Full Day Tour."
+          "Полудневный тур для тех, у кого мало времени, но хочется настоящего big bike, а не пробки ради галочки.",
+          "Около 100 км и 4 часа — короткий, но цельный вход в прокат мотоцикла на Бали и в гидовые маршруты.",
+          "Denpasar: Bajra Sandhi и Puputan Square. Дальше запад — Tanah Lot. Финал на променаде Nusa Dua.",
+          "Гид на живом байке. Соло, группа или сзади. Хотите дольше — берите полный день."
         ],
         "distance": "±100 KM",
-        "duration": "±4 Hours",
+        "duration": "±4 часа",
         "departureTime": "08:00 WITA",
         "startingPrice": "From IDR 1,400,000",
-        "priceNote": "Half Day Tour — ideal for guests with limited time",
+        "priceNote": "Полудневный тур — удобно, если времени мало",
         "difficulty": "Easy",
         "highlights": [
-          "Bajra Sandhi Monument — Bali's independence monument",
-          "Puputan Square — the historic heart of Denpasar",
-          "Tanah Lot — iconic sea temple at the ocean's edge",
-          "Nusa Dua beachfront promenade — Bali's most refined coastal strip",
-          "Smooth roads and minimal stops — perfect pacing for half-day riding",
-          "Ideal introduction to Bali's big bike touring scene"
+          "Bajra Sandhi — монумент независимости Бали",
+          "Puputan Square — исторический центр Denpasar",
+          "Tanah Lot у кромки океана",
+          "Променад Nusa Dua",
+          "Ровные дороги и спокойный темп",
+          "Лучший первый big bike тур на острове"
         ],
         "included": [
           "Motorcycle",
@@ -943,65 +944,65 @@
           "Parking fees"
         ],
         "notIncluded": [
-          "Temple donations",
-          "Food and beverages"
+          "Пожертвования в храмах",
+          "Еда и напитки"
         ],
         "toBring": [
-          "Sunscreen",
-          "Sarong (we provide)",
-          "Camera",
-          "Small amount of cash"
+          "Солнцезащита",
+          "Саронг (даём мы)",
+          "Камера",
+          "Немного наличных"
         ],
         "safetyRequirements": [
-          "Valid motorcycle license",
-          "Minimum age 18",
-          "Sober riding"
+          "Действующие мотоправа",
+          "Минимум 18 лет",
+          "Только трезвым"
         ],
         "riderRequirements": [
-          "Suitable for all levels including complete beginners (pillion option available)"
+          "Любой уровень, новичкам можно пассажиром"
         ],
         "places": [
           {
             "title": "Denpasar City",
-            "description": "Experience the vibrant heart of Bali with traditional markets, local culture, and bustling city streets."
+            "description": "Пульс столицы: рынки, площадь и живые улицы."
           },
           {
             "title": "Tanah Lot Temple",
-            "description": "An iconic oceanfront temple and one of Bali's most recognizable landmarks."
+            "description": "Иконный храм на океане — один из главных кадров Бали."
           },
           {
             "title": "Nusa Dua Coastline",
-            "description": "A luxury resort area known for pristine beaches, coastal roads, and spectacular ocean views."
+            "description": "Ухоженный берег, пальмы и спокойная прибрежная дорога."
           },
           {
             "title": "Coastal Scenic Roads",
-            "description": "Enjoy smooth riding along Bali's southern coastline with beautiful sea panoramas."
+            "description": "Ровная езда вдоль южного побережья."
           },
           {
             "title": "Cultural Landmarks",
-            "description": "Discover a combination of modern Bali, traditional culture, and world-famous attractions in one compact tour."
+            "description": "Современный Бали, традиция и открыточные точки в одном коротком круге."
           }
         ],
         "faq": [
           {
-            "q": "Is this suitable as a first motorcycle tour in Bali?",
-            "a": "Yes — this is one of our most popular introductory tours. The roads are well-maintained, the distance is manageable, and the guide sets a relaxed pace. It is perfect for first-time visitors and less experienced riders."
+            "q": "Это хороший первый тур на Бали?",
+            "a": "Да — один из самых частых стартов. Дороги понятные, дистанция спокойная, гид не гонит."
           },
           {
-            "q": "Can we extend the half-day tour to a full day?",
-            "a": "Absolutely. Contact us to upgrade to our Full Day Tour or design a Custom Tour that adds destinations to this route."
+            "q": "Можно продлить до полного дня?",
+            "a": "Да. Пишите — апгрейд до полного дня или свой маршрут поверх этого."
           },
           {
-            "q": "Is Tanah Lot included as a proper stop?",
-            "a": "Yes, we stop for a full visit at Tanah Lot with time to walk to the temple rock, explore the grounds, and take photos. The standard stop is 30–45 minutes."
+            "q": "Tanah Lot — полноценная остановка?",
+            "a": "Да, 30–45 минут: скала, территория, фото."
           },
           {
-            "q": "What is the best time of day for Tanah Lot?",
-            "a": "Early morning offers the best light and smallest crowds. Our 08:00 departure is timed to arrive at Tanah Lot mid-morning before the main tourist rush."
+            "q": "Когда лучше быть у Tanah Lot?",
+            "a": "Рано утром меньше людей и лучше свет. Выезд в 08:00 как раз ставит нас туда до основного наплыва."
           },
           {
-            "q": "Do I need to know how to ride a motorcycle?",
-            "a": "No license or experience needed for pillion passengers. Solo riders must hold a valid motorcycle license. All guests receive a safety briefing before departure."
+            "q": "Нужно ли уметь ездить?",
+            "a": "Пассажиру — нет. Соло — только с мотоправами. Перед стартом короткий брифинг."
           }
         ],
         "routes": [
@@ -1025,7 +1026,7 @@
                 "note": ""
               },
               {
-                "name": "Return",
+                "name": "Возврат",
                 "note": ""
               }
             ]
@@ -1034,29 +1035,29 @@
       },
       "custom-tour": {
         "title": "Custom Tour",
-        "tagline": "Your route, your pace, your Bali",
+        "tagline": "Твой маршрут, твой темп, твой Бали",
         "description": [
-          "Custom Tour Bali: Your Personalized Big Bike Adventure. With our Custom Tour Bali, you have complete freedom to design your own journey. This personalized experience is the most flexible offering in our Bali Motorcycle Tour Packages — specifically designed for riders who want full control over destinations, routes, and riding pace.",
-          "Whether you dream of coastal roads, hidden mountain passes, waterfalls, volcanoes, temples, or beaches, this tour adapts entirely to your preferences. Our professional guides help create the ideal route, allowing guests to discover both famous landmarks and hidden gems while enjoying a premium Big Bike Rental Bali experience.",
-          "The Custom Tour can be as short as a 4-hour Half Day or as ambitious as a 12-hour multi-region loop covering up to 200 km. You choose the distance, the departure time, the stops, and the pace. We handle all the planning, logistics, and navigation.",
-          "Every Custom Tour Bali is led by an experienced rider and professional guide riding their own motorcycle or a model from the Bali Harley-Davidson Rental fleet. This means expert navigation, local knowledge, maximum safety, and flexible route planning throughout.",
-          "Guests can ride solo, join with friends, or ride as a tandem passenger. For inspiration, browse our Half Day Tour and Full Day Tour offerings — or simply tell us what you want to see and we will build the route around you."
+          "Свой тур: сами выбираете точки, темп и длительность. Самый гибкий формат в линейке мототуров.",
+          "Побережье, перевалы, водопады, вулканы, храмы — гид собирает маршрут под вас, не под шаблон.",
+          "От 4 часов до петли на 12 часов и до 200 км. Время выезда и остановки — ваши.",
+          "Гид на своём байке или на модели из флота. Можно соло, с друзьями или пассажиром.",
+          "Для вдохновения смотрите полудневный и полный день — или просто напишите, что хотите увидеть."
         ],
-        "distance": "Up to ±200 KM",
-        "duration": "Flexible (4–12 hours)",
-        "departureTime": "Your choice",
+        "distance": "до ±200 KM",
+        "duration": "Гибко (4–12 часов)",
+        "departureTime": "Как договоримся",
         "startingPrice": "From IDR 1,700,000",
         "priceNote": "",
         "difficulty": "Flexible",
         "highlights": [
-          "Complete freedom to choose your own destinations",
-          "Scenic coastal or mountain routes — or both",
-          "Set your preferred riding pace and stop duration",
-          "Private and exclusive touring experience",
-          "Explore up to 200 km of Bali in one day",
-          "Fully customizable itinerary with expert local planning",
-          "Suitable for all skill levels and group sizes",
-          "Ideal for return visitors who have done the standard routes"
+          "Полная свобода в точках",
+          "Побережье, горы — или всё сразу",
+          "Свой темп и длина остановок",
+          "Приватный формат",
+          "До 200 км за день",
+          "Маршрут с местным планированием",
+          "Любой уровень и размер группы",
+          "Удобно тем, кто уже ездил стандартные петли"
         ],
         "included": [
           "Motorcycle",
@@ -1068,72 +1069,72 @@
           "Route planning consultation"
         ],
         "notIncluded": [
-          "Entrance fees (vary by destination)",
-          "Food and beverages",
-          "Personal insurance upgrade"
+          "Входы (зависят от точек)",
+          "Еда и напитки",
+          "Апгрейд личной страховки"
         ],
         "toBring": [
-          "Depends on chosen route — guide advises during planning call"
+          "Зависит от маршрута — гид скажет на созвоне"
         ],
         "safetyRequirements": [
-          "Valid motorcycle license for solo riders",
-          "Minimum age 18",
-          "Sober riding"
+          "Для соло — действующие мотоправа",
+          "Минимум 18 лет",
+          "Только трезвым"
         ],
         "riderRequirements": [
-          "All levels welcome; guide adjusts route to experience level"
+          "Любой уровень — маршрут подстроим"
         ],
         "places": [
           {
-            "title": "Your Choice of Destinations",
-            "description": "Build your own itinerary and explore Bali exactly the way you want."
+            "title": "Ваши точки",
+            "description": "Собираем день так, как хотите вы — без чужого шаблона."
           },
           {
-            "title": "Hidden Gems",
-            "description": "Visit lesser-known waterfalls, viewpoints, temples, mountain roads, villages, and beaches."
+            "title": "Скрытые места",
+            "description": "Водопады, смотровые, храмы, деревни и пляжи без толпы."
           },
           {
-            "title": "Coastal Routes",
-            "description": "Cruise along Bali's stunning southern and western coastlines."
+            "title": "Побережье",
+            "description": "Юг и запад Бали по прибрежным дорогам."
           },
           {
-            "title": "Highland Adventures",
-            "description": "Explore volcanic regions, mountain passes, lakes, and cooler highland scenery."
+            "title": "Горы",
+            "description": "Вулканы, перевалы, озёра и прохлада."
           },
           {
-            "title": "Cultural Experiences",
-            "description": "Visit temples, traditional villages, local markets, and historical landmarks."
+            "title": "Культура",
+            "description": "Храмы, деревни, рынки и живые улицы."
           },
           {
-            "title": "Personalized Riding Experience",
-            "description": "Every route is custom-built based on the rider's preferences, riding style, and desired destinations."
+            "title": "Свой ритм",
+            "description": "Маршрут под стиль езды и список желаний, не наоборот."
           }
         ],
         "faq": [
           {
-            "q": "How do I plan a Custom Tour?",
-            "a": "Contact us via WhatsApp with your preferred date, group size, riding experience level, and any destinations or themes you have in mind. We will suggest a route within 24 hours and refine it until you are happy."
+            "q": "Как собрать Custom Tour?",
+            "a": "Напишите в WhatsApp дату, размер группы, опыт и идеи. Маршрут пришлём в течение 24 часов и правим, пока не сядет."
           },
           {
-            "q": "Is there a minimum distance or duration?",
-            "a": "Our minimum booking is a 4-hour / ~80 km ride. There is no upper limit — we have guided 12-hour rides covering 250 km for experienced touring groups."
+            "q": "Есть минимум по времени?",
+            "a": "От 4 часов / примерно 80 км. Верхней границы нет — водили и 12-часовые петли на 250 км."
           },
           {
-            "q": "Can the route be changed on the day?",
-            "a": "Yes. Our guides are experienced with spontaneous route adjustments. If you want to extend a stop, skip a location, or add something new, just tell the guide and they will adapt."
+            "q": "Можно менять маршрут в день поездки?",
+            "a": "Да. Хотите дольше постоять, пропустить точку или добавить новую — скажите гиду."
           },
           {
-            "q": "How far in advance do I need to book?",
-            "a": "We recommend at least 48 hours to allow proper route planning. For large groups (6+ riders) or multi-day itineraries, 5–7 days is ideal."
+            "q": "За сколько бронировать?",
+            "a": "Лучше за 48 часов. Для групп от 6 человек или нескольких дней — за 5–7 дней."
           },
           {
-            "q": "Can we combine a Custom Tour with a motorcycle rental?",
-            "a": "Yes. We offer Self Ride Motorcycle Rental Bali for riders who prefer to follow the guide independently. The guide leads on their own bike and you ride at your own pace alongside them."
+            "q": "Можно совместить с обычной арендой?",
+            "a": "Да. Гид ведёт, вы едете на арендованном байке в своём темпе рядом."
           }
         ],
         "routes": [
           {
-            "label": "Example itinerary",
+            "label": "Пример маршрута",
             "stops": [
               {
                 "name": "Fully custom — built with you before departure",

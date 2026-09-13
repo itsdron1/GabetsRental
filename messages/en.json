@@ -435,6 +435,8 @@
       "gallery": "Photo Gallery",
       "closeGallery": "Close gallery",
       "flexible": "Flexible",
+      "fromPrice": "From IDR {price}",
+      "returnStop": "Return",
       "types": {
         "half-day": "Half Day",
         "full-day": "Full Day",

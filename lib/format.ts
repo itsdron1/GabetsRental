@@ -1,10 +1,15 @@
 import type { AppLocale } from "@/i18n/routing";
 import { BCP47 } from "@/i18n/locale";
+import { parsePriceIdr } from "@/lib/tours";
 
 export function formatIdrNumber(amount: number, locale: AppLocale): string {
   return new Intl.NumberFormat(BCP47[locale], {
     maximumFractionDigits: 0,
   }).format(amount);
+}
+
+export function formatTourFromPrice(startingPrice: string, locale: AppLocale): string {
+  return formatIdrNumber(parsePriceIdr(startingPrice), locale);
 }
 
 export function formatBikePriceCompact(amount: number): string {

@@ -1,5 +1,7 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { Tour } from "@/data/tours";
+import { formatTourFromPrice } from "@/lib/format";
+import { isAppLocale } from "@/i18n/routing";
 
 const KINTAMANI_SLUG = "kintamani-highlands";
 
@@ -9,6 +11,8 @@ type TourStatsSectionProps = {
 
 export default async function TourStatsSection({ tour }: TourStatsSectionProps) {
   const t = await getTranslations("tours.ui");
+  const localeValue = await getLocale();
+  const locale = isAppLocale(localeValue) ? localeValue : "en";
   const hideDifficulty = tour.slug === KINTAMANI_SLUG;
 
   const statValue = (field: "distance" | "duration" | "departure"): string => {
@@ -24,7 +28,7 @@ export default async function TourStatsSection({ tour }: TourStatsSectionProps) 
     [t("distance"), statValue("distance")],
     [t("duration"), statValue("duration")],
     [t("departure"), statValue("departure")],
-    [t("price"), tour.startingPrice],
+    [t("price"), t("fromPrice", { price: formatTourFromPrice(tour.startingPrice, locale) })],
   ];
   if (!hideDifficulty) {
     stats.splice(3, 0, [t("difficulty"), t(`difficulties.${tour.difficulty}`)]);

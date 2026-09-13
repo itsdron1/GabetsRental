@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { Tour } from "@/data/tours";
 import { difficultyClass, routePreviewStops } from "@/lib/tours";
+import { formatTourFromPrice } from "@/lib/format";
 import { IconClock, IconDistance } from "@/components/tours/icons";
 import { Link } from "@/i18n/navigation";
+import { isAppLocale } from "@/i18n/routing";
 
 type TourCardProps = {
   tour: Tour;
@@ -12,6 +14,8 @@ type TourCardProps = {
 
 export default async function TourCard({ tour, index }: TourCardProps) {
   const t = await getTranslations("tours.ui");
+  const localeValue = await getLocale();
+  const locale = isAppLocale(localeValue) ? localeValue : "en";
   const stops = routePreviewStops(tour, 3);
   const routePreview =
     stops.length > 0 ? `${stops.join(" → ")}${tour.routes[0]?.stops.length > 3 ? " → …" : ""}` : "";
@@ -75,7 +79,9 @@ export default async function TourCard({ tour, index }: TourCardProps) {
 
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-border/80 pt-4">
           <div className="min-w-0">
-            <span className="font-head text-lg font-extrabold text-gold">{tour.startingPrice}</span>
+            <span className="font-head text-lg font-extrabold text-gold">
+              {t("fromPrice", { price: formatTourFromPrice(tour.startingPrice, locale) })}
+            </span>
             {tour.priceNote && (
               <span className="mt-0.5 block text-[0.65rem] text-muted">{tour.priceNote}</span>
             )}
