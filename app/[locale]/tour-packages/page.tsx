@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: t("toursTitle"),
       description: t("toursDescription"),
       path: localizedPath(safeLocale, "/tour-packages"),
+      pathname: "/tour-packages",
       locale: safeLocale,
       image: "/tour-packages/bali-tours-map.png",
       imageAlt: t("toursOgAlt"),

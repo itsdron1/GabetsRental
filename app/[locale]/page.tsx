@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: t("homeTitle"),
       description: t("homeDescription"),
       path: localizedPath(safeLocale, "/"),
+      pathname: "/",
       locale: safeLocale,
       imageAlt: t("homeOgAlt"),
     }),
@@ -41,11 +42,12 @@ export default async function Home({ params }: PageProps) {
   const { locale } = await params;
   if (isAppLocale(locale)) setRequestLocale(locale);
   const tFaq = await getTranslations("faq");
+  const tSeo = await getTranslations("seo");
   const faqs = tFaq.raw("items") as { q: string; a: string }[];
 
   return (
     <>
-      <JsonLd data={[localBusinessJsonLd(), faqPageJsonLd(faqs)]} />
+      <JsonLd data={[localBusinessJsonLd(tSeo("localBusinessDescription")), faqPageJsonLd(faqs)]} />
       <Nav />
       <main className="relative z-[1]">
         <Hero />

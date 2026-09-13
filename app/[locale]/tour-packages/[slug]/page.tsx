@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     path: localizedPath(safeLocale, `/tour-packages/${tour.slug}`),
+    pathname: `/tour-packages/${tour.slug}`,
     locale: safeLocale,
     image: tour.heroImage,
     imageAlt: t("tourOgAlt", { title: tour.title }),
@@ -74,8 +75,8 @@ export default async function TourDetailPage({ params }: PageProps) {
       { name: tSeo("breadcrumbTours"), path: localizedPath(safeLocale, "/tour-packages") },
       { name: tour.title, path: localizedPath(safeLocale, `/tour-packages/${tour.slug}`) },
     ]),
-    touristAttractionJsonLd(tour),
-    touristTripJsonLd(tour, stops, priceIdr),
+    touristAttractionJsonLd(tour, safeLocale),
+    touristTripJsonLd(tour, stops, priceIdr, safeLocale),
   ];
 
   return (

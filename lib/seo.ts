@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { Bike } from "@/lib/data";
 import type { Tour } from "@/data/tours";
+import { localizedPath, OG_LOCALE } from "@/i18n/locale";
+import { locales, type AppLocale } from "@/i18n/routing";
 import { CONTACT_EMAIL, FACEBOOK_URL, GOOGLE_BUSINESS_URL, INSTAGRAM_URL } from "@/lib/constants";
 import { SITE_URL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
@@ -46,7 +48,8 @@ type PageMetaInput = {
   title: string;
   description: string;
   path: string;
-  locale?: "en" | "ru" | "id";
+  pathname?: string;
+  locale?: AppLocale;
   image?: string;
   imageAlt?: string;
   noIndex?: boolean;
@@ -57,10 +60,21 @@ export function absoluteUrl(path: string): string {
   return path.startsWith("http") ? path : `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+export function languageAlternates(pathname: string): Record<string, string> {
+  const languages: Record<string, string> = {
+    "x-default": absoluteUrl(localizedPath("en", pathname)),
+  };
+  for (const locale of locales) {
+    languages[locale] = absoluteUrl(localizedPath(locale, pathname));
+  }
+  return languages;
+}
+
 export function buildPageMetadata({
   title,
   description,
   path,
+  pathname,
   locale = "en",
   image = DEFAULT_OG_IMAGE,
   imageAlt = "Premium motorcycle rental Bali — G-DRIVE Bike Rental",
@@ -68,12 +82,18 @@ export function buildPageMetadata({
 }: PageMetaInput): Metadata {
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
-  const ogLocale = locale === "ru" ? "ru_RU" : locale === "id" ? "id_ID" : "en_US";
+  const ogLocale = OG_LOCALE[locale];
+  const alternateLocale = locales
+    .filter((item) => item !== locale)
+    .map((item) => OG_LOCALE[item]);
 
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(pathname ? { languages: languageAlternates(pathname) } : {}),
+    },
     robots: noIndex
       ? { index: false, follow: false }
       : { index: true, follow: true, googleBot: { index: true, follow: true } },
@@ -83,6 +103,7 @@ export function buildPageMetadata({
       url,
       siteName: BRAND_NAME,
       locale: ogLocale,
+      alternateLocale,
       type: "website",
       images: [{ url: imageUrl, width: 1200, height: 630, alt: imageAlt }],
     },
@@ -110,15 +131,14 @@ export function getBikeImageAlt(bike: Bike): string {
   return `${name} rental in Bali — premium motorcycle rental Bali`;
 }
 
-export function localBusinessJsonLd() {
+export function localBusinessJsonLd(description: string) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#localbusiness`,
     name: BUSINESS_NAME,
     alternateName: "G-DRIVE",
-    description:
-      "Premium motorcycle rental Bali — big bike rental, sport bike rental, superbike and touring motorcycle hire with island-wide delivery.",
+    description,
     url: SITE_URL,
     telephone: `+${WHATSAPP_NUMBER}`,
     email: CONTACT_EMAIL,
@@ -164,7 +184,7 @@ export function localBusinessJsonLd() {
       "@type": "ContactPoint",
       telephone: `+${WHATSAPP_NUMBER}`,
       contactType: "customer service",
-      availableLanguage: ["English", "Indonesian"],
+      availableLanguage: ["English", "Indonesian", "Russian"],
       areaServed: "Bali",
     },
     makesOffer: {
@@ -208,7 +228,7 @@ export function breadcrumbJsonLd(
   };
 }
 
-export function touristAttractionJsonLd(tour: Tour) {
+export function touristAttractionJsonLd(tour: Tour, locale: AppLocale = "en") {
   const image = tour.heroImage.startsWith("http")
     ? tour.heroImage
     : absoluteUrl(tour.heroImage);
@@ -219,7 +239,7 @@ export function touristAttractionJsonLd(tour: Tour) {
     name: tour.title,
     description: tour.tagline,
     image,
-    url: absoluteUrl(`/tour-packages/${tour.slug}`),
+    url: absoluteUrl(localizedPath(locale, `/tour-packages/${tour.slug}`)),
     touristType: "Motorcycle tour",
     isAccessibleForFree: false,
     containedInPlace: {
@@ -229,7 +249,12 @@ export function touristAttractionJsonLd(tour: Tour) {
   };
 }
 
-export function touristTripJsonLd(tour: Tour, stops: string[], priceIdr: number) {
+export function touristTripJsonLd(
+  tour: Tour,
+  stops: string[],
+  priceIdr: number,
+  locale: AppLocale = "en",
+) {
   return {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -246,7 +271,7 @@ export function touristTripJsonLd(tour: Tour, stops: string[], priceIdr: number)
       price: priceIdr,
       priceCurrency: "IDR",
       availability: "https://schema.org/InStock",
-      url: absoluteUrl(`/tour-packages/${tour.slug}`),
+      url: absoluteUrl(localizedPath(locale, `/tour-packages/${tour.slug}`)),
     },
     itinerary: {
       "@type": "ItemList",
