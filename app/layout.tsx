@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { DM_Sans, Manrope, Syne, Unbounded } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import BookingShell from "@/components/BookingShell";
 import GoogleTagManager from "@/components/GoogleTagManager";
 import { BRAND_NAME, absoluteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -118,7 +117,7 @@ export default async function RootLayout({
       <body>
         <GoogleTagManager />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <BookingShell>{children}</BookingShell>
+          {children}
         </NextIntlClientProvider>
         <Analytics />
       </body>

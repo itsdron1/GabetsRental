@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import BookingShell from "@/components/BookingShell";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -16,7 +17,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function TermsPage() {
   const t = await getTranslations("common");
   return (
-    <>
+    <BookingShell>
       <Nav />
       <main className="relative z-[1] min-h-svh bg-bg px-5 py-24 md:px-8 md:py-28">
         <article className="mx-auto max-w-3xl">
@@ -89,6 +90,6 @@ export default async function TermsPage() {
       </main>
       <Footer />
       <WhatsAppButton />
-    </>
+    </BookingShell>
   );
 }
