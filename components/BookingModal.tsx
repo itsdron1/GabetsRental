@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { useBooking } from "@/components/BookingContext";
 import BookingForm from "@/components/BookingForm";
 
@@ -8,6 +9,7 @@ const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function BookingModal() {
+  const t = useTranslations("booking");
   const { isOpen, selectedBike, closeBooking } = useBooking();
   const dialogRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
@@ -62,7 +64,7 @@ export default function BookingModal() {
     <div className="booking-modal-root fixed inset-0 z-[220] flex items-stretch justify-center sm:items-center sm:p-4">
       <button
         type="button"
-        aria-label="Close booking form"
+        aria-label={t("closeForm")}
         className="booking-modal-backdrop absolute inset-0 bg-black/70"
         onClick={closeBooking}
       />
@@ -75,13 +77,13 @@ export default function BookingModal() {
       >
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surface/95 px-5 py-4 backdrop-blur-md md:px-6">
           <h2 id={titleId} className="font-head text-lg font-bold text-cream">
-            Reserve Your Bike
+            {t("modalTitle")}
           </h2>
           <button
             type="button"
             onClick={closeBooking}
             className="flex h-10 w-10 items-center justify-center rounded-lg text-cream/70 transition-colors hover:bg-white/5 hover:text-cream"
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <span aria-hidden className="text-2xl leading-none">
               ×

@@ -1,14 +1,17 @@
+import { getTranslations } from "next-intl/server";
 import type { TourPlace } from "@/data/tours";
 
 type TourPlacesSectionProps = {
   places: TourPlace[];
 };
 
-export default function TourPlacesSection({ places }: TourPlacesSectionProps) {
+export default async function TourPlacesSection({ places }: TourPlacesSectionProps) {
+  const t = await getTranslations("tours.ui");
+
   return (
     <section className="bg-surface py-16 md:py-20">
       <div className="section-inner">
-        <h2 className="section-title mb-8">Places You&apos;ll Visit</h2>
+        <h2 className="section-title mb-8">{t("places")}</h2>
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
           {places.map((place) => (
             <li

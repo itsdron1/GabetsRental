@@ -1,10 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { AsYouType, type CountryCode } from "libphonenumber-js";
 import {
   DEFAULT_PHONE_COUNTRY,
-  PHONE_ERROR_MESSAGE,
   getPhoneCountryOptions,
   normalizeToE164,
   validateWhatsAppNumber,
@@ -21,7 +21,9 @@ export default function WhatsAppPhoneField({
   name = "whatsapp",
   defaultCountry = DEFAULT_PHONE_COUNTRY,
 }: WhatsAppPhoneFieldProps) {
-  const countries = useMemo(() => getPhoneCountryOptions(), []);
+  const t = useTranslations("booking");
+  const locale = useLocale();
+  const countries = useMemo(() => getPhoneCountryOptions(locale), [locale]);
   const [country, setCountry] = useState<CountryCode>(defaultCountry);
   const [display, setDisplay] = useState("");
   const [query, setQuery] = useState("");
@@ -43,14 +45,20 @@ export default function WhatsAppPhoneField({
     );
   }, [countries, query]);
 
+  const errorText = (code: ReturnType<typeof validateWhatsAppNumber>) => {
+    if (code === "required") return t("errors.phoneRequired");
+    if (code === "invalid") return t("errors.phoneInvalid");
+    return null;
+  };
+
   const showError = () => {
-    setError(validateWhatsAppNumber(display, country));
+    setError(errorText(validateWhatsAppNumber(display, country)));
   };
 
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className="text-xs font-medium tracking-widest text-muted uppercase">
-        WhatsApp Number
+        {t("whatsapp")}
       </label>
       <div className="relative flex gap-2">
         <div className="relative shrink-0">
@@ -59,7 +67,7 @@ export default function WhatsAppPhoneField({
             className="input-field flex min-w-[5.5rem] items-center justify-between gap-1 px-3"
             aria-haspopup="listbox"
             aria-expanded={open}
-            aria-label="Country calling code"
+            aria-label={t("countryCode")}
             onClick={() => setOpen((value) => !value)}
           >
             <span>{selected.dial}</span>
@@ -73,7 +81,7 @@ export default function WhatsAppPhoneField({
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search country"
+                placeholder={t("searchCountry")}
                 className="input-field rounded-none border-0 border-b border-border"
                 autoComplete="off"
               />
@@ -110,12 +118,12 @@ export default function WhatsAppPhoneField({
           inputMode="tel"
           autoComplete="tel"
           value={display}
-          placeholder="812 3456 7890"
+          placeholder={t("phonePlaceholder")}
           className="input-field min-w-0 flex-1"
           onChange={(e) => {
             const formatted = new AsYouType(country).input(e.target.value);
             setDisplay(formatted);
-            if (touched) setError(validateWhatsAppNumber(formatted, country));
+            if (touched) setError(errorText(validateWhatsAppNumber(formatted, country)));
           }}
           onBlur={() => {
             setTouched(true);
@@ -127,7 +135,7 @@ export default function WhatsAppPhoneField({
       </div>
       {error && (
         <p className="text-xs text-amber" role="alert">
-          {error === "WhatsApp number is required." ? PHONE_ERROR_MESSAGE : error}
+          {error}
         </p>
       )}
     </div>

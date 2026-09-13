@@ -1,25 +1,23 @@
 import Image from "next/image";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import type { Tour } from "@/data/tours";
-import {
-  difficultyClass,
-  routePreviewStops,
-  tourTypeLabel,
-} from "@/lib/tours";
+import { difficultyClass, routePreviewStops } from "@/lib/tours";
 import { IconClock, IconDistance } from "@/components/tours/icons";
+import { Link } from "@/i18n/navigation";
 
 type TourCardProps = {
   tour: Tour;
   index: number;
 };
 
-export default function TourCard({ tour, index }: TourCardProps) {
+export default async function TourCard({ tour, index }: TourCardProps) {
+  const t = await getTranslations("tours.ui");
   const stops = routePreviewStops(tour, 3);
   const routePreview =
     stops.length > 0 ? `${stops.join(" → ")}${tour.routes[0]?.stops.length > 3 ? " → …" : ""}` : "";
   const multiRoute = tour.routes.length > 1 && tour.routes.some((r) => r.label);
   const isKintamani = tour.slug === "kintamani-highlands";
-  const cardAlt = `${tour.title} — motorcycle tour Bali, guided big bike adventure`;
+  const cardAlt = t("cardAlt", { title: tour.title });
 
   return (
     <article
@@ -34,19 +32,17 @@ export default function TourCard({ tour, index }: TourCardProps) {
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className={`object-cover transition-transform duration-700 group-hover:scale-[1.04] ${
-            isKintamani
-              ? "tour-detail-hero-media-kintamani"
-              : "object-center"
+            isKintamani ? "tour-detail-hero-media-kintamani" : "object-center"
           }`}
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-transparent to-transparent opacity-80" />
         <span className="absolute top-3.5 left-3.5 z-10 rounded bg-brand-tint px-2.5 py-1 text-[0.62rem] font-bold tracking-widest text-cream uppercase">
-          {tourTypeLabel(tour.type)}
+          {t(`types.${tour.type}`)}
         </span>
         {multiRoute && (
           <span className="absolute top-3.5 right-3.5 z-10 rounded-full border border-white/10 bg-black/55 px-2.5 py-1 text-[0.62rem] font-medium tracking-widest text-cream/80 uppercase">
-            2 routes
+            {t("twoRoutes")}
           </span>
         )}
       </div>
@@ -68,7 +64,7 @@ export default function TourCard({ tour, index }: TourCardProps) {
             <span
               className={`inline-flex rounded-full border px-2.5 py-1 text-[0.68rem] font-semibold tracking-wide uppercase ${difficultyClass(tour.difficulty)}`}
             >
-              {tour.difficulty}
+              {t(`difficulties.${tour.difficulty}`)}
             </span>
           )}
         </div>
@@ -88,7 +84,7 @@ export default function TourCard({ tour, index }: TourCardProps) {
             href={`/tour-packages/${tour.slug}`}
             className="fleet-card-cta shrink-0 rounded-lg px-4 py-2.5 text-[0.75rem] font-semibold tracking-wide text-cream uppercase"
           >
-            Explore Tour
+            {t("explore")}
           </Link>
         </div>
       </div>

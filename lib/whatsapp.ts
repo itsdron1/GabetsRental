@@ -14,7 +14,11 @@ export function buildWhatsAppMessageUrl(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-export function buildTourBookingUrl(tourTitle: string, slug: string): string {
-  const msg = `🏍️ Tour Booking — G-DRIVE Bike Rental Bali\n\nTour: ${tourTitle}\nURL: ${SITE_URL}/tour-packages/${slug}\n\nI'd like to check availability and pricing.`;
-  return buildWhatsAppMessageUrl(msg);
+export function buildTourBookingUrl(message: string): string {
+  return buildWhatsAppMessageUrl(message);
+}
+
+export function publicUrl(path: string): string {
+  const base = SITE_URL.replace(/\/$/, "");
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }

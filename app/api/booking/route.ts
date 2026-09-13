@@ -70,7 +70,10 @@ export async function POST(request: Request) {
   const e164 = normalizeToE164(rawWhatsapp) ?? rawWhatsapp;
   const phoneError = validateWhatsAppNumber(e164);
   if (phoneError) {
-    return NextResponse.json({ ok: false, error: phoneError }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "Enter a valid WhatsApp number, e.g. +62 812 3456 7890" },
+      { status: 400 },
+    );
   }
 
   const verification = await verifyPhone(e164);
@@ -97,7 +100,22 @@ export async function POST(request: Request) {
 
   const validationError = validateBookingFormData(data);
   if (validationError) {
-    return NextResponse.json({ ok: false, error: validationError }, { status: 400 });
+    const errorMap: Record<string, string> = {
+      firstName: "First name is required.",
+      phoneRequired: "WhatsApp number is required.",
+      phoneInvalid: "Enter a valid WhatsApp number, e.g. +62 812 3456 7890",
+      pickupDate: "Pick-up date is required.",
+      pickupPast: "Pick-up date cannot be in the past.",
+      returnBeforePickup: "Return date cannot be earlier than pick-up date.",
+      bike: "Please select a bike.",
+      nameTooLong: "Name is too long.",
+      addressTooLong: "Address is too long.",
+      requestsTooLong: "Special requests are too long.",
+    };
+    return NextResponse.json(
+      { ok: false, error: errorMap[validationError] ?? validationError },
+      { status: 400 },
+    );
   }
 
   try {

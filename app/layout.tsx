@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { DM_Sans, Syne } from "next/font/google";
+import { DM_Sans, Manrope, Syne, Unbounded } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import BookingShell from "@/components/BookingShell";
 import GoogleTagManager from "@/components/GoogleTagManager";
 import { BRAND_NAME, absoluteUrl } from "@/lib/seo";
@@ -22,14 +24,22 @@ const dmSans = DM_Sans({
   preload: true,
 });
 
+const unbounded = Unbounded({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-unbounded",
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin", "cyrillic", "latin-ext"],
+  variable: "--font-manrope",
+  weight: ["300", "400", "500"],
+  display: "swap",
+});
+
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
-/*
- * Favicon in Google Search: after deploy, open Google Search Console → URL Inspection
- * → enter your homepage URL → Request Indexing. Google may take days to weeks to refresh
- * the favicon in results. Verify direct URLs: /favicon.ico, /favicon-48x48.png,
- * /apple-touch-icon.png
- */
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
   title: {
@@ -92,16 +102,24 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+    <html
+      lang={locale}
+      className={`${syne.variable} ${dmSans.variable} ${unbounded.variable} ${manrope.variable}`}
+    >
       <body>
         <GoogleTagManager />
-        <BookingShell>{children}</BookingShell>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <BookingShell>{children}</BookingShell>
+        </NextIntlClientProvider>
         <Analytics />
       </body>
     </html>

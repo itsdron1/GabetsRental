@@ -1,24 +1,27 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/Reveal";
-import { HOME_FAQS } from "@/lib/seo";
+import { Link } from "@/i18n/navigation";
 
-export default function HomeFaq() {
+export default async function HomeFaq() {
+  const t = await getTranslations("faq");
+  const items = t.raw("items") as { q: string; a: string }[];
+
   return (
     <section id="faq" className="section-deferred relative z-[1] bg-bg">
       <div className="section-inner">
         <Reveal className="mb-8 max-w-2xl">
-          <div className="section-tag">FAQ</div>
-          <h2 className="section-title">Motorcycle Rental Bali — Questions</h2>
+          <div className="section-tag">{t("tag")}</div>
+          <h2 className="section-title">{t("title")}</h2>
           <p className="section-subtitle">
-            Answers about premium motorcycle rental, delivery zones, and{" "}
+            {t("subtitleBefore")}{" "}
             <Link href="/tour-packages" className="text-gold transition-colors hover:text-cream">
-              Bali motorcycle tours
+              {t("toursLink")}
             </Link>
-            .
+            {t("subtitleAfter")}
           </p>
         </Reveal>
         <div className="flex max-w-3xl flex-col gap-3">
-          {HOME_FAQS.map((item, index) => (
+          {items.map((item, index) => (
             <Reveal key={item.q} delay={((index % 3) + 1) as 1 | 2 | 3}>
               <details className="rounded-xl border border-border bg-glass px-5 py-4">
                 <summary className="cursor-pointer list-none font-head text-base font-bold text-cream">

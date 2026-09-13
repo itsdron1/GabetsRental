@@ -1,26 +1,29 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { type MouseEvent, useEffect, useState } from "react";
 import BookingTrigger from "@/components/BookingTrigger";
 import { useBooking } from "@/components/BookingContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Link, usePathname } from "@/i18n/navigation";
 import { scrollToId } from "@/lib/scroll";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "#fleet", label: "Fleet" },
-  { href: "#why", label: "Why Us" },
-  { href: "/tour-packages", label: "Tour Packages" },
-  { href: "#booking", label: "Book" },
-];
-
 export default function Nav() {
+  const t = useTranslations("nav");
+  const locale = useLocale();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const { openBooking } = useBooking();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/", label: t("home") },
+    { href: "#fleet", label: t("fleet") },
+    { href: "#why", label: t("whyUs") },
+    { href: "/tour-packages", label: t("tours") },
+    { href: "#booking", label: t("book") },
+  ];
 
   useEffect(() => {
     let ticking = false;
@@ -95,7 +98,7 @@ export default function Nav() {
           href="/"
           className="font-head text-xl font-extrabold tracking-[0.06em] text-cream"
         >
-          G-DRIVE <span className="text-gold">Bike Rental</span> Bali
+          {t("brand")} <span className="text-gold">{t("brandAccent")}</span> {t("brandPlace")}
         </Link>
 
         <ul className="hidden items-center gap-9 lg:flex">
@@ -112,18 +115,24 @@ export default function Nav() {
           ))}
         </ul>
 
-        <BookingTrigger className="btn-nav hidden lg:block">Book Now</BookingTrigger>
+        <div className="hidden items-center gap-5 lg:flex">
+          <LanguageSwitcher />
+          <BookingTrigger className="btn-nav">{t("bookNow")}</BookingTrigger>
+        </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen(true)}
-          className="flex flex-col gap-1.5 border-none bg-transparent lg:hidden"
-          aria-label="Menu"
-        >
-          <span className="block h-0.5 w-6 rounded-sm bg-cream" />
-          <span className="block h-0.5 w-6 rounded-sm bg-cream" />
-          <span className="block h-0.5 w-6 rounded-sm bg-cream" />
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            className="flex flex-col gap-1.5 border-none bg-transparent"
+            aria-label={t("menu")}
+          >
+            <span className="block h-0.5 w-6 rounded-sm bg-cream" />
+            <span className="block h-0.5 w-6 rounded-sm bg-cream" />
+            <span className="block h-0.5 w-6 rounded-sm bg-cream" />
+          </button>
+        </div>
       </nav>
 
       <div
@@ -154,6 +163,10 @@ export default function Nav() {
             {link.label}
           </Link>
         ))}
+        <div className="mt-6">
+          <LanguageSwitcher />
+        </div>
+        <span className="sr-only">{locale}</span>
       </div>
     </>
   );

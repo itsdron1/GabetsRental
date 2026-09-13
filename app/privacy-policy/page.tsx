@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -12,7 +13,8 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/privacy-policy",
 });
 
-export default function PrivacyPolicyPage() {
+export default async function PrivacyPolicyPage() {
+  const t = await getTranslations("common");
   return (
     <>
       <Nav />
@@ -24,7 +26,7 @@ export default function PrivacyPolicyPage() {
           </div>
           <p className="mb-2 text-sm text-muted">
             <Link href="/" className="text-gold hover:text-cream">
-              ← Home
+              {t("backHome")}
             </Link>
           </p>
           <h1 className="font-head text-3xl font-extrabold text-cream md:text-4xl">

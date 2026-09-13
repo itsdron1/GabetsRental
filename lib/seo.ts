@@ -46,6 +46,7 @@ type PageMetaInput = {
   title: string;
   description: string;
   path: string;
+  locale?: "en" | "ru" | "id";
   image?: string;
   imageAlt?: string;
   noIndex?: boolean;
@@ -60,12 +61,14 @@ export function buildPageMetadata({
   title,
   description,
   path,
+  locale = "en",
   image = DEFAULT_OG_IMAGE,
   imageAlt = "Premium motorcycle rental Bali — G-DRIVE Bike Rental",
   noIndex = false,
 }: PageMetaInput): Metadata {
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
+  const ogLocale = locale === "ru" ? "ru_RU" : locale === "id" ? "id_ID" : "en_US";
 
   return {
     title,
@@ -79,7 +82,7 @@ export function buildPageMetadata({
       description,
       url,
       siteName: BRAND_NAME,
-      locale: "en_US",
+      locale: ogLocale,
       type: "website",
       images: [{ url: imageUrl, width: 1200, height: 630, alt: imageAlt }],
     },

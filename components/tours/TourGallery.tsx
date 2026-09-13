@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import type { TourGalleryImage } from "@/data/tours";
 
 type TourGalleryProps = {
@@ -10,6 +11,7 @@ type TourGalleryProps = {
 };
 
 export default function TourGallery({ images, premium = false }: TourGalleryProps) {
+  const t = useTranslations("tours.ui");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setActiveIndex(null), []);
@@ -37,7 +39,7 @@ export default function TourGallery({ images, premium = false }: TourGalleryProp
             type="button"
             onClick={() => setActiveIndex(index)}
             className="group relative aspect-[4/3] cursor-zoom-in overflow-hidden rounded-xl border border-border bg-[#0f1419]"
-            aria-label={`View ${img.alt}`}
+            aria-label={img.alt}
           >
             <Image
               src={img.src}
@@ -75,13 +77,13 @@ export default function TourGallery({ images, premium = false }: TourGalleryProp
             type="button"
             className="hero-lightbox-backdrop absolute inset-0 border-0 bg-black/85"
             onClick={close}
-            aria-label="Close gallery"
+            aria-label={t("closeGallery")}
           />
           <button
             type="button"
             onClick={close}
             className="hero-lightbox-close absolute top-4 right-4 z-[210] flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-2xl text-cream"
-            aria-label="Close"
+            aria-label={t("closeGallery")}
           >
             ×
           </button>

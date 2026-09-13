@@ -1,20 +1,21 @@
+import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/Reveal";
 import HeroActions from "@/components/HeroActions";
 import HeroParallaxMedia from "@/components/HeroParallaxMedia";
 
-const stats = [
-  { num: "50+", label: "Bikes in Fleet" },
-  { num: "24h", label: "Support" },
-  { num: "All Bali", label: "Delivery Coverage" },
-  // TODO: заменить на реальные отзывы / ссылку на Google Business, когда будут собраны
-  { num: "5★", label: "Avg Rating" },
-];
+export default async function Hero() {
+  const t = await getTranslations("hero");
+  const stats = [
+    { num: t("statValues.bikes"), label: t("stats.bikes") },
+    { num: t("statValues.support"), label: t("stats.support") },
+    { num: t("statValues.delivery"), label: t("stats.delivery") },
+    { num: t("statValues.rating"), label: t("stats.rating") },
+  ];
 
-export default function Hero() {
   return (
     <section
       id="hero"
-      aria-label="Hero"
+      aria-label={t("ariaLabel")}
       className="relative isolate flex min-h-[100svh] w-full flex-col justify-end overflow-hidden md:min-h-[680px] md:justify-center md:pt-24 lg:min-h-[760px] xl:min-h-[820px]"
     >
       <HeroParallaxMedia />
@@ -45,17 +46,14 @@ export default function Hero() {
           delay={2}
         >
           <div className="max-w-[720px]">
-            <div className="hero-eyebrow">Premium Motorcycle Rental Bali</div>
+            <div className="hero-eyebrow">{t("eyebrow")}</div>
             <h1 className="mb-6 font-head text-[clamp(2.4rem,7.5vw,6.5rem)] leading-[0.95] font-extrabold tracking-tight text-cream">
-              Ride Bali
+              {t("titleLine1")}
               <br />
-              <em className="block font-normal text-gold not-italic">Your Way.</em>
+              <em className="block font-normal text-gold not-italic">{t("titleLine2")}</em>
             </h1>
             <p className="mb-10 max-w-[520px] text-[clamp(0.95rem,2vw,1.15rem)] leading-relaxed text-cream/80">
-              Premium motorcycle rental Bali for riders who want more — big bike rental Bali,
-              sport bike rental Bali, superbike rental Bali, and touring machines from
-              Harley-Davidson, Kawasaki, Yamaha, BMW, and Ducati. Rent bike Bali with transparent
-              pricing, island-wide delivery, and no hidden fees.
+              {t("body")}
             </p>
             <HeroActions />
           </div>

@@ -1,13 +1,16 @@
 "use client";
 
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useDeferredValue, useMemo, useState } from "react";
 import BookingTrigger from "@/components/BookingTrigger";
 import FleetCard from "@/components/FleetCard";
 import Reveal from "@/components/Reveal";
+import { Link } from "@/i18n/navigation";
 import { bikes, filterTabs, type FilterTabId } from "@/lib/data";
 
 export default function Fleet() {
+  const t = useTranslations("fleet");
+  const locale = useLocale();
   const [activeFilter, setActiveFilter] = useState<FilterTabId>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredQuery = useDeferredValue(searchQuery);
@@ -19,13 +22,14 @@ export default function Fleet() {
         activeFilter === "all" || bike.category === activeFilter;
       if (!matchesCategory) return false;
       if (!q) return true;
+      const tagline = String(t.raw(`taglines.${bike.id}` as never) ?? bike.tagline).toLowerCase();
       return (
         bike.name.toLowerCase().includes(q) ||
-        bike.tagline.toLowerCase().includes(q) ||
+        tagline.includes(q) ||
         bike.category.toLowerCase().includes(q)
       );
     });
-  }, [activeFilter, deferredQuery]);
+  }, [activeFilter, deferredQuery, t]);
 
   const counts = useMemo(() => {
     const map: Record<string, number> = { all: bikes.length };
@@ -42,29 +46,27 @@ export default function Fleet() {
     >
       <div className="section-inner relative">
         <Reveal className="mb-14 max-w-2xl">
-          <div className="section-tag">Our Fleet</div>
-          <h2 className="section-title">Big Bike &amp; Sport Bike Rental Fleet</h2>
+          <div className="section-tag">{t("tag")}</div>
+          <h2 className="section-title">{t("title")}</h2>
           <p className="section-subtitle">
-            Bali bike rental with cruisers, sport bikes, adventure tourers, enduro machines, and
-            scooters — Harley-Davidson rental Bali, BMW motorcycle rental Bali, Yamaha R6, Kawasaki
-            Z900, Ducati, and more. Browse the fleet, then{" "}
+            {t("subtitleBefore")}{" "}
             <BookingTrigger
               as="a"
               className="text-gold transition-colors hover:text-cream"
             >
-              book your motorcycle
+              {t("bookLink")}
             </BookingTrigger>{" "}
-            or explore{" "}
+            {t("subtitleMid")}{" "}
             <Link href="/tour-packages" className="text-gold transition-colors hover:text-cream">
-              Bali motorcycle tours
+              {t("toursLink")}
             </Link>
-            .
+            {t("subtitleAfter")}
           </p>
         </Reveal>
 
         <Reveal className="mb-6">
           <label className="relative block max-w-md">
-            <span className="sr-only">Search bikes</span>
+            <span className="sr-only">{t("searchLabel")}</span>
             <svg
               aria-hidden
               viewBox="0 0 24 24"
@@ -82,7 +84,7 @@ export default function Fleet() {
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by model — Harley, R6, Vespa…"
+              placeholder={t("searchPlaceholder")}
               autoComplete="off"
               className="input-field pl-10"
             />
@@ -90,7 +92,7 @@ export default function Fleet() {
         </Reveal>
 
         <Reveal className="mb-10">
-          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter fleet by category">
+          <div className="flex flex-wrap gap-2" role="tablist" aria-label={t("filterAria")}>
             {filterTabs.map((tab) => {
               const isActive = activeFilter === tab.id;
               const count = counts[tab.id] ?? 0;
@@ -107,7 +109,7 @@ export default function Fleet() {
                       : "border-border text-muted hover:border-brand-tint/50 hover:bg-[rgba(11,61,46,0.15)] hover:text-cream"
                   }`}
                 >
-                  {tab.label}
+                  {t(`filters.${tab.id}`)}
                   <span
                     className={`ml-2 text-[0.65rem] ${isActive ? "text-cream/70" : "text-muted"}`}
                   >
@@ -123,14 +125,15 @@ export default function Fleet() {
           {visibleBikes.length === 0 ? (
             <p className="col-span-full py-16 text-center text-muted">
               {deferredQuery.trim()
-                ? `No bikes found for “${deferredQuery.trim()}”.`
-                : "No bikes in this category."}
+                ? t("emptySearch", { query: deferredQuery.trim() })
+                : t("emptyCategory")}
             </p>
           ) : (
             visibleBikes.map((bike) => <FleetCard key={bike.id} bike={bike} />)
           )}
         </div>
       </div>
+      <span className="sr-only">{locale}</span>
     </section>
   );
 }

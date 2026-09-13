@@ -1,34 +1,37 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import Reveal from "@/components/Reveal";
 import BookingForm from "@/components/BookingForm";
+import { Link } from "@/i18n/navigation";
 import { trustItems } from "@/lib/data";
 
 export default function Booking() {
+  const t = useTranslations("booking");
+
   return (
     <section id="booking" className="section-deferred relative z-[1] bg-surface">
       <div className="section-inner">
         <div className="grid items-start gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <Reveal>
-            <div className="section-tag">Reservations</div>
-            <h2 className="section-title mb-5">Reserve Your Bike</h2>
+            <div className="section-tag">{t("tag")}</div>
+            <h2 className="section-title mb-5">{t("title")}</h2>
             <p className="mb-10 text-muted">
-              Reserve your Bali motorcycle rental — choose a bike from our{" "}
+              {t("introBefore")}{" "}
               <Link href="#fleet" className="text-gold transition-colors hover:text-cream">
-                fleet
+                {t("fleetLink")}
               </Link>
-              , or pair your hire with{" "}
+              {t("introMid")}{" "}
               <Link href="/tour-packages" className="text-gold transition-colors hover:text-cream">
-                guided motorcycle tours
+                {t("toursLink")}
               </Link>
-              . We confirm via WhatsApp within 30 minutes. No payment upfront required.
+              {t("introAfter")}
             </p>
             <ul className="flex flex-col gap-4">
-              {trustItems.map((item) => (
+              {trustItems.map((item, index) => (
                 <li key={item} className="flex items-center gap-3.5 text-sm text-muted">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                  {item}
+                  {t(`trust.${index}`)}
                 </li>
               ))}
             </ul>

@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 function RequirementCard({
   title,
   items,
@@ -25,20 +27,22 @@ type TourRequirementsSectionProps = {
   riderRequirements: string[];
 };
 
-export default function TourRequirementsSection({
+export default async function TourRequirementsSection({
   safetyRequirements,
   riderRequirements,
 }: TourRequirementsSectionProps) {
+  const t = await getTranslations("tours.ui");
+
   return (
     <>
       <section className="bg-surface py-12 md:py-14">
         <div className="section-inner">
-          <RequirementCard title="Safety Requirements" items={safetyRequirements} />
+          <RequirementCard title={t("safety")} items={safetyRequirements} />
         </div>
       </section>
       <section className="bg-[#070b10] py-12 md:py-14">
         <div className="section-inner">
-          <RequirementCard title="Rider Requirements" items={riderRequirements} />
+          <RequirementCard title={t("rider")} items={riderRequirements} />
         </div>
       </section>
     </>

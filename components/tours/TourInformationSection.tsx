@@ -1,41 +1,33 @@
+import { getTranslations } from "next-intl/server";
 import { IconCheck, IconX } from "@/components/tours/icons";
-
-const INCLUDED_LABELS: Record<string, string> = {
-  Motorcycle: "Premium Motorcycle",
-  Helmet: "Helmet & Safety Gear",
-  Fuel: "Fuel Included",
-  "Local guide": "Professional Tour Guide",
-  "Drinking water": "Refreshments",
-  "Basic insurance": "Insurance Coverage",
-  "Parking fees": "Parking Fees",
-  "Professional guide": "Professional Tour Guide",
-  Sarong: "Temple Sarong",
-};
-
-function displayLabel(item: string): string {
-  return INCLUDED_LABELS[item] ?? item;
-}
 
 type TourInformationSectionProps = {
   included: string[];
   notIncluded: string[];
 };
 
-export default function TourInformationSection({
+export default async function TourInformationSection({
   included,
   notIncluded,
 }: TourInformationSectionProps) {
+  const t = await getTranslations("tours.ui");
+
+  const displayLabel = (item: string) => {
+    const labels = t.raw("includedLabels" as never) as Record<string, string>;
+    return labels[item] ?? item;
+  };
+
   return (
     <section className="bg-surface py-12 md:py-14">
       <div className="section-inner">
         <h2 className="section-title mb-5 text-[clamp(1.5rem,4vw,2.25rem)]">
-          Included &amp; Not Included
+          {t("includedTitle")}
         </h2>
         <div className="rounded-2xl border border-border bg-glass p-5 md:p-6">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-7">
             <div className="min-w-0 md:pr-2">
               <h3 className="font-head text-sm font-bold tracking-wide text-gold uppercase">
-                Included
+                {t("included")}
               </h3>
               <ul className="mt-4 flex flex-col gap-3">
                 {included.map((item) => (
@@ -50,7 +42,7 @@ export default function TourInformationSection({
             </div>
             <div className="min-w-0 border-t border-border pt-8 md:border-t-0 md:border-l md:pt-0 md:pl-7">
               <h3 className="font-head text-sm font-bold tracking-wide text-amber uppercase">
-                Not Included
+                {t("notIncluded")}
               </h3>
               <ul className="mt-4 flex flex-col gap-3">
                 {notIncluded.map((item) => (

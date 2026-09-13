@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
+import { getTranslations } from "next-intl/server";
 import type { Tour } from "@/data/tours";
+import { localizeTours } from "@/lib/localized-tour";
 import { getRelatedTours } from "@/lib/tours";
 import TourBookingSection from "@/components/tours/TourBookingSection";
 import TourCard from "@/components/tours/TourCard";
@@ -19,8 +21,10 @@ type TourDetailBodyProps = {
   tour: Tour;
 };
 
-export default function TourDetailBody({ tour }: TourDetailBodyProps) {
-  const related = getRelatedTours(tour.relatedSlugs).slice(0, 3);
+export default async function TourDetailBody({ tour }: TourDetailBodyProps) {
+  const t = await getTranslations("tours.ui");
+  const tTours = await getTranslations("tours");
+  const related = localizeTours(getRelatedTours(tour.relatedSlugs), tTours).slice(0, 3);
 
   return (
     <>
@@ -35,7 +39,7 @@ export default function TourDetailBody({ tour }: TourDetailBodyProps) {
       />
       <section className="bg-surface py-16 md:py-20">
         <div className="section-inner">
-          <h2 className="section-title mb-8">Frequently Asked Questions</h2>
+          <h2 className="section-title mb-8">{t("faq")}</h2>
           <div className="flex flex-col gap-3">
             {tour.faq.map((item) => (
               <details key={item.q} className="rounded-xl border border-border bg-glass px-5 py-4">
@@ -51,7 +55,7 @@ export default function TourDetailBody({ tour }: TourDetailBodyProps) {
       {related.length > 0 && (
         <section className="bg-[#070b10] py-16 md:py-20">
           <div className="section-inner">
-            <h2 className="section-title mb-8">Related Tours</h2>
+            <h2 className="section-title mb-8">{t("related")}</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {related.map((relatedTour, index) => (
                 <TourCard key={relatedTour.slug} tour={relatedTour} index={index} />

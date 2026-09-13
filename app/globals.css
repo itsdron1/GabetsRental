@@ -13,14 +13,19 @@
   --color-muted: rgba(240, 236, 228, 0.45);
   --color-gold-faint: rgba(22, 99, 75, 0.35);
   --color-brand-tint: #0b3d2e;
-  --font-head: var(--font-syne), ui-sans-serif, sans-serif;
-  --font-body: var(--font-dm-sans), ui-sans-serif, sans-serif;
+  --font-head: var(--font-syne), var(--font-unbounded), ui-sans-serif, sans-serif;
+  --font-body: var(--font-dm-sans), var(--font-manrope), ui-sans-serif, sans-serif;
   --radius-card: 16px;
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-smooth: 350ms;
 }
 
 @layer base {
+  :lang(ru) {
+    --font-head: var(--font-unbounded), ui-sans-serif, sans-serif;
+    --font-body: var(--font-manrope), ui-sans-serif, sans-serif;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { Tour, TourRoute } from "@/data/tours";
 
 type TourRouteSectionProps = {
@@ -24,6 +25,7 @@ function RouteTimeline({ route }: { route: TourRoute }) {
 }
 
 export default function TourRouteSection({ tour }: TourRouteSectionProps) {
+  const t = useTranslations("tours.ui");
   const labeledRoutes = tour.routes.filter((r) => r.label);
   const hasTabs = tour.slug === "kintamani-highlands" && labeledRoutes.length > 1;
   const [activeTab, setActiveTab] = useState(0);
@@ -32,7 +34,7 @@ export default function TourRouteSection({ tour }: TourRouteSectionProps) {
   return (
     <section className="bg-[#070b10] py-16 md:py-20">
       <div className="section-inner">
-        <h2 className="section-title mb-8">Route Overview</h2>
+        <h2 className="section-title mb-8">{t("route")}</h2>
 
         {hasTabs && (
           <div className="mb-8 flex flex-wrap gap-2" role="tablist">

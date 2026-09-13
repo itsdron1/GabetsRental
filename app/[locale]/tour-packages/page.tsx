@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import TourCard from "@/components/tours/TourCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Link } from "@/i18n/navigation";
+import { localizedPath } from "@/i18n/locale";
+import { isAppLocale } from "@/i18n/routing";
+import { localizeTours } from "@/lib/localized-tour";
 import { getAllTours } from "@/lib/tours";
-import { WHATSAPP_BOOKING_URL } from "@/lib/constants";
-import {
-  TOURS_INDEX_DESCRIPTION,
-  TOURS_INDEX_TITLE,
-  breadcrumbJsonLd,
-  buildPageMetadata,
-  faqPageJsonLd,
-} from "@/lib/seo";
+import { buildWhatsAppMessageUrl } from "@/lib/whatsapp";
+import { breadcrumbJsonLd, buildPageMetadata, faqPageJsonLd } from "@/lib/seo";
 
 const TourPackagesHeroImage = dynamic(
   () => import("@/components/TourPackagesHeroImage"),
@@ -29,42 +27,48 @@ const TourPackagesHeroImage = dynamic(
   },
 );
 
-const faqs = [
-  {
-    q: "Do I need a motorcycle license to join a tour?",
-    a: "Yes, a valid motorcycle license is required for solo riders. International Driving Permit (IDP) is strongly recommended for international guests. Pillion passengers do not need a license.",
-  },
-  {
-    q: "What is included in the tour package?",
-    a: "Motorcycle rental, helmet, fuel for route, local guide, drinking water, and basic insurance are included by default. See each tour page for full details.",
-  },
-  {
-    q: "Can I request a private or custom route?",
-    a: "Yes. Our Custom Tour lets you tailor routes for beaches, volcano roads, jungle trails, and cultural destinations based on your riding level.",
-  },
-];
-
-export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: TOURS_INDEX_TITLE,
-    description: TOURS_INDEX_DESCRIPTION,
-    path: "/tour-packages",
-    image: "/tour-packages/bali-tours-map.png",
-    imageAlt: "Bali motorcycle tour routes map — guided big bike adventures",
-  }),
-  title: { absolute: TOURS_INDEX_TITLE },
+type PageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function TourPackagesPage() {
-  const tours = getAllTours();
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = isAppLocale(locale) ? locale : "en";
+  const t = await getTranslations({ locale: safeLocale, namespace: "seo" });
+
+  return {
+    ...buildPageMetadata({
+      title: t("toursTitle"),
+      description: t("toursDescription"),
+      path: localizedPath(safeLocale, "/tour-packages"),
+      locale: safeLocale,
+      image: "/tour-packages/bali-tours-map.png",
+      imageAlt: t("toursOgAlt"),
+    }),
+    title: { absolute: t("toursTitle") },
+  };
+}
+
+export default async function TourPackagesPage({ params }: PageProps) {
+  const { locale } = await params;
+  const safeLocale = isAppLocale(locale) ? locale : "en";
+  setRequestLocale(safeLocale);
+
+  const t = await getTranslations("tours.index");
+  const tTours = await getTranslations("tours");
+  const tSeo = await getTranslations("seo");
+  const tCommon = await getTranslations("common");
+  const tours = localizeTours(getAllTours(), tTours);
+  const faqs = t.raw("faqs") as { q: string; a: string }[];
+  const whatsappUrl = buildWhatsAppMessageUrl(tCommon("whatsappPrefill"));
 
   return (
     <>
       <JsonLd
         data={[
           breadcrumbJsonLd([
-            { name: "Home", path: "/" },
-            { name: "Tour Packages", path: "/tour-packages" },
+            { name: tSeo("breadcrumbHome"), path: localizedPath(safeLocale, "/") },
+            { name: tSeo("breadcrumbTours"), path: localizedPath(safeLocale, "/tour-packages") },
           ]),
           faqPageJsonLd(faqs),
         ]}
@@ -74,27 +78,26 @@ export default function TourPackagesPage() {
         <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-[#0a0f14] to-surface">
           <div className="section-inner relative grid items-center gap-12 py-18 lg:grid-cols-[1.15fr_1fr]">
             <Reveal>
-              <div className="section-tag">Tour Packages</div>
-              <h1 className="section-title max-w-[15ch]">Motorcycle Tours Bali</h1>
+              <div className="section-tag">{t("tag")}</div>
+              <h1 className="section-title max-w-[15ch]">{t("title")}</h1>
               <p className="section-subtitle mt-6 max-w-[58ch]">
-                Explore Bali with premium motorcycle tours — volcano roads, rice terraces, temples,
-                and coastal adventures on big bikes and sport machines. Pair your tour with{" "}
+                {t("subtitleBefore")}{" "}
                 <Link href="/#fleet" className="text-gold transition-colors hover:text-cream">
-                  motorcycle rental Bali
+                  {t("fleetLink")}
                 </Link>{" "}
-                from our fleet.
+                {t("subtitleAfter")}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
-                  href={WHATSAPP_BOOKING_URL}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
                 >
-                  Book Tour via WhatsApp
+                  {t("bookWhatsapp")}
                 </a>
                 <Link href="/#fleet" className="btn-ghost">
-                  View Rental Fleet
+                  {t("viewFleet")}
                 </Link>
               </div>
             </Reveal>
@@ -107,11 +110,8 @@ export default function TourPackagesPage() {
         <section className="bg-surface py-20">
           <div className="section-inner">
             <Reveal className="mb-10">
-              <h2 className="section-title">Featured Tour Routes</h2>
-              <p className="section-subtitle">
-                Full-day highland loops, coastal explorers, half-day highlights, and fully custom
-                Bali motorcycle tour itineraries.
-              </p>
+              <h2 className="section-title">{t("featuredTitle")}</h2>
+              <p className="section-subtitle">{t("featuredSubtitle")}</p>
             </Reveal>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {tours.map((tour, index) => (
@@ -125,26 +125,20 @@ export default function TourPackagesPage() {
           <div className="section-inner grid gap-6 md:grid-cols-3">
             <Reveal>
               <div className="why-card rounded-2xl border border-border bg-glass p-6">
-                <h3 className="font-head text-lg font-bold text-cream">What&apos;s Included</h3>
-                <p className="mt-2 text-sm text-muted">
-                  Premium bike, fuel, certified helmet, route briefing, and local guide support.
-                </p>
+                <h3 className="font-head text-lg font-bold text-cream">{t("includedTitle")}</h3>
+                <p className="mt-2 text-sm text-muted">{t("includedText")}</p>
               </div>
             </Reveal>
             <Reveal delay={2}>
               <div className="why-card rounded-2xl border border-border bg-glass p-6">
-                <h3 className="font-head text-lg font-bold text-cream">Why Ride With Us</h3>
-                <p className="mt-2 text-sm text-muted">
-                  Premium fleet, responsive support, and curated Bali routes with cinematic stops.
-                </p>
+                <h3 className="font-head text-lg font-bold text-cream">{t("whyTitle")}</h3>
+                <p className="mt-2 text-sm text-muted">{t("whyText")}</p>
               </div>
             </Reveal>
             <Reveal delay={3}>
               <div className="why-card rounded-2xl border border-border bg-glass p-6">
-                <h3 className="font-head text-lg font-bold text-cream">Flexible Booking</h3>
-                <p className="mt-2 text-sm text-muted">
-                  Private and group tours available. Fast confirmation via WhatsApp.
-                </p>
+                <h3 className="font-head text-lg font-bold text-cream">{t("flexibleTitle")}</h3>
+                <p className="mt-2 text-sm text-muted">{t("flexibleText")}</p>
               </div>
             </Reveal>
           </div>
@@ -153,7 +147,7 @@ export default function TourPackagesPage() {
         <section className="bg-surface py-20">
           <div className="section-inner">
             <Reveal className="mb-8">
-              <h2 className="section-title">Tour FAQ</h2>
+              <h2 className="section-title">{t("faqTitle")}</h2>
             </Reveal>
             <div className="flex flex-col gap-3">
               {faqs.map((item, index) => (
@@ -169,12 +163,12 @@ export default function TourPackagesPage() {
             </div>
             <Reveal delay={2} className="mt-10">
               <div className="rounded-2xl border border-brand-tint/40 bg-[rgba(11,61,46,0.2)] p-6 text-center">
-                <p className="text-sm text-cream/85">Need a custom route? We&apos;ll build it for you.</p>
+                <p className="text-sm text-cream/85">{t("customCta")}</p>
                 <Link
                   href="/tour-packages/custom-tour"
                   className="fleet-card-cta mt-4 inline-flex rounded-lg px-5 py-2.5 text-xs font-semibold tracking-wide text-cream uppercase"
                 >
-                  Explore Custom Tour
+                  {t("exploreCustom")}
                 </Link>
               </div>
             </Reveal>

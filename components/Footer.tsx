@@ -1,5 +1,7 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import BookingTrigger from "@/components/BookingTrigger";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Link } from "@/i18n/navigation";
 import {
   CONTACT_EMAIL,
   CONTACT_EMAIL_URL,
@@ -11,14 +13,17 @@ import {
 import { LOCAL_AREAS } from "@/lib/seo";
 
 const fleetLinks = [
-  { label: "Harley-Davidson Heritage Softail", href: "#fleet" },
-  { label: "BMW F800GS Adventure", href: "#fleet" },
-  { label: "Yamaha YZF-R6 Sport", href: "#fleet" },
-  { label: "Kawasaki Z900", href: "#fleet" },
-  { label: "Ducati Monster 795", href: "#fleet" },
+  { label: "Harley-Davidson Heritage Softail", href: "/#fleet" },
+  { label: "BMW F800GS Adventure", href: "/#fleet" },
+  { label: "Yamaha YZF-R6 Sport", href: "/#fleet" },
+  { label: "Kawasaki Z900", href: "/#fleet" },
+  { label: "Ducati Monster 795", href: "/#fleet" },
 ];
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations("footer");
+  const year = new Date().getFullYear();
+
   return (
     <footer className="relative z-[1] border-t border-border bg-footer px-5 py-16 md:px-8 md:py-20">
       <div className="mx-auto max-w-[1200px]">
@@ -27,25 +32,22 @@ export default function Footer() {
             <span className="mb-4 block font-head text-[1.4rem] font-extrabold tracking-[0.06em] text-cream">
               G-DRIVE <span className="text-gold">Bike Rental</span> Bali
             </span>
-            <p className="max-w-[300px] text-sm leading-relaxed text-muted">
-              Premium motorcycle rental Bali — big bike rental, sport bike rental, and motorbike
-              hire with delivery. Trusted by travellers and expats since 2018.
-            </p>
+            <p className="max-w-[300px] text-sm leading-relaxed text-muted">{t("blurb")}</p>
           </div>
 
           <div>
             <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-gold uppercase">
-              Fleet
+              {t("fleet")}
             </h4>
             <ul className="flex flex-col gap-2.5">
               {fleetLinks.map((item) => (
                 <li key={item.label}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-muted transition-colors hover:text-cream"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
@@ -53,7 +55,7 @@ export default function Footer() {
                   href="/#fleet"
                   className="text-sm font-medium text-gold transition-colors hover:text-cream"
                 >
-                  View full fleet →
+                  {t("viewFleet")}
                 </Link>
               </li>
             </ul>
@@ -61,33 +63,33 @@ export default function Footer() {
 
           <div>
             <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-gold uppercase">
-              Delivery Zones
+              {t("zones")}
             </h4>
             <ul className="flex flex-col gap-2.5">
               {LOCAL_AREAS.map((zone) => (
                 <li key={zone}>
-                  <a
-                    href="#delivery"
+                  <Link
+                    href="/#delivery"
                     className="text-sm text-muted transition-colors hover:text-cream"
                   >
-                    Bike rental {zone}
-                  </a>
+                    {t("bikeRentalIn", { zone })}
+                  </Link>
                 </li>
               ))}
               <li>
-                <a
-                  href="#delivery"
+                <Link
+                  href="/#delivery"
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
-                  Airport / Ngurah Rai
-                </a>
+                  {t("airport")}
+                </Link>
               </li>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-gold uppercase">
-              Contact
+              {t("contact")}
             </h4>
             <ul className="flex flex-col gap-2.5">
               <li>
@@ -125,7 +127,7 @@ export default function Footer() {
                   href="/tour-packages"
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
-                  Motorcycle Tours Bali
+                  {t("tours")}
                 </Link>
               </li>
               <li>
@@ -133,7 +135,7 @@ export default function Footer() {
                   as="a"
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >
-                  Booking Form
+                  {t("bookingForm")}
                 </BookingTrigger>
               </li>
               <li>
@@ -148,20 +150,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-2 border-t border-border pt-7 text-center text-[0.78rem] text-cream/25 sm:flex-row sm:text-left">
-          <span>
-            © {new Date().getFullYear()} G-DRIVE Bike Rental Bali. All rights reserved.
-          </span>
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-border pt-7 text-center text-[0.78rem] text-cream/25 sm:flex-row sm:text-left">
+          <span>{t("rights", { year })}</span>
           <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-            <Link href="/privacy-policy" className="transition-colors hover:text-cream/50">
-              Privacy Policy
-            </Link>
+            <LanguageSwitcher />
             <span aria-hidden>·</span>
-            <Link href="/terms" className="transition-colors hover:text-cream/50">
-              Terms
-            </Link>
+            <a href="/privacy-policy" className="transition-colors hover:text-cream/50">
+              {t("privacy")}
+            </a>
             <span aria-hidden>·</span>
-            <span>Motorbike rental Bali · Indonesia</span>
+            <a href="/terms" className="transition-colors hover:text-cream/50">
+              {t("terms")}
+            </a>
+            <span aria-hidden>·</span>
+            <span>{t("bottomNote")}</span>
           </span>
         </div>
       </div>

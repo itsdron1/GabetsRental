@@ -25,15 +25,28 @@ export function parseBookingFormData(formData: FormData): BookingFormData {
   };
 }
 
-export function validateBookingFormData(data: BookingFormData): string | null {
-  if (!data.firstName) return "First name is required.";
+export type BookingFieldError =
+  | "firstName"
+  | "phoneRequired"
+  | "phoneInvalid"
+  | "pickupDate"
+  | "pickupPast"
+  | "returnBeforePickup"
+  | "bike"
+  | "nameTooLong"
+  | "addressTooLong"
+  | "requestsTooLong";
+
+export function validateBookingFormData(data: BookingFormData): BookingFieldError | null {
+  if (!data.firstName) return "firstName";
   const phoneError = validateWhatsAppNumber(data.whatsapp);
-  if (phoneError) return phoneError;
-  if (!data.pickupDate) return "Pick-up date is required.";
-  if (!data.bike) return "Please select a bike.";
-  if (data.firstName.length > 80 || data.lastName.length > 80) return "Name is too long.";
-  if (data.address.length > 300) return "Address is too long.";
-  if (data.specialRequests.length > 1000) return "Special requests are too long.";
+  if (phoneError === "required") return "phoneRequired";
+  if (phoneError) return "phoneInvalid";
+  if (!data.pickupDate) return "pickupDate";
+  if (!data.bike) return "bike";
+  if (data.firstName.length > 80 || data.lastName.length > 80) return "nameTooLong";
+  if (data.address.length > 300) return "addressTooLong";
+  if (data.specialRequests.length > 1000) return "requestsTooLong";
   return null;
 }
 

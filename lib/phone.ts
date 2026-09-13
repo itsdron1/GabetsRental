@@ -12,6 +12,8 @@ export const DEFAULT_PHONE_COUNTRY: CountryCode = "ID";
 export const PHONE_ERROR_MESSAGE =
   "Enter a valid WhatsApp number, e.g. +62 812 3456 7890";
 
+export type PhoneValidationError = "required" | "invalid";
+
 const BUSINESS_E164 = `+${WHATSAPP_NUMBER.replace(/\D/g, "")}`;
 
 const SEQUENCES = ["0123456789", "1234567890", "9876543210", "0987654321"];
@@ -22,15 +24,15 @@ export type PhoneCountryOption = {
   dial: string;
 };
 
-export function getPhoneCountryOptions(): PhoneCountryOption[] {
-  const display = new Intl.DisplayNames(["en"], { type: "region" });
+export function getPhoneCountryOptions(locale = "en"): PhoneCountryOption[] {
+  const display = new Intl.DisplayNames([locale], { type: "region" });
   return getCountries()
     .map((code) => ({
       code,
       name: display.of(code) ?? code,
       dial: `+${getCountryCallingCode(code)}`,
     }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name, locale));
 }
 
 export function normalizeToE164(
@@ -66,14 +68,14 @@ export function isFakePhoneNumber(e164: string): boolean {
 export function validateWhatsAppNumber(
   input: string,
   defaultCountry: CountryCode = DEFAULT_PHONE_COUNTRY,
-): string | null {
-  if (!input.trim()) return "WhatsApp number is required.";
+): PhoneValidationError | null {
+  if (!input.trim()) return "required";
   const parsed = parsePhoneNumberFromString(input.trim(), defaultCountry);
   if (!parsed || !isValidPhoneNumber(parsed.number)) {
-    return PHONE_ERROR_MESSAGE;
+    return "invalid";
   }
   if (isFakePhoneNumber(parsed.number)) {
-    return PHONE_ERROR_MESSAGE;
+    return "invalid";
   }
   return null;
 }

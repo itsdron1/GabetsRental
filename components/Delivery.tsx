@@ -1,12 +1,17 @@
+import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/Reveal";
 import {
   GOOGLE_BUSINESS_URL,
   GOOGLE_MAPS_EMBED_URL,
-  WHATSAPP_DELIVERY_NORTH_URL,
 } from "@/lib/constants";
+import { buildWhatsAppMessageUrl } from "@/lib/whatsapp";
 import { deliveryPerks, deliveryZones } from "@/lib/data";
 
-export default function Delivery() {
+export default async function Delivery() {
+  const t = await getTranslations("delivery");
+  const tCommon = await getTranslations("common");
+  const northUrl = buildWhatsAppMessageUrl(tCommon("whatsappDeliveryPrefill"));
+
   return (
     <section
       id="delivery"
@@ -15,15 +20,11 @@ export default function Delivery() {
       <div className="section-inner">
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <div className="section-tag">Delivery</div>
-            <h2 className="section-title">We Bring the Bike to You</h2>
-            <p className="section-subtitle mb-6">
-              Motorcycle hire Bali with delivery to your villa, hotel, or Airbnb — bike rental
-              Canggu, Seminyak, Kuta, Ubud, Uluwatu, Sanur, and Nusa Dua covered.
-            </p>
+            <div className="section-tag">{t("tag")}</div>
+            <h2 className="section-title">{t("title")}</h2>
+            <p className="section-subtitle mb-6">{t("subtitle")}</p>
             <p className="mb-10 max-w-[520px] text-sm leading-relaxed text-muted">
-              Delivery to Canggu, Seminyak, and Kuta is 200,000 IDR. Need a bike elsewhere on the
-              island? Message us on WhatsApp — we arrange motorcycle rental across Bali daily.
+              {t("body", { price: t("southPrice") })}
             </p>
 
             <div className="flex flex-col gap-7">
@@ -34,8 +35,12 @@ export default function Delivery() {
                       {perk.icon}
                     </div>
                     <div>
-                      <h4 className="font-head text-base font-bold text-cream">{perk.title}</h4>
-                      <p className="mt-1 text-sm leading-relaxed text-muted">{perk.text}</p>
+                      <h4 className="font-head text-base font-bold text-cream">
+                        {t(`perks.${index}.title`)}
+                      </h4>
+                      <p className="mt-1 text-sm leading-relaxed text-muted">
+                        {t(`perks.${index}.text`)}
+                      </p>
                     </div>
                   </div>
                 </Reveal>
@@ -48,7 +53,7 @@ export default function Delivery() {
               <div className="relative mb-7 aspect-[4/3] overflow-hidden rounded-[10px] border border-border bg-[#0c1018]">
                 <iframe
                   src={GOOGLE_MAPS_EMBED_URL}
-                  title="G-DRIVE Bike Rental Bali location on Google Maps"
+                  title={t("mapTitle")}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
@@ -64,35 +69,35 @@ export default function Delivery() {
                     G-DRIVE Bike Rental Bali
                   </span>
                   <span className="text-[0.65rem] tracking-widest text-gold uppercase">
-                    View on Google
+                    {t("viewOnGoogle")}
                   </span>
                 </a>
               </div>
               <div className="flex flex-col gap-2.5">
-                {deliveryZones.map((zone) => (
+                {deliveryZones.map((zone, index) => (
                   <div
                     key={zone.name}
                     className="delivery-zone-row flex flex-col gap-2 rounded-lg border-l-2 border-gold bg-black/30 px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                   >
                     <span className="min-w-0 font-medium leading-snug text-cream">
-                      {zone.name}
+                      {t(`zones.${index}.name`)}
                     </span>
                     {zone.free ? (
                       <span className="delivery-price-free shrink-0 self-start sm:self-center">
-                        {zone.price}
+                        {t(`zones.${index}.price`)}
                       </span>
                     ) : zone.contact ? (
                       <a
-                        href={WHATSAPP_DELIVERY_NORTH_URL}
+                        href={northUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="delivery-price-contact shrink-0 self-start sm:self-center"
                       >
-                        {zone.price}
+                        {t(`zones.${index}.price`)}
                       </a>
                     ) : (
                       <span className="shrink-0 self-start font-semibold tabular-nums text-gold sm:self-center">
-                        {zone.price}
+                        {t(`zones.${index}.price`)}
                       </span>
                     )}
                   </div>
