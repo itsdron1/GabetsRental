@@ -1,3 +1,4 @@
+import { isAppLocale, type AppLocale } from "@/i18n/routing";
 import { isIsoDateBefore, isIsoDateInPast } from "@/lib/dates";
 import { normalizeToE164, validateWhatsAppNumber } from "@/lib/phone";
 
@@ -10,7 +11,12 @@ export type BookingFormData = {
   returnDate: string;
   bike: string;
   specialRequests: string;
+  locale?: AppLocale;
 };
+
+export function parseBookingLocale(value: unknown): AppLocale {
+  return typeof value === "string" && isAppLocale(value) ? value : "en";
+}
 
 export function parseBookingFormData(formData: FormData): BookingFormData {
   const rawWhatsapp = String(formData.get("whatsapp") ?? "").trim();
@@ -88,6 +94,7 @@ export function formatBookingEmailText(data: BookingFormData): string {
     `Return date: ${data.returnDate || "—"}`,
     `Bike: ${data.bike}`,
     `Special requests: ${data.specialRequests || "—"}`,
+    `Locale: ${data.locale ?? "en"}`,
     "",
     `Submitted: ${new Date().toISOString()}`,
   ].join("\n");

@@ -9,11 +9,17 @@ declare global {
   }
 }
 
+function currentLanguage(): "en" | "ru" | "id" {
+  if (typeof document === "undefined") return "en";
+  const lang = document.documentElement.lang;
+  return lang === "ru" || lang === "id" ? lang : "en";
+}
+
 /** Push a custom event for GTM / ads pixels. No-ops on the server. */
 export function pushDataLayer(event: string, params: Record<string, unknown> = {}): void {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer ?? [];
-  window.dataLayer.push({ event, ...params });
+  window.dataLayer.push({ event, language: currentLanguage(), ...params });
 }
 
 export function trackWhatsAppClick(source?: string): void {

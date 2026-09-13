@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import {
   formatBookingEmailText,
+  parseBookingLocale,
   validateBookingFormData,
   type BookingFormData,
 } from "@/lib/booking";
@@ -96,6 +97,7 @@ export async function POST(request: Request) {
     returnDate: body.returnDate.trim(),
     bike: body.bike.trim(),
     specialRequests: body.specialRequests.trim(),
+    locale: parseBookingLocale((body as { locale?: unknown }).locale),
   };
 
   const validationError = validateBookingFormData(data);

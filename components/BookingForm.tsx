@@ -91,7 +91,7 @@ export default function BookingForm({
       const response = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, locale }),
         signal: controller.signal,
       });
 
