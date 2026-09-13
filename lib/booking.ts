@@ -1,3 +1,5 @@
+import { normalizeToE164, validateWhatsAppNumber } from "@/lib/phone";
+
 export type BookingFormData = {
   firstName: string;
   lastName: string;
@@ -10,10 +12,11 @@ export type BookingFormData = {
 };
 
 export function parseBookingFormData(formData: FormData): BookingFormData {
+  const rawWhatsapp = String(formData.get("whatsapp") ?? "").trim();
   return {
     firstName: String(formData.get("firstName") ?? "").trim(),
     lastName: String(formData.get("lastName") ?? "").trim(),
-    whatsapp: String(formData.get("whatsapp") ?? "").trim(),
+    whatsapp: normalizeToE164(rawWhatsapp) ?? rawWhatsapp,
     address: String(formData.get("address") ?? "").trim(),
     pickupDate: String(formData.get("pickupDate") ?? "").trim(),
     returnDate: String(formData.get("returnDate") ?? "").trim(),
@@ -24,11 +27,11 @@ export function parseBookingFormData(formData: FormData): BookingFormData {
 
 export function validateBookingFormData(data: BookingFormData): string | null {
   if (!data.firstName) return "First name is required.";
-  if (!data.whatsapp) return "WhatsApp number is required.";
+  const phoneError = validateWhatsAppNumber(data.whatsapp);
+  if (phoneError) return phoneError;
   if (!data.pickupDate) return "Pick-up date is required.";
   if (!data.bike) return "Please select a bike.";
   if (data.firstName.length > 80 || data.lastName.length > 80) return "Name is too long.";
-  if (data.whatsapp.length > 40) return "WhatsApp number is too long.";
   if (data.address.length > 300) return "Address is too long.";
   if (data.specialRequests.length > 1000) return "Special requests are too long.";
   return null;

@@ -5,6 +5,8 @@ import {
   validateBookingFormData,
   type BookingFormData,
 } from "@/lib/booking";
+import { normalizeToE164, validateWhatsAppNumber } from "@/lib/phone";
+import { verifyPhone } from "@/lib/phone-verification";
 import { CONTACT_EMAIL } from "@/lib/whatsapp";
 
 function isBookingPayload(body: unknown): body is BookingFormData {
@@ -64,10 +66,28 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Invalid booking payload." }, { status: 400 });
   }
 
+  const rawWhatsapp = body.whatsapp.trim();
+  const e164 = normalizeToE164(rawWhatsapp) ?? rawWhatsapp;
+  const phoneError = validateWhatsAppNumber(e164);
+  if (phoneError) {
+    return NextResponse.json({ ok: false, error: phoneError }, { status: 400 });
+  }
+
+  const verification = await verifyPhone(e164);
+  if (verification.status === "invalid") {
+    return NextResponse.json(
+      { ok: false, error: "Enter a valid WhatsApp number, e.g. +62 812 3456 7890" },
+      { status: 400 },
+    );
+  }
+  if (verification.status === "skipped") {
+    console.warn("[booking] phone verification skipped:", verification.reason);
+  }
+
   const data: BookingFormData = {
     firstName: body.firstName.trim(),
     lastName: body.lastName.trim(),
-    whatsapp: body.whatsapp.trim(),
+    whatsapp: e164,
     address: body.address.trim(),
     pickupDate: body.pickupDate.trim(),
     returnDate: body.returnDate.trim(),
