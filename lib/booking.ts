@@ -1,3 +1,4 @@
+import { isIsoDateBefore, isIsoDateInPast } from "@/lib/dates";
 import { normalizeToE164, validateWhatsAppNumber } from "@/lib/phone";
 
 export type BookingFormData = {
@@ -43,6 +44,10 @@ export function validateBookingFormData(data: BookingFormData): BookingFieldErro
   if (phoneError === "required") return "phoneRequired";
   if (phoneError) return "phoneInvalid";
   if (!data.pickupDate) return "pickupDate";
+  if (isIsoDateInPast(data.pickupDate)) return "pickupPast";
+  if (data.returnDate && isIsoDateBefore(data.returnDate, data.pickupDate)) {
+    return "returnBeforePickup";
+  }
   if (!data.bike) return "bike";
   if (data.firstName.length > 80 || data.lastName.length > 80) return "nameTooLong";
   if (data.address.length > 300) return "addressTooLong";

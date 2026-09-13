@@ -558,3 +558,46 @@
     animation: none;
   }
 }
+
+.date-picker-popover {
+  --rdp-accent-color: #16634b;
+  --rdp-accent-background-color: rgba(22, 99, 75, 0.25);
+  --rdp-day-height: 2.15rem;
+  --rdp-day-width: 2.15rem;
+  --rdp-day_button-height: 2.15rem;
+  --rdp-day_button-width: 2.15rem;
+  --rdp-nav-height: 2rem;
+  color: #f0ece4;
+}
+
+.date-picker-popover .rdp-root {
+  --rdp-accent-color: #16634b;
+  margin: 0;
+}
+
+.date-picker-popover .rdp-weekday,
+.date-picker-popover .rdp-month_caption {
+  color: rgba(240, 236, 228, 0.7);
+}
+
+.date-picker-popover .rdp-day_button {
+  color: #f0ece4;
+}
+
+.date-picker-popover .rdp-today:not(.rdp-selected) .rdp-day_button {
+  color: #e8b84b;
+}
+
+.date-picker-popover .rdp-selected .rdp-day_button {
+  background: #0b3d2e;
+  border-color: #16634b;
+}
+
+@media (max-width: 640px) {
+  .date-picker-popover {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}

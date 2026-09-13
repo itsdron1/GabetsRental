@@ -247,6 +247,7 @@
     "countryCode": "Country calling code",
     "searchCountry": "Search country",
     "phonePlaceholder": "812 3456 7890",
+    "datePlaceholder": "Select a date",
     "submit": "Send Booking Request →",
     "submitAgain": "Send Another Request →",
     "sending": "Sending...",

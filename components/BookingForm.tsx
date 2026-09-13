@@ -3,6 +3,7 @@
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { parseBookingFormData, validateBookingFormData } from "@/lib/booking";
+import DatePickerField from "@/components/DatePickerField";
 import WhatsAppPhoneField from "@/components/WhatsAppPhoneField";
 import { BOOKING_SUBMIT_DELAY_MS, wait } from "@/lib/booking-submit";
 import { bikes } from "@/lib/data";
@@ -31,6 +32,7 @@ export default function BookingForm({
   const locale = useLocale() as AppLocale;
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [pickupIso, setPickupIso] = useState("");
   const abortRef = useRef<AbortController | null>(null);
 
   const fieldId = (name: string) => `${idPrefix}-${name}`;
@@ -197,35 +199,19 @@ export default function BookingForm({
       </div>
 
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor={fieldId("pickupDate")}
-            className="text-xs font-medium tracking-widest text-muted uppercase"
-          >
-            {t("pickupDate")}
-          </label>
-          <input
-            id={fieldId("pickupDate")}
-            name="pickupDate"
-            type="date"
-            required
-            className="input-field"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor={fieldId("returnDate")}
-            className="text-xs font-medium tracking-widest text-muted uppercase"
-          >
-            {t("returnDate")}
-          </label>
-          <input
-            id={fieldId("returnDate")}
-            name="returnDate"
-            type="date"
-            className="input-field"
-          />
-        </div>
+        <DatePickerField
+          id={fieldId("pickupDate")}
+          name="pickupDate"
+          label={t("pickupDate")}
+          required
+          onIsoChange={setPickupIso}
+        />
+        <DatePickerField
+          id={fieldId("returnDate")}
+          name="returnDate"
+          label={t("returnDate")}
+          minIso={pickupIso || undefined}
+        />
       </div>
 
       <div className="mt-4 flex flex-col gap-2">
