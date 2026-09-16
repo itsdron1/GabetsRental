@@ -230,10 +230,8 @@
       "Helmet & lock included in every rental",
       "Island-wide delivery available"
     ],
-    "firstName": "First Name",
-    "lastName": "Last Name",
+    "firstName": "Name",
     "firstNamePlaceholder": "John",
-    "lastNamePlaceholder": "Doe",
     "address": "Delivery Address / Villa / Hotel",
     "addressPlaceholder": "Jl. Batu Bolong No. 99, Canggu",
     "pickupDate": "Pick-up Date",

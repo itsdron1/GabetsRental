@@ -230,10 +230,8 @@
       "Helm dan gembok di setiap sewa",
       "Antar ke seluruh pulau"
     ],
-    "firstName": "Nama depan",
-    "lastName": "Nama belakang",
+    "firstName": "Nama",
     "firstNamePlaceholder": "Budi",
-    "lastNamePlaceholder": "Santoso",
     "address": "Alamat antar / villa / hotel",
     "addressPlaceholder": "Jl. Batu Bolong No. 99, Canggu",
     "pickupDate": "Tanggal ambil",

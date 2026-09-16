@@ -44,7 +44,7 @@ export default function BookingForm({
   }, []);
 
   const bookingWhatsAppMessage = (data: ReturnType<typeof parseBookingFormData>) => {
-    const name = [data.firstName, data.lastName].filter(Boolean).join(" ");
+    const name = data.firstName;
     const lines = [
       tCommon("bookingWhatsappTitle"),
       "",
@@ -141,40 +141,22 @@ export default function BookingForm({
           : "rounded-2xl border border-border bg-glass p-8 backdrop-blur-xl md:p-10"
       }
     >
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor={fieldId("firstName")}
-            className="text-xs font-medium tracking-widest text-muted uppercase"
-          >
-            {t("firstName")}
-          </label>
-          <input
-            id={fieldId("firstName")}
-            name="firstName"
-            type="text"
-            required
-            autoComplete="given-name"
-            placeholder={t("firstNamePlaceholder")}
-            className="input-field"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor={fieldId("lastName")}
-            className="text-xs font-medium tracking-widest text-muted uppercase"
-          >
-            {t("lastName")}
-          </label>
-          <input
-            id={fieldId("lastName")}
-            name="lastName"
-            type="text"
-            autoComplete="family-name"
-            placeholder={t("lastNamePlaceholder")}
-            className="input-field"
-          />
-        </div>
+      <div className="flex flex-col gap-2">
+        <label
+          htmlFor={fieldId("firstName")}
+          className="text-xs font-medium tracking-widest text-muted uppercase"
+        >
+          {t("firstName")}
+        </label>
+        <input
+          id={fieldId("firstName")}
+          name="firstName"
+          type="text"
+          required
+          autoComplete="name"
+          placeholder={t("firstNamePlaceholder")}
+          className="input-field"
+        />
       </div>
 
       <div className="mt-4">

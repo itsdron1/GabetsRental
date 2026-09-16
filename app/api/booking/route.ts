@@ -15,7 +15,6 @@ function isBookingPayload(body: unknown): body is BookingFormData {
   const b = body as Record<string, unknown>;
   return (
     typeof b.firstName === "string" &&
-    typeof b.lastName === "string" &&
     typeof b.whatsapp === "string" &&
     typeof b.address === "string" &&
     typeof b.pickupDate === "string" &&
@@ -37,7 +36,7 @@ async function sendBookingEmail(data: BookingFormData): Promise<void> {
 
   const to = process.env.BOOKING_NOTIFY_EMAIL ?? CONTACT_EMAIL;
   const from = process.env.SMTP_FROM ?? user;
-  const name = [data.firstName, data.lastName].filter(Boolean).join(" ");
+  const name = data.firstName;
 
   const transporter = nodemailer.createTransport({
     host,
@@ -90,7 +89,6 @@ export async function POST(request: Request) {
 
   const data: BookingFormData = {
     firstName: body.firstName.trim(),
-    lastName: body.lastName.trim(),
     whatsapp: e164,
     address: body.address.trim(),
     pickupDate: body.pickupDate.trim(),

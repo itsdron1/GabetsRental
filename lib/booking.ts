@@ -4,7 +4,6 @@ import { normalizeToE164, validateWhatsAppNumber } from "@/lib/phone";
 
 export type BookingFormData = {
   firstName: string;
-  lastName: string;
   whatsapp: string;
   address: string;
   pickupDate: string;
@@ -22,7 +21,6 @@ export function parseBookingFormData(formData: FormData): BookingFormData {
   const rawWhatsapp = String(formData.get("whatsapp") ?? "").trim();
   return {
     firstName: String(formData.get("firstName") ?? "").trim(),
-    lastName: String(formData.get("lastName") ?? "").trim(),
     whatsapp: normalizeToE164(rawWhatsapp) ?? rawWhatsapp,
     address: String(formData.get("address") ?? "").trim(),
     pickupDate: String(formData.get("pickupDate") ?? "").trim(),
@@ -55,14 +53,14 @@ export function validateBookingFormData(data: BookingFormData): BookingFieldErro
     return "returnBeforePickup";
   }
   if (!data.bike) return "bike";
-  if (data.firstName.length > 80 || data.lastName.length > 80) return "nameTooLong";
+  if (data.firstName.length > 80) return "nameTooLong";
   if (data.address.length > 300) return "addressTooLong";
   if (data.specialRequests.length > 1000) return "requestsTooLong";
   return null;
 }
 
 export function formatBookingWhatsAppMessage(data: BookingFormData): string {
-  const name = [data.firstName, data.lastName].filter(Boolean).join(" ");
+  const name = data.firstName;
   const lines = [
     "🏍️ Booking Request — G-DRIVE Bike Rental Bali",
     "",
@@ -83,7 +81,7 @@ export function formatBookingWhatsAppMessage(data: BookingFormData): string {
 }
 
 export function formatBookingEmailText(data: BookingFormData): string {
-  const name = [data.firstName, data.lastName].filter(Boolean).join(" ");
+  const name = data.firstName;
   return [
     "New booking request — G-DRIVE Bike Rental Bali",
     "",

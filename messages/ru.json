@@ -231,9 +231,7 @@
       "Доставка по всему острову"
     ],
     "firstName": "Имя",
-    "lastName": "Фамилия",
     "firstNamePlaceholder": "Иван",
-    "lastNamePlaceholder": "Петров",
     "address": "Адрес доставки / вилла / отель",
     "addressPlaceholder": "Jl. Batu Bolong No. 99, Canggu",
     "pickupDate": "Дата выдачи",
