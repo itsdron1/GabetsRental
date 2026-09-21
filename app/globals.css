@@ -269,6 +269,144 @@
     @apply border-brand-tint bg-brand-tint text-cream shadow-[0_4px_20px_rgba(11,61,46,0.45)];
   }
 
+  .fleet-specs-toggle {
+    @apply flex w-full items-center justify-between gap-2 rounded-md px-1 py-2 text-left text-[0.72rem] font-semibold tracking-widest text-cream/80 uppercase;
+  }
+
+  .fleet-specs-toggle:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-tint;
+  }
+
+  .fleet-specs-arrow {
+    transition: transform 200ms var(--ease-smooth);
+  }
+
+  .fleet-specs-arrow.is-open {
+    transform: rotate(180deg);
+  }
+
+  .fleet-specs-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 200ms var(--ease-smooth);
+  }
+
+  .fleet-specs-panel.is-open {
+    grid-template-rows: 1fr;
+  }
+
+  .fleet-specs-panel-inner {
+    overflow: hidden;
+  }
+
+  .fleet-specs-grid {
+    @apply mt-3 grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2;
+  }
+
+  .fleet-spec-row {
+    @apply grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] items-start gap-3 text-[0.78rem] leading-snug;
+  }
+
+  .fleet-spec-row dt {
+    @apply text-muted;
+  }
+
+  .fleet-spec-row dd {
+    @apply min-w-0 text-right text-cream/90;
+  }
+
+  .fleet-spec-note {
+    @apply mt-0.5 block text-[0.68rem] font-normal tracking-normal text-muted normal-case;
+  }
+
+  .fleet-spec-chips {
+    @apply mt-3 flex flex-wrap gap-1.5;
+  }
+
+  .fleet-spec-chips li {
+    @apply rounded-full border border-border bg-white/[0.04] px-2.5 py-1 text-[0.68rem] text-cream/80;
+  }
+
+  .fleet-spec-verify {
+    @apply mt-3 text-[0.68rem] leading-relaxed text-muted;
+  }
+
+  .fleet-difficulty-block {
+    @apply mt-4 border-t border-border/70 pt-3;
+  }
+
+  .fleet-difficulty-row {
+    @apply flex flex-wrap items-center gap-2.5;
+  }
+
+  .fleet-difficulty-meter {
+    @apply flex gap-1;
+  }
+
+  .fleet-difficulty-seg {
+    @apply h-1.5 w-7 rounded-full bg-cream/15;
+  }
+
+  .fleet-difficulty-seg.is-on[data-level="1"] {
+    background: #3d8f63;
+  }
+
+  .fleet-difficulty-seg.is-on[data-level="2"] {
+    background: #7f9a4a;
+  }
+
+  .fleet-difficulty-seg.is-on[data-level="3"] {
+    background: #c4a24a;
+  }
+
+  .fleet-difficulty-seg.is-on[data-level="4"] {
+    background: #b45c4c;
+  }
+
+  .fleet-difficulty-label {
+    @apply text-[0.75rem] text-cream/85;
+  }
+
+  .fleet-diff-help {
+    @apply relative;
+  }
+
+  .fleet-diff-help-btn {
+    @apply flex h-5 w-5 items-center justify-center rounded-full border border-border text-[0.68rem] font-semibold text-muted;
+  }
+
+  .fleet-diff-help-btn:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-tint;
+  }
+
+  .fleet-diff-tip {
+    @apply pointer-events-none invisible absolute bottom-[calc(100%+8px)] left-1/2 z-20 w-[min(18rem,calc(100vw-2.5rem))] -translate-x-1/2 rounded-lg border border-border bg-surface px-3 py-2 text-left text-[0.68rem] leading-relaxed font-normal tracking-normal text-cream/80 opacity-0 shadow-[0_12px_32px_rgba(0,0,0,0.45)] normal-case;
+  }
+
+  .fleet-diff-help:hover .fleet-diff-tip,
+  .fleet-diff-help:focus-within .fleet-diff-tip {
+    @apply visible opacity-100;
+  }
+
+  .fleet-rider-note {
+    @apply mt-2 text-[0.72rem] leading-relaxed text-muted;
+  }
+
+  .fleet-pricing {
+    @apply mt-3 space-y-1 text-[0.78rem] text-cream/85;
+  }
+
+  .fleet-rate-request {
+    @apply mt-1 inline-block text-[0.72rem] leading-relaxed text-gold underline-offset-2 transition-colors hover:text-cream hover:underline;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fleet-specs-arrow,
+    .fleet-specs-panel {
+      transition: none;
+    }
+  }
+
   .stat-item + .stat-item::before {
     content: "";
     @apply absolute top-[10%] bottom-[10%] left-0 w-px bg-border;

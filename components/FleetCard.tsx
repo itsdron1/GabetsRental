@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import type { Bike } from "@/lib/data";
 import { useBooking } from "@/components/BookingContext";
+import FleetSpecs from "@/components/FleetSpecs";
 import { getBikeImagePath } from "@/lib/bike-images";
 import { formatBikePriceCompact, formatIdrNumber } from "@/lib/format";
 import { trackBookClick } from "@/lib/analytics";
@@ -36,9 +37,10 @@ export default function FleetCard({ bike }: FleetCardProps) {
   const { openBooking } = useBooking();
   const tagline = String(t.raw(`taglines.${bike.id}` as never) ?? bike.tagline);
   const badge = bike.badge ? String(t.raw(`badges.${bike.badge}` as never) ?? bike.badge) : null;
+  const showTagline = Boolean(tagline) && tagline !== bike.name;
 
   return (
-    <article className="fleet-card group flex h-full flex-col overflow-hidden rounded-2xl">
+    <article className="fleet-card group flex h-full flex-col rounded-2xl">
       <div className="fleet-card-media relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-t-2xl bg-[#0f1419]">
         <Image
           src={getBikeImagePath(bike)}
@@ -65,7 +67,7 @@ export default function FleetCard({ bike }: FleetCardProps) {
         <h3 className="font-head text-[1.05rem] leading-snug font-bold text-cream md:text-lg">
           {bike.name}
         </h3>
-        <p className="mt-1.5 text-xs text-muted">{tagline}</p>
+        {showTagline ? <p className="mt-1.5 text-xs text-muted">{tagline}</p> : null}
 
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-border/80 pt-4">
           <div className="min-w-0">
@@ -87,6 +89,7 @@ export default function FleetCard({ bike }: FleetCardProps) {
             {t("book")}
           </button>
         </div>
+        <FleetSpecs bike={bike} />
       </div>
     </article>
   );

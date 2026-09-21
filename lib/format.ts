@@ -12,6 +12,14 @@ export function formatTourFromPrice(startingPrice: string, locale: AppLocale): s
   return formatIdrNumber(parsePriceIdr(startingPrice), locale);
 }
 
+export function formatSpecNumber(value: number, locale: AppLocale): string {
+  const fraction = Number.isInteger(value) ? 0 : 1;
+  return new Intl.NumberFormat(BCP47[locale], {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: fraction,
+  }).format(value);
+}
+
 export function formatBikePriceCompact(amount: number): string {
   if (amount >= 1_000_000) {
     const millions = amount / 1_000_000;
