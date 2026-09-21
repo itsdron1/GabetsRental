@@ -1,3 +1,12 @@
+import { buildBikes } from "@/lib/fleet";
+import type {
+  BikeAbsNote,
+  BikeDifficulty,
+  BikeEngineNote,
+  BikePricing,
+  BikeSpecs,
+} from "@/lib/fleet";
+
 export type BikeCategory =
   | "cruiser"
   | "sport"
@@ -6,7 +15,7 @@ export type BikeCategory =
   | "scooter"
   | "cars";
 
-export type Bike = {
+export type CatalogVehicle = {
   id: string;
   name: string;
   category: BikeCategory;
@@ -15,6 +24,26 @@ export type Bike = {
   badge?: string;
   tagline: string;
 };
+
+export type Bike = CatalogVehicle & {
+  specs?: BikeSpecs;
+  difficulty?: BikeDifficulty;
+  pricing?: BikePricing;
+  needsVerification?: boolean;
+  absNote?: BikeAbsNote;
+  engineNote?: BikeEngineNote;
+  highlights?: string[];
+  hasRiderNote?: boolean;
+};
+
+export type {
+  BikeAbsNote,
+  BikeDifficulty,
+  BikeEngineNote,
+  BikePricing,
+  BikePricingTier,
+  BikeSpecs,
+} from "@/lib/fleet";
 
 export function formatBikePrice(amount: number): string {
   if (amount >= 1_000_000) {
@@ -40,7 +69,7 @@ export const filterTabs = [
 
 export type FilterTabId = (typeof filterTabs)[number]["id"];
 
-export const bikes: Bike[] = [
+export const vehicleCatalog: CatalogVehicle[] = [
   {
     id: "harley-heritage-softail-classic",
     name: "Harley-Davidson Heritage Softail Classic",
@@ -515,6 +544,8 @@ export const bikes: Bike[] = [
     tagline: "Compact turbo SUV",
   },
 ];
+
+export const bikes: Bike[] = buildBikes(vehicleCatalog);
 
 export type DeliveryZone = {
   name: string;

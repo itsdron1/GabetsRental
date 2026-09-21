@@ -1,0 +1,1579 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "generatedFor": "gdrivebikerentalbali.com",
+    "date": "2026-09-21",
+    "currency": "IDR",
+    "notes": [
+      "Specs are manufacturer figures for the base production model. Kerb (wet) weight is used throughout unless stated otherwise.",
+      "Items with needsVerification=true must be confirmed by the owner before publishing: custom builds, ambiguous model names, or figures that could not be verified from a reliable source.",
+      "difficulty is an advisory rider-skill rating, not a legal or safety guarantee. Scale is defined in _difficultyScale."
+    ],
+    "_difficultyScale": {
+      "1": {
+        "key": "beginner",
+        "en": "Beginner friendly",
+        "criteria": "Up to ~180cc, light, forgiving power delivery or automatic transmission. Fine for riders with basic scooter/motorcycle experience."
+      },
+      "2": {
+        "key": "intermediate",
+        "en": "Intermediate",
+        "criteria": "~180-450cc, moderate weight and power. Requires confident everyday riding experience."
+      },
+      "3": {
+        "key": "advanced",
+        "en": "Advanced",
+        "criteria": "~450-900cc or heavy cruiser over 200kg. Requires solid experience with large-capacity motorcycles."
+      },
+      "4": {
+        "key": "expert",
+        "en": "Expert only",
+        "criteria": "900cc+, supersport, or heavyweight cruiser over 300kg. Experienced riders only."
+      }
+    },
+    "_pricingModel": {
+      "description": "Each bike has a pricing object. day = price for a single day. tiers = optional array of per-day volume tiers. week = optional flat weekly price. month = monthly price. A value of null, or an absent week/month key, means 'on request' and MUST be rendered as a localized 'Ask us for the weekly / monthly rate' line — never as 0, '-', or an empty field.",
+      "tierShape": {
+        "minDays": "number",
+        "maxDays": "number|null",
+        "pricePerDay": "number"
+      },
+      "onlyTheseFourHaveTierPricing": [
+        "kawasaki-klx230",
+        "qj-motor-srv-250-at",
+        "kawasaki-ninja-250-abs-custom",
+        "yamaha-nmax-155"
+      ],
+      "harleyFatBoyNote": "Day rate 2,500,000 IDR only; weekly and monthly are on request.",
+      "tierBoundaryRule": "Confirmed by the owner: the cheaper tier starts ON day 5, not day 6. So 2-4 days = mid tier, 5+ days = low tier.",
+      "absNullRule": "If specs.abs is null, the ABS row must be HIDDEN on that card — it means 'not confirmed', not 'no ABS'. Never render null as 'No'."
+    },
+    "researchPass": {
+      "date": "2026-09-21",
+      "summary": "Second pass: base/original models of the 21 flagged bikes researched online. 14 listings now carry source-verified figures (see sourceVerified on each). The rest depend on the specific physical unit (model year, trim, or custom build) and can only be confirmed by the owner.",
+      "sources": [
+        "en.wikipedia.org/wiki/Yamaha_Scorpio_Z",
+        "id.wikipedia.org/wiki/Suzuki_Thunder",
+        "tirto.id (Kawasaki W175)",
+        "cycleworld.com (Kawasaki KLX230 S)",
+        "autoevolution.com (QJMotor SRV 600 V2, SRV 250 A)",
+        "oto.com (QJMotor Tourino 250 DX)",
+        "arenamotosikal.com (QJMotor SRV 200 MT)",
+        "carmudi.co.id (Vespa Sprint 150 i-Get)",
+        "zigwheels.co.id (SM Sport V16)",
+        "en.wikipedia.org/wiki/Yamaha_NMAX"
+      ]
+    },
+    "scopeDecisions": {
+      "date": "2026-09-21",
+      "inScope": [
+        "booking form in modal + 2s submit delay + phone validation",
+        "bike spec panel + difficulty",
+        "price updates + 3 new bikes + catalogue data fixes"
+      ],
+      "outOfScope": [
+        "ru/id localisation (postponed)",
+        "Telegram notification and invisible antibot (postponed)",
+        "cars category — do not touch the 8 car listings at all"
+      ]
+    },
+    "ownerAnswers": {
+      "date": "2026-09-21",
+      "note": "19 verification questions answered by the owner. Only the three Yamaha Scorpio customs remain open (base model unclear)."
+    },
+    "imagesDelivered": {
+      "date": "2026-09-21",
+      "files": [
+        "public/bikes/harley-davidson-fat-boy.webp",
+        "public/bikes/qj-motor-srv-250-at.webp",
+        "public/bikes/yamaha-nmax-155.webp"
+      ],
+      "format": "1152x864 WebP, 4:3 — matches the existing catalogue convention (cards use aspect-ratio 4/3 with object-fit: cover)."
+    },
+    "siteStateCheck": {
+      "date": "2026-09-21",
+      "alreadyLive": [
+        "i18n EN/RU/ID with correct hreflang and per-locale canonical",
+        "phone validation (libphonenumber-js)",
+        "custom date picker (react-day-picker + date-fns), native date inputs gone",
+        "booking modal"
+      ],
+      "stillMissing": [
+        "spec panel on bike cards (0 toggles found)",
+        "the 3 new bikes",
+        "price tiers",
+        "renames",
+        "category fixes",
+        "R3 'sport triple' copy error"
+      ]
+    }
+  },
+  "dataIssuesFound": [
+    {
+      "bikeId": "yamaha-r3-320",
+      "issue": "Site description says 'Blue ABS sport triple'. The Yamaha R3 is a parallel TWIN, not a triple. Copy error — must be corrected.",
+      "suggestedFix": "Change tagline to 'Twin-cylinder sport, A2-friendly' or similar."
+    },
+    {
+      "bikeId": "yamaha-byson-f1",
+      "issue": "Listed under ENDURO category, but the Byson (FZ150i) is a street naked bike, not an enduro/off-road machine.",
+      "suggestedFix": "Move to a Street/Naked category, or to Sport."
+    },
+    {
+      "bikeId": "royal-enfield-500-blue",
+      "issue": "Possible duplicate of 'Royal Enfield Classic 500' — same engine, same price (900,000), differing only by colour.",
+      "suggestedFix": "Owner to confirm whether these are two physical bikes. If it is one bike, merge into a single listing with a colour option.",
+      "status": "RESOLVED — owner confirmed two separate physical bikes, same model, different styling. Keep both listings."
+    },
+    {
+      "bikeId": "qjmotor-srv-600",
+      "issue": "Listed as 'SRV 600 V ABS V4'. QJMotor does not produce a V4 in this class — the SRV 550/600 family uses a V-twin. Displacement and configuration must be confirmed from the bike's registration document.",
+      "suggestedFix": "Owner to check the STNK / engine plate and correct the model name.",
+      "status": "RESOLVED — 550cc V-twin, 6-speed manual. Renamed, 'V4' removed."
+    },
+    {
+      "bikeId": "royal-enfield-350-army-green",
+      "issue": "Ambiguous name — Royal Enfield sells several 350s (Classic 350, Meteor 350, Hunter 350, Bullet 350) with different weights and seat heights. Specs below assume Classic 350 (J-series).",
+      "suggestedFix": "Owner to confirm exact model.",
+      "status": "RESOLVED — Classic 350."
+    },
+    {
+      "bikeId": "suzuki-thunder-150-tracker",
+      "issue": "Suzuki never sold a 'Thunder 150' in Indonesia — the line was Thunder 125 (2004-2011) and Thunder 250 (1999-2005). The current listing name is factually wrong.",
+      "suggestedFix": "Check the STNK and rename to Thunder 125 or Thunder 250, then use the matching spec set.",
+      "status": "RESOLVED — base is a bored-out Thunder 125. Both listings renamed to 'Thunder 125'."
+    },
+    {
+      "bikeId": "qjmotor-srv-200-mt",
+      "issue": "Listed under ADVENTURE/TOURING but the SRV 200 MT is a cruiser (197cc OHV, 720mm seat, cruiser ergonomics).",
+      "suggestedFix": "Move to the cruiser category and recalculate the filter counts.",
+      "status": "Category fix still to apply in code (cruiser, not adventure). ABS confirmed present."
+    },
+    {
+      "bikeId": "qjmotor-srv-600",
+      "issue": "CONFIRMED: the SRV 600 V is a 550cc V-TWIN, not a V4. The site name 'SRV 600 V ABS V4' is wrong.",
+      "suggestedFix": "Rename to 'QJMotor SRV 600 V ABS' and publish the verified 550cc V-twin specs.",
+      "status": "RESOLVED — 550cc V-twin, 6-speed manual. Renamed, 'V4' removed."
+    },
+    {
+      "bikeId": "vespa-sprint",
+      "issue": "Vespa Sprint and Primavera 150 have FRONT-WHEEL-ONLY ABS (rear is a drum brake).",
+      "suggestedFix": "If ABS is mentioned in marketing copy, state 'front ABS' rather than implying a dual-channel system."
+    }
+  ],
+  "bikesNeedingPhotos": [],
+  "bikes": [
+    {
+      "id": "harley-heritage-softail-classic",
+      "name": "Harley-Davidson Heritage Softail Classic",
+      "category": "cruiser",
+      "badge": "flagship",
+      "specs": {
+        "engineType": "V-twin, air-cooled, Twin Cam 103B",
+        "displacementCc": 1690,
+        "powerHp": 75,
+        "powerRpm": 5010,
+        "torqueNm": 134,
+        "torqueRpm": 3000,
+        "weightKg": 345,
+        "seatHeightMm": 690,
+        "transmission": "6-speed Cruise Drive manual, belt drive",
+        "fuelCapacityL": 18.9,
+        "abs": true
+      },
+      "difficulty": 4,
+      "pricing": {
+        "day": 2500000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed pre-2018 unit. specs.motorcycles (2012-2017 FLSTC Twin Cam 103B): 1690cc, ~75 hp @ 5010 rpm (H-D does not publish hp officially), 134 Nm @ 3000 rpm, 345 kg running weight, 690 mm seat."
+    },
+    {
+      "id": "harley-forty-eight",
+      "name": "Harley-Davidson Forty-Eight",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "V-twin, air-cooled, Evolution 1200",
+        "displacementCc": 1202,
+        "powerHp": 67,
+        "powerRpm": 6000,
+        "torqueNm": 96,
+        "torqueRpm": 3500,
+        "weightKg": 252,
+        "seatHeightMm": 710,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 7.9,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 2200000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "harley-sportster-iron-883",
+      "name": "Harley-Davidson Sportster Iron 883",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "V-twin, air-cooled, Evolution 883",
+        "displacementCc": 883,
+        "powerHp": 50,
+        "powerRpm": 6000,
+        "torqueNm": 73.6,
+        "torqueRpm": 3750,
+        "weightKg": 256,
+        "seatHeightMm": 760,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 12.5,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 2000000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "harley-street-500",
+      "name": "Harley-Davidson Street 500",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "V-twin, liquid-cooled, Revolution X",
+        "displacementCc": 494,
+        "powerHp": 35,
+        "powerRpm": 8000,
+        "torqueNm": 40,
+        "torqueRpm": 3500,
+        "weightKg": 234,
+        "seatHeightMm": 720,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 13.1,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 1400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "harley-davidson-fat-boy",
+      "name": "Harley-Davidson Fat Boy",
+      "category": "cruiser",
+      "badge": "new",
+      "isNew": true,
+      "specs": {
+        "engineType": "V-twin, air-cooled, Twin Cam 103",
+        "displacementCc": 1690,
+        "powerHp": 75,
+        "powerRpm": 5010,
+        "torqueNm": 136,
+        "torqueRpm": 3000,
+        "weightKg": 331,
+        "seatHeightMm": 671,
+        "transmission": "6-speed Cruise Drive manual, belt drive",
+        "fuelCapacityL": 18.9,
+        "abs": true
+      },
+      "difficulty": 4,
+      "pricing": {
+        "day": 2500000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": true,
+      "verifyNote": "Specs confirmed.",
+      "sourceVerified": "Owner confirmed pre-2018 unit. motorcycle.com (2016 Fat Boy): 1689.5cc, 136 Nm @ 3000 rpm, 331 kg wet, 670.6 mm seat, ABS standard.",
+      "image": "/bikes/harley-davidson-fat-boy.webp",
+      "imageProvided": true
+    },
+    {
+      "id": "honda-rebel-500",
+      "name": "Honda Rebel 500",
+      "category": "cruiser",
+      "badge": "popular",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 471,
+        "powerHp": 45.5,
+        "powerRpm": 8500,
+        "torqueNm": 43.3,
+        "torqueRpm": 6000,
+        "weightKg": 191,
+        "seatHeightMm": 690,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 11.2,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 1200000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "royal-enfield-350-army-green",
+      "name": "Royal Enfield Classic 350 Army Green",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, air/oil-cooled, J-series",
+        "displacementCc": 349,
+        "powerHp": 20.2,
+        "powerRpm": 6100,
+        "torqueNm": 27,
+        "torqueRpm": 4000,
+        "weightKg": 195,
+        "seatHeightMm": 805,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 13,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 700000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed: Classic 350. Figures are for the J-series Classic 350 (2021+): 349cc, 20.2 hp @ 6100 rpm, 27 Nm @ 4000 rpm, 195 kg, 805 mm seat."
+    },
+    {
+      "id": "royal-enfield-super-meteor-650",
+      "name": "Royal Enfield Super Meteor 650 ABS",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Parallel-twin, air/oil-cooled",
+        "displacementCc": 648,
+        "powerHp": 47,
+        "powerRpm": 7250,
+        "torqueNm": 52.3,
+        "torqueRpm": 5650,
+        "weightKg": 241,
+        "seatHeightMm": 740,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 15.7,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 1200000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "sm-sport-v16",
+      "name": "SM Sport V16",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "V-twin, air-cooled, EFI",
+        "displacementCc": 250,
+        "powerHp": 19,
+        "powerRpm": 7500,
+        "torqueNm": 19,
+        "torqueRpm": 6000,
+        "weightKg": 165,
+        "seatHeightMm": 700,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 14,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 550000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "sm-sport-v16-custom-bobber",
+      "name": "SM Sport V16 Custom Bobber",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "V-twin, air-cooled, EFI",
+        "displacementCc": 250,
+        "powerHp": 19,
+        "powerRpm": 7500,
+        "torqueNm": 19,
+        "torqueRpm": 6000,
+        "weightKg": 165,
+        "seatHeightMm": 700,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 14,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 600000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": true,
+      "verifyNote": "Base confirmed. Only the post-conversion seat height and weight are unmeasured — publish base figures with the 'custom build' note until measured.",
+      "sourceVerified": "Owner confirmed base: SM Sport V16 250. Engine figures are the stock V16 250 numbers."
+    },
+    {
+      "id": "sm-sport-v16-rusty",
+      "name": "SM Sport V16 Rusty",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "V-twin, air-cooled, EFI",
+        "displacementCc": 250,
+        "powerHp": 19,
+        "powerRpm": 7500,
+        "torqueNm": 19,
+        "torqueRpm": 6000,
+        "weightKg": 165,
+        "seatHeightMm": 700,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 14,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 550000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": true,
+      "verifyNote": "Base confirmed. Only the post-conversion seat height and weight are unmeasured — publish base figures with the 'custom build' note until measured.",
+      "sourceVerified": "Owner confirmed base: SM Sport V16 250. Engine figures are the stock V16 250 numbers."
+    },
+    {
+      "id": "tvs-ronin-225",
+      "name": "TVS Ronin Custom Triumph Style 225 ABS",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, oil-cooled",
+        "displacementCc": 226,
+        "powerHp": 20.4,
+        "powerRpm": 7750,
+        "torqueNm": 19.9,
+        "torqueRpm": 3750,
+        "weightKg": 160,
+        "seatHeightMm": 795,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 14,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 550000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "yamaha-scorpio-cafe-racer",
+      "name": "Yamaha Scorpio Café Racer",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC 2-valve",
+        "displacementCc": 225,
+        "powerHp": 18,
+        "powerRpm": 8000,
+        "torqueNm": 17.5,
+        "torqueRpm": 6500,
+        "weightKg": 136,
+        "seatHeightMm": 770,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 12,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": true,
+      "verifyNote": "Base-model figures confirmed. Still confirm seat height and weight AFTER the custom conversion — cafe-racer and tracker seats change both.",
+      "sourceVerified": "Base model Yamaha Scorpio Z (2006-2014) confirmed via Wikipedia. Facelift 54D version weighs 140 kg and has a 13.4 L tank."
+    },
+    {
+      "id": "yamaha-scorpio-tracker-black",
+      "name": "Yamaha Scorpio Tracker Black",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC 2-valve",
+        "displacementCc": 225,
+        "powerHp": 18,
+        "powerRpm": 8000,
+        "torqueNm": 17.5,
+        "torqueRpm": 6500,
+        "weightKg": 136,
+        "seatHeightMm": 770,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 12,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": true,
+      "verifyNote": "Base-model figures confirmed. Still confirm seat height and weight AFTER the custom conversion — cafe-racer and tracker seats change both.",
+      "sourceVerified": "Base model Yamaha Scorpio Z (2006-2014) confirmed via Wikipedia. Facelift 54D version weighs 140 kg and has a 13.4 L tank."
+    },
+    {
+      "id": "yamaha-scorpio-tracker-brown",
+      "name": "Yamaha Scorpio Tracker Brown",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC 2-valve",
+        "displacementCc": 225,
+        "powerHp": 18,
+        "powerRpm": 8000,
+        "torqueNm": 17.5,
+        "torqueRpm": 6500,
+        "weightKg": 136,
+        "seatHeightMm": 770,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 12,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": true,
+      "verifyNote": "Base-model figures confirmed. Still confirm seat height and weight AFTER the custom conversion — cafe-racer and tracker seats change both.",
+      "sourceVerified": "Base model Yamaha Scorpio Z (2006-2014) confirmed via Wikipedia. Facelift 54D version weighs 140 kg and has a 13.4 L tank."
+    },
+    {
+      "id": "yamaha-xsr155",
+      "name": "Yamaha XSR155",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled, VVA",
+        "displacementCc": 155,
+        "powerHp": 19.3,
+        "powerRpm": 10000,
+        "torqueNm": 14.7,
+        "torqueRpm": 8500,
+        "weightKg": 134,
+        "seatHeightMm": 810,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 10.4,
+        "abs": false
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "kawasaki-w175-gloss-abs-fi",
+      "name": "Kawasaki W175 Black Gloss ABS FI",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC 2-valve, fuel injected",
+        "displacementCc": 177,
+        "powerHp": 13,
+        "powerRpm": 7500,
+        "torqueNm": 13.3,
+        "torqueRpm": 6000,
+        "weightKg": 135,
+        "seatHeightMm": 775,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 12,
+        "abs": true
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 440000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed this is the fuel-injected ABS variant. Tirto.id / Kawasaki Indonesia figures.",
+      "absNote": "Front wheel only (single-channel ABS). Do not describe it as dual-channel."
+    },
+    {
+      "id": "kawasaki-w175-black",
+      "name": "Kawasaki W175 Black",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC 2-valve, carburettor",
+        "displacementCc": 177,
+        "powerHp": 13,
+        "powerRpm": 7500,
+        "torqueNm": 13.3,
+        "torqueRpm": 6000,
+        "weightKg": 135,
+        "seatHeightMm": 775,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 12,
+        "abs": false
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 350000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Tirto.id / Kawasaki Indonesia: 177cc, 13 PS @ 7500 rpm, 13.3 Nm @ 6000 rpm, 135 kg kerb (125 kg dry), 12 L tank. Newer W175 ABS and Street variants use fuel injection and SINGLE-CHANNEL ABS on the front wheel only."
+    },
+    {
+      "id": "yamaha-yzf-r6",
+      "name": "Yamaha YZF-R6",
+      "category": "sport",
+      "badge": "track-ready",
+      "specs": {
+        "engineType": "Inline-four, liquid-cooled",
+        "displacementCc": 599,
+        "powerHp": 118,
+        "powerRpm": 14500,
+        "torqueNm": 61.7,
+        "torqueRpm": 10500,
+        "weightKg": 190,
+        "seatHeightMm": 850,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 17,
+        "abs": true
+      },
+      "difficulty": 4,
+      "pricing": {
+        "day": 2000000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed 2020 model year — 2017+ generation, ABS standard. Figures are Yamaha factory specs."
+    },
+    {
+      "id": "ducati-monster-795",
+      "name": "Ducati Monster 795",
+      "category": "sport",
+      "specs": {
+        "engineType": "L-twin, air-cooled, Desmodromic",
+        "displacementCc": 803,
+        "powerHp": 87,
+        "powerRpm": 8250,
+        "torqueNm": 78,
+        "torqueRpm": 6250,
+        "weightKg": 185,
+        "seatHeightMm": 800,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 15,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 1500000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "kawasaki-z800",
+      "name": "Kawasaki Z800",
+      "category": "sport",
+      "specs": {
+        "engineType": "Inline-four, liquid-cooled",
+        "displacementCc": 806,
+        "powerHp": 113,
+        "powerRpm": 10200,
+        "torqueNm": 83,
+        "torqueRpm": 8000,
+        "weightKg": 231,
+        "seatHeightMm": 834,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 17,
+        "abs": true
+      },
+      "difficulty": 4,
+      "pricing": {
+        "day": 1500000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "kawasaki-z900",
+      "name": "Kawasaki Z900",
+      "category": "sport",
+      "badge": "new",
+      "specs": {
+        "engineType": "Inline-four, liquid-cooled",
+        "displacementCc": 948,
+        "powerHp": 125,
+        "powerRpm": 9500,
+        "torqueNm": 98.6,
+        "torqueRpm": 7700,
+        "weightKg": 212,
+        "seatHeightMm": 795,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 17,
+        "abs": true
+      },
+      "difficulty": 4,
+      "pricing": {
+        "day": 1900000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "kawasaki-zx-25r",
+      "name": "Kawasaki ZX-25R",
+      "category": "sport",
+      "specs": {
+        "engineType": "Inline-four, liquid-cooled",
+        "displacementCc": 249,
+        "powerHp": 50,
+        "powerRpm": 15500,
+        "torqueNm": 22.9,
+        "torqueRpm": 14500,
+        "weightKg": 184,
+        "seatHeightMm": 785,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 15,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 900000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "honda-cbr250rr-spqs",
+      "name": "Honda CBR250RR ABS SP QS",
+      "category": "sport",
+      "badge": "premium",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 250,
+        "powerHp": 41,
+        "powerRpm": 13000,
+        "torqueNm": 25,
+        "torqueRpm": 11000,
+        "weightKg": 168,
+        "seatHeightMm": 790,
+        "transmission": "6-speed manual with quickshifter",
+        "fuelCapacityL": 14.5,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 650000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "honda-cbr250rr-sp-abs",
+      "name": "Honda CBR250RR SP ABS",
+      "category": "sport",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 250,
+        "powerHp": 41,
+        "powerRpm": 13000,
+        "torqueNm": 25,
+        "torqueRpm": 11000,
+        "weightKg": 168,
+        "seatHeightMm": 790,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 14.5,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 600000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "kawasaki-ninja-250-abs-custom",
+      "name": "Kawasaki Ninja 250 ABS Custom",
+      "category": "sport",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 249,
+        "powerHp": 39,
+        "powerRpm": 12500,
+        "torqueNm": 23.5,
+        "torqueRpm": 10000,
+        "weightKg": 164,
+        "seatHeightMm": 795,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 14,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 600000,
+        "tiers": [
+          {
+            "minDays": 2,
+            "maxDays": 4,
+            "pricePerDay": 550000
+          },
+          {
+            "minDays": 5,
+            "maxDays": null,
+            "pricePerDay": 500000
+          }
+        ],
+        "month": 5500000
+      },
+      "needsVerification": false,
+      "pricingUpdated": true
+    },
+    {
+      "id": "kawasaki-z250sl-custom-black",
+      "name": "Kawasaki Z250SL Custom Black",
+      "category": "sport",
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled",
+        "displacementCc": 249,
+        "powerHp": 28,
+        "powerRpm": 9700,
+        "torqueNm": 22.6,
+        "torqueRpm": 8200,
+        "weightKg": 148,
+        "seatHeightMm": 785,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 11,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 500000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "qjmotor-srv-600",
+      "name": "QJMotor SRV 600 V ABS",
+      "category": "sport",
+      "specs": {
+        "engineType": "V-twin, liquid-cooled, DOHC 8-valve",
+        "displacementCc": 550,
+        "powerHp": 52,
+        "powerRpm": 8000,
+        "torqueNm": 53,
+        "torqueRpm": 6500,
+        "weightKg": 196,
+        "seatHeightMm": 706,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 15.9,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 1200000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed 6-speed manual (not the AMT). autoevolution: 550cc V-twin, 52 hp @ 8000 rpm, 53 Nm @ 6500 rpm, 196 kg, 706 mm seat, dual-wheel ABS."
+    },
+    {
+      "id": "yamaha-mt25",
+      "name": "Yamaha MT-25",
+      "category": "sport",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 249,
+        "powerHp": 36,
+        "powerRpm": 12000,
+        "torqueNm": 22.6,
+        "torqueRpm": 10000,
+        "weightKg": 165,
+        "seatHeightMm": 780,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 14,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 500000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "yamaha-r15m",
+      "name": "Yamaha R15M ABS QS Connected",
+      "category": "sport",
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled, VVA",
+        "displacementCc": 155,
+        "powerHp": 18.4,
+        "powerRpm": 10000,
+        "torqueNm": 14.2,
+        "torqueRpm": 8500,
+        "weightKg": 141,
+        "seatHeightMm": 815,
+        "transmission": "6-speed manual with quickshifter",
+        "fuelCapacityL": 11,
+        "abs": true
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 500000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "yamaha-r25-black-abs",
+      "name": "Yamaha R25 Black ABS",
+      "category": "sport",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 249,
+        "powerHp": 36,
+        "powerRpm": 12000,
+        "torqueNm": 22.6,
+        "torqueRpm": 10000,
+        "weightKg": 166,
+        "seatHeightMm": 780,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 14,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 600000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "yamaha-r3-320",
+      "name": "Yamaha R3 Blue ABS",
+      "category": "sport",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 321,
+        "powerHp": 42,
+        "powerRpm": 10750,
+        "torqueNm": 29.5,
+        "torqueRpm": 9000,
+        "weightKg": 169,
+        "seatHeightMm": 780,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 14,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 700000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "yamaha-xabre",
+      "name": "Yamaha Xabre",
+      "category": "sport",
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled",
+        "displacementCc": 150,
+        "powerHp": 16.6,
+        "powerRpm": 8500,
+        "torqueNm": 14.3,
+        "torqueRpm": 7500,
+        "weightKg": 134,
+        "seatHeightMm": 805,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 10.2,
+        "abs": false
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 350000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "bmw-f800gs",
+      "name": "BMW F800GS",
+      "category": "adventure",
+      "badge": "adventure",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 798,
+        "powerHp": 85,
+        "powerRpm": 7500,
+        "torqueNm": 83,
+        "torqueRpm": 5750,
+        "weightKg": 214,
+        "seatHeightMm": 880,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 16,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 2000000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "kawasaki-versys-650",
+      "name": "Kawasaki Versys 650",
+      "category": "adventure",
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 649,
+        "powerHp": 68,
+        "powerRpm": 8500,
+        "torqueNm": 64,
+        "torqueRpm": 7000,
+        "weightKg": 216,
+        "seatHeightMm": 845,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 21,
+        "abs": true
+      },
+      "difficulty": 3,
+      "pricing": {
+        "day": 1000000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "royal-enfield-himalayan-410",
+      "name": "Royal Enfield Himalayan 410",
+      "category": "adventure",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled",
+        "displacementCc": 411,
+        "powerHp": 24.3,
+        "powerRpm": 6500,
+        "torqueNm": 32,
+        "torqueRpm": 4250,
+        "weightKg": 199,
+        "seatHeightMm": 800,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 15,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 1000000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "royal-enfield-scram-411",
+      "name": "Royal Enfield Scram 411",
+      "category": "adventure",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled",
+        "displacementCc": 411,
+        "powerHp": 24.3,
+        "powerRpm": 6500,
+        "torqueNm": 32,
+        "torqueRpm": 4250,
+        "weightKg": 185,
+        "seatHeightMm": 795,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 15,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 1000000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "royal-enfield-classic-500",
+      "name": "Royal Enfield Classic 500",
+      "category": "adventure",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, UCE",
+        "displacementCc": 499,
+        "powerHp": 27.2,
+        "powerRpm": 5250,
+        "torqueNm": 41.3,
+        "torqueRpm": 4000,
+        "weightKg": 194,
+        "seatHeightMm": 800,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 13.5,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 900000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "royal-enfield-500-blue",
+      "name": "Royal Enfield 500 Blue",
+      "category": "adventure",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, UCE",
+        "displacementCc": 499,
+        "powerHp": 27.2,
+        "powerRpm": 5250,
+        "torqueNm": 41.3,
+        "torqueRpm": 4000,
+        "weightKg": 194,
+        "seatHeightMm": 800,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 13.5,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 900000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed: this and the Classic 500 are two SEPARATE physical bikes — same model, different styling/colour. Both listings stay."
+    },
+    {
+      "id": "qjmotor-srv-200-mt",
+      "name": "QJMotor SRV 200 MT",
+      "category": "cruiser",
+      "specs": {
+        "engineType": "Single-cylinder, air/oil-cooled, OHV 2-valve, fuel injected",
+        "displacementCc": 197,
+        "powerHp": 12.7,
+        "powerRpm": 7200,
+        "torqueNm": 13.9,
+        "torqueRpm": 6000,
+        "weightKg": 152,
+        "seatHeightMm": 720,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 14.7,
+        "abs": true
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 450000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed ABS present. Arena Motosikal launch specs: 197cc air/oil-cooled OHV single, 12.7 hp @ 7200 rpm, 13.9 Nm @ 6000 rpm, 152 kg, 720 mm seat, 5-speed, 14.7 L.",
+      "categoryNote": "Category corrected to cruiser — it was wrongly filed under adventure/touring on the site."
+    },
+    {
+      "id": "qjmotor-tourino-250-dx",
+      "name": "QJMotor Tourino 250 DX ABS",
+      "category": "adventure",
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled, DOHC",
+        "displacementCc": 249,
+        "powerHp": 26,
+        "powerRpm": 8000,
+        "torqueNm": 21,
+        "torqueRpm": 6000,
+        "weightKg": 152,
+        "seatHeightMm": 830,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 13,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 650000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Oto.com feature: 249cc liquid-cooled DOHC single, 26 hp @ 8000 rpm, 21 Nm @ 6000 rpm, 152 kg, 830 mm seat, 6-speed, 13 L, dual-channel ABS with switchable rear.",
+      "riderNote": "Tall seat at 830mm and switchable rear ABS for light off-road use."
+    },
+    {
+      "id": "honda-crf150",
+      "name": "Honda CRF150L",
+      "category": "enduro",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled",
+        "displacementCc": 149,
+        "powerHp": 12.9,
+        "powerRpm": 8000,
+        "torqueNm": 12.4,
+        "torqueRpm": 6500,
+        "weightKg": 122,
+        "seatHeightMm": 869,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 7.2,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "riderNote": "Tall seat at 869mm — mention this for shorter riders."
+    },
+    {
+      "id": "yamaha-wr155",
+      "name": "Yamaha WR155",
+      "category": "enduro",
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled, VVA",
+        "displacementCc": 155,
+        "powerHp": 16.4,
+        "powerRpm": 10000,
+        "torqueNm": 14.3,
+        "torqueRpm": 6500,
+        "weightKg": 134,
+        "seatHeightMm": 880,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 8.1,
+        "abs": false
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "riderNote": "Tall seat at 880mm — mention this for shorter riders."
+    },
+    {
+      "id": "kawasaki-klx230",
+      "name": "Kawasaki KLX230",
+      "category": "enduro",
+      "badge": "trail-pro",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC, DFI",
+        "displacementCc": 233,
+        "powerHp": 19,
+        "powerRpm": 7600,
+        "torqueNm": 19.8,
+        "torqueRpm": 6100,
+        "weightKg": 134,
+        "seatHeightMm": 884,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 7.6,
+        "abs": null
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 650000,
+        "tiers": [
+          {
+            "minDays": 2,
+            "maxDays": 6,
+            "pricePerDay": 550000
+          },
+          {
+            "minDays": 7,
+            "maxDays": null,
+            "pricePerDay": 400000
+          }
+        ],
+        "month": 6200000
+      },
+      "needsVerification": true,
+      "pricingUpdated": true,
+      "verifyNote": "Owner confirmed STANDARD version (884 mm seat), not the S. ONE THING LEFT: does this unit have ABS? Kawasaki sells the KLX230 both with and without. Until confirmed, abs is null and the ABS row must be hidden on this card — never advertise ABS that may not be there.",
+      "sourceVerified": "Cycle World: standard KLX230 seat height 34.8 in (884 mm); KLX230 S seat height 33.3 in (846 mm). Curb weight 289 lb / 131 kg non-ABS, 291 lb / 132 kg with ABS. 233cc, 6-speed, 2.0 gal / 7.6 L. ABS optional."
+    },
+    {
+      "id": "suzuki-thunder-150-tracker",
+      "name": "Suzuki Thunder 125 Tracker",
+      "category": "enduro",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC 2-valve",
+        "displacementCc": 125,
+        "powerHp": 11.8,
+        "powerRpm": 9000,
+        "torqueNm": 9.4,
+        "torqueRpm": 7500,
+        "weightKg": 130,
+        "seatHeightMm": 770,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 15,
+        "abs": false
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 400000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed the base is a Suzuki Thunder 125 (bored out), not a 'Thunder 150' — Suzuki never built a 150. Stock 125 figures from Indonesian Wikipedia.",
+      "engineNote": "Engine bored out from the stock 125cc. Actual displacement and power are higher than the stock figures shown — exact numbers unknown. Show the stock figures with the note 'modified engine, bored out'."
+    },
+    {
+      "id": "suzuki-thunder-anarchy",
+      "name": "Suzuki Thunder 125 Anarchy",
+      "category": "enduro",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, SOHC 2-valve",
+        "displacementCc": 125,
+        "powerHp": 11.8,
+        "powerRpm": 9000,
+        "torqueNm": 9.4,
+        "torqueRpm": 7500,
+        "weightKg": 130,
+        "seatHeightMm": 770,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 15,
+        "abs": false
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 300000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Owner confirmed the base is a Suzuki Thunder 125 (bored out), not a 'Thunder 150' — Suzuki never built a 150. Stock 125 figures from Indonesian Wikipedia.",
+      "engineNote": "Engine bored out from the stock 125cc. Actual displacement and power are higher than the stock figures shown — exact numbers unknown. Show the stock figures with the note 'modified engine, bored out'."
+    },
+    {
+      "id": "yamaha-byson-f1",
+      "name": "Yamaha Byson F1",
+      "category": "enduro",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, fuel injected",
+        "displacementCc": 149,
+        "powerHp": 13.8,
+        "powerRpm": 8000,
+        "torqueNm": 13.6,
+        "torqueRpm": 6000,
+        "weightKg": 134,
+        "seatHeightMm": 790,
+        "transmission": "5-speed manual",
+        "fuelCapacityL": 12,
+        "abs": false
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 285000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "categoryNote": "This is a street naked bike, not an enduro — should be recategorised."
+    },
+    {
+      "id": "yamaha-xmax-250",
+      "name": "Yamaha XMAX 250",
+      "category": "scooter",
+      "badge": "city-pick",
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled",
+        "displacementCc": 250,
+        "powerHp": 23,
+        "powerRpm": 7000,
+        "torqueNm": 24.3,
+        "torqueRpm": 5500,
+        "weightKg": 179,
+        "seatHeightMm": 795,
+        "transmission": "CVT automatic",
+        "fuelCapacityL": 13,
+        "abs": true
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 450000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false
+    },
+    {
+      "id": "vespa-sprint",
+      "name": "Vespa Sprint 150",
+      "category": "scooter",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, i-get 3-valve, fuel injected",
+        "displacementCc": 155,
+        "powerHp": 11.6,
+        "powerRpm": 7500,
+        "torqueNm": 12,
+        "torqueRpm": 5000,
+        "weightKg": 129,
+        "seatHeightMm": 790,
+        "transmission": "CVT automatic",
+        "fuelCapacityL": 7,
+        "abs": true
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 350000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Carmudi Indonesia (Vespa Sprint 150 i-Get): 154.8cc, 11.6 hp @ 7500 rpm, 12 Nm @ 5000 rpm, 790 mm seat, CVT, 7 L tank. ABS is FRONT WHEEL ONLY (220mm disc); the rear is a 140mm drum.",
+      "absNote": "Front wheel only (220mm disc); rear is a drum brake. Do not describe it as dual-channel ABS."
+    },
+    {
+      "id": "vespa-primavera-s",
+      "name": "Vespa Primavera S 150",
+      "category": "scooter",
+      "specs": {
+        "engineType": "Single-cylinder, air-cooled, i-get 3-valve, fuel injected",
+        "displacementCc": 155,
+        "powerHp": 11.6,
+        "powerRpm": 7500,
+        "torqueNm": 12,
+        "torqueRpm": 5000,
+        "weightKg": 129,
+        "seatHeightMm": 790,
+        "transmission": "CVT automatic",
+        "fuelCapacityL": 7,
+        "abs": true
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 350000,
+        "tiers": [],
+        "month": null
+      },
+      "needsVerification": false,
+      "sourceVerified": "Carmudi Indonesia (Vespa Sprint 150 i-Get): 154.8cc, 11.6 hp @ 7500 rpm, 12 Nm @ 5000 rpm, 790 mm seat, CVT, 7 L tank. ABS is FRONT WHEEL ONLY (220mm disc); the rear is a 140mm drum.",
+      "absNote": "Front wheel only (220mm disc); rear is a drum brake. Do not describe it as dual-channel ABS."
+    },
+    {
+      "id": "yamaha-nmax-155",
+      "name": "Yamaha NMAX Turbo",
+      "category": "scooter",
+      "badge": "new",
+      "isNew": true,
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled, Blue Core VVA 4-valve SOHC",
+        "displacementCc": 155,
+        "powerHp": 15.4,
+        "powerRpm": 8000,
+        "torqueNm": 14.2,
+        "torqueRpm": 6500,
+        "weightKg": 135,
+        "seatHeightMm": 770,
+        "transmission": "YECVT automatic with Y-Shift (3 acceleration modes)",
+        "fuelCapacityL": 7.1,
+        "abs": true
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 250000,
+        "tiers": [
+          {
+            "minDays": 7,
+            "maxDays": null,
+            "pricePerDay": 214000
+          }
+        ],
+        "week": 1500000,
+        "month": 3000000
+      },
+      "needsVerification": true,
+      "pricingUpdated": true,
+      "verifyNote": "Note: Yamaha sells NMAX 'Turbo' (with YECVT + Y-Shift) and NMAX 'Neo' (without). Specs here are for the TURBO. Confirm which one you have, since Y-Shift is a real selling point worth advertising.",
+      "absNote": "Dual-channel ABS.",
+      "highlights": [
+        "YECVT electronic CVT with Y-Shift",
+        "Traction control (TCS)",
+        "Smart key",
+        "Stop & Start system",
+        "USB / electric power outlet"
+      ],
+      "sourceVerified": "Owner confirmed 2026 NMAX Turbo with ABS. Yamaha Indonesia official product page: 155cc Blue Core VVA + YECVT, 11.3 kW (15.4 PS) @ 8000 rpm, 14.2 Nm @ 6500 rpm, 135 kg, 770 mm seat, 7.1 L, dual-channel ABS + TCS.",
+      "image": "/bikes/yamaha-nmax-155.webp",
+      "imageProvided": true
+    },
+    {
+      "id": "qj-motor-srv-250-at",
+      "name": "QJ Motor SRV 250 AT",
+      "category": "cruiser",
+      "badge": "new",
+      "isNew": true,
+      "specs": {
+        "engineType": "V-twin, liquid-cooled",
+        "displacementCc": 249,
+        "powerHp": 28,
+        "powerRpm": 9000,
+        "torqueNm": 23,
+        "torqueRpm": 8000,
+        "weightKg": 167,
+        "seatHeightMm": 701,
+        "transmission": "AMT automatic (no clutch lever)",
+        "fuelCapacityL": 13.6,
+        "abs": true
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 550000,
+        "tiers": [
+          {
+            "minDays": 2,
+            "maxDays": 4,
+            "pricePerDay": 500000
+          },
+          {
+            "minDays": 5,
+            "maxDays": null,
+            "pricePerDay": 450000
+          }
+        ],
+        "month": 7000000
+      },
+      "needsVerification": true,
+      "pricingUpdated": true,
+      "verifyNote": "Selling point worth highlighting: automatic transmission with no clutch lever, plus traction control, on a 250cc V-twin cruiser. Low 701mm seat suits shorter riders.",
+      "image": "/bikes/qj-motor-srv-250-at.webp",
+      "imageProvided": true
+    }
+  ]
+}
