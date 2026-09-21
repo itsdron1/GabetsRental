@@ -12,7 +12,9 @@ import WhyUs from "@/components/WhyUs";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { localizedPath } from "@/i18n/locale";
 import { isAppLocale } from "@/i18n/routing";
-import { buildPageMetadata, faqPageJsonLd, localBusinessJsonLd } from "@/lib/seo";
+import { bikes } from "@/lib/data";
+import { isMotorcycle } from "@/lib/fleet";
+import { bikeProductJsonLd, buildPageMetadata, faqPageJsonLd, localBusinessJsonLd } from "@/lib/seo";
 
 const Booking = dynamic(() => import("@/components/Booking"));
 
@@ -43,11 +45,31 @@ export default async function Home({ params }: PageProps) {
   if (isAppLocale(locale)) setRequestLocale(locale);
   const tFaq = await getTranslations("faq");
   const tSeo = await getTranslations("seo");
+  const tFleet = await getTranslations("fleet");
   const faqs = tFaq.raw("items") as { q: string; a: string }[];
+  const safeLocale = isAppLocale(locale) ? locale : "en";
+  const productJsonLd = bikes.filter(isMotorcycle).map((bike) => {
+    const tagline = String(tFleet.raw(`taglines.${bike.id}` as never) ?? bike.tagline);
+    return bikeProductJsonLd(bike, safeLocale, {
+      tagline,
+      engine: tFleet("specEngine"),
+      displacement: tFleet("specDisplacement"),
+      power: tFleet("specPower"),
+      torque: tFleet("specTorque"),
+      weight: tFleet("specWeight"),
+      seatHeight: tFleet("specSeatHeight"),
+      transmission: tFleet("specTransmission"),
+      fuelTank: tFleet("specFuelTank"),
+      abs: tFleet("specAbs"),
+      yes: tFleet("yes"),
+      no: tFleet("no"),
+    });
+  });
 
   return (
     <>
       <JsonLd data={[localBusinessJsonLd(tSeo("localBusinessDescription")), faqPageJsonLd(faqs)]} />
+      <JsonLd data={productJsonLd} />
       <Nav />
       <main className="relative z-[1]">
         <Hero />

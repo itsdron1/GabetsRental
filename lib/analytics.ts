@@ -39,3 +39,7 @@ export function trackBookingSubmit(
 export function trackBookClick(bikeModel: string): void {
   pushDataLayer("book_click", { bike_model: bikeModel });
 }
+
+export function trackSpecsExpand(bikeModel: string): void {
+  pushDataLayer("specs_expand", { bike_model: bikeModel });
+}

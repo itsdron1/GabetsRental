@@ -3,6 +3,7 @@ import type { Bike } from "@/lib/data";
 import type { Tour } from "@/data/tours";
 import { localizedPath, OG_LOCALE } from "@/i18n/locale";
 import { locales, type AppLocale } from "@/i18n/routing";
+import { getBikeImagePath } from "@/lib/bike-images";
 import { CONTACT_EMAIL, FACEBOOK_URL, GOOGLE_BUSINESS_URL, INSTAGRAM_URL } from "@/lib/constants";
 import { SITE_URL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
@@ -194,6 +195,77 @@ export function localBusinessJsonLd(description: string) {
         name: "Motorcycle Rental Service",
         serviceType: "Motorcycle rental and guided tours",
       },
+    },
+  };
+}
+
+export function bikeProductJsonLd(
+  bike: Bike,
+  locale: AppLocale,
+  labels: {
+    tagline: string;
+    engine: string;
+    displacement: string;
+    power: string;
+    torque: string;
+    weight: string;
+    seatHeight: string;
+    transmission: string;
+    fuelTank: string;
+    abs: string;
+    yes: string;
+    no: string;
+  },
+) {
+  const specs = bike.specs;
+  const additionalProperty: { "@type": "PropertyValue"; name: string; value: string | number }[] =
+    [];
+
+  if (specs) {
+    additionalProperty.push(
+      { "@type": "PropertyValue", name: labels.engine, value: specs.engineType },
+      { "@type": "PropertyValue", name: labels.displacement, value: `${specs.displacementCc} cc` },
+      {
+        "@type": "PropertyValue",
+        name: labels.power,
+        value: `${specs.powerHp} hp @ ${specs.powerRpm} rpm`,
+      },
+      {
+        "@type": "PropertyValue",
+        name: labels.torque,
+        value: `${specs.torqueNm} Nm @ ${specs.torqueRpm} rpm`,
+      },
+      { "@type": "PropertyValue", name: labels.weight, value: `${specs.weightKg} kg` },
+      { "@type": "PropertyValue", name: labels.seatHeight, value: `${specs.seatHeightMm} mm` },
+      { "@type": "PropertyValue", name: labels.transmission, value: specs.transmission },
+      { "@type": "PropertyValue", name: labels.fuelTank, value: `${specs.fuelCapacityL} L` },
+    );
+    if (specs.abs !== null) {
+      additionalProperty.push({
+        "@type": "PropertyValue",
+        name: labels.abs,
+        value: specs.abs ? labels.yes : labels.no,
+      });
+    }
+  }
+
+  const brandName = bike.name.split(" ")[0] ?? bike.name;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: bike.name,
+    description: labels.tagline || bike.tagline,
+    image: absoluteUrl(getBikeImagePath(bike)),
+    brand: { "@type": "Brand", name: brandName },
+    inLanguage: locale,
+    additionalProperty,
+    offers: {
+      "@type": "Offer",
+      price: String(bike.priceIdr),
+      priceCurrency: "IDR",
+      availability: "https://schema.org/InStock",
+      url: absoluteUrl(localizedPath(locale, "/")),
     },
   };
 }
