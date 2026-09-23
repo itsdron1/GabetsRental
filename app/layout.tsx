@@ -3,7 +3,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { DM_Sans, Manrope, Syne, Unbounded } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import Script from "next/script";
 import GoogleTagManager from "@/components/GoogleTagManager";
+import { GA4_MEASUREMENT_ID } from "@/lib/analytics";
 import { BRAND_NAME, absoluteUrl } from "@/lib/seo";
 import "./globals.css";
 
@@ -116,6 +118,21 @@ export default async function RootLayout({
     >
       <body>
         <GoogleTagManager />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+          id="ga4-src"
+        />
+        <Script
+          id="ga4-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA4_MEASUREMENT_ID}');`,
+          }}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
