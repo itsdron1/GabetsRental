@@ -6,6 +6,7 @@ import BookingTrigger from "@/components/BookingTrigger";
 import { useBooking } from "@/components/BookingContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { Link, usePathname } from "@/i18n/navigation";
+import { trackBookClick } from "@/lib/analytics";
 import { scrollToId } from "@/lib/scroll";
 
 export default function Nav() {
@@ -46,7 +47,10 @@ export default function Nav() {
   const handleMobileNav = (href: string, trigger?: HTMLElement) => {
     closeMenu();
     if (href === "#booking") {
-      setTimeout(() => openBooking({ trigger }), 200);
+      setTimeout(() => {
+        trackBookClick({ source: "nav" });
+        openBooking({ trigger });
+      }, 200);
       return;
     }
     if (href.startsWith("#") && isHomePage) {
@@ -79,6 +83,7 @@ export default function Nav() {
   const handleInlineAnchor = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href === "#booking") {
       e.preventDefault();
+      trackBookClick({ source: "nav" });
       openBooking({ trigger: e.currentTarget });
       return;
     }
@@ -117,7 +122,9 @@ export default function Nav() {
 
         <div className="hidden items-center gap-5 lg:flex">
           <LanguageSwitcher />
-          <BookingTrigger className="btn-nav">{t("bookNow")}</BookingTrigger>
+          <BookingTrigger source="header" className="btn-nav">
+            {t("bookNow")}
+          </BookingTrigger>
         </div>
 
         <div className="flex items-center gap-3 lg:hidden">

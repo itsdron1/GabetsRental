@@ -55,8 +55,23 @@ export function trackBookingSubmit(
   });
 }
 
-export function trackBookClick(bikeModel: string): void {
-  trackEvent("book_click", { bike_model: bikeModel });
+export type BookClickSource =
+  | "bike_card"
+  | "header"
+  | "hero"
+  | "nav"
+  | "footer"
+  | "inline_link"
+  | "anchor";
+
+export function trackBookClick(options: {
+  source: BookClickSource;
+  bikeModel?: string;
+}): void {
+  trackEvent("book_click", {
+    source: options.source,
+    ...(options.bikeModel ? { bike_model: options.bikeModel } : {}),
+  });
 }
 
 export function trackSpecsExpand(bikeModel: string): void {

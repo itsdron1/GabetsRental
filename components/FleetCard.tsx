@@ -81,7 +81,7 @@ export default function FleetCard({ bike }: FleetCardProps) {
           <button
             type="button"
             onClick={(e) => {
-              trackBookClick(bike.name);
+              trackBookClick({ source: "bike_card", bikeModel: bike.name });
               openBooking({ bikeName: bike.name, trigger: e.currentTarget });
             }}
             className="fleet-card-cta shrink-0 rounded-lg px-4 py-2.5 text-[0.75rem] font-semibold tracking-wide text-cream uppercase"

@@ -10,6 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { trackBookClick } from "@/lib/analytics";
 
 type OpenBookingOptions = {
   bikeName?: string;
@@ -64,6 +65,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const openFromHash = () => {
       if (window.location.hash === "#booking") {
+        trackBookClick({ source: "anchor" });
         openBooking();
       }
     };

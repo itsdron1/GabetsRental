@@ -12,7 +12,9 @@ export default function HeroActions() {
       <button type="button" onClick={() => scrollToId("fleet")} className="btn-primary">
         {t("browseFleet")}
       </button>
-      <BookingTrigger className="btn-ghost">{t("makeBooking")}</BookingTrigger>
+      <BookingTrigger source="hero" className="btn-ghost">
+        {t("makeBooking")}
+      </BookingTrigger>
     </div>
   );
 }

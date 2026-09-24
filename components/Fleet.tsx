@@ -52,6 +52,7 @@ export default function Fleet() {
             {t("subtitleBefore")}{" "}
             <BookingTrigger
               as="a"
+              source="inline_link"
               className="text-gold transition-colors hover:text-cream"
             >
               {t("bookLink")}
