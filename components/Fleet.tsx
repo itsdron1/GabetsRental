@@ -6,7 +6,16 @@ import BookingTrigger from "@/components/BookingTrigger";
 import FleetCard from "@/components/FleetCard";
 import Reveal from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
+import BrandIcon, { type BrandIconName } from "@/components/BrandIcon";
 import { bikes, filterTabs, type FilterTabId } from "@/lib/data";
+
+const FILTER_ICONS: Partial<Record<FilterTabId, BrandIconName>> = {
+  cruiser: "cruiser",
+  sport: "sport",
+  adventure: "adventure",
+  enduro: "enduro",
+  scooter: "scooter",
+};
 
 export default function Fleet() {
   const t = useTranslations("fleet");
@@ -97,6 +106,7 @@ export default function Fleet() {
             {filterTabs.map((tab) => {
               const isActive = activeFilter === tab.id;
               const count = counts[tab.id] ?? 0;
+              const icon = FILTER_ICONS[tab.id];
               return (
                 <button
                   key={tab.id}
@@ -104,15 +114,16 @@ export default function Fleet() {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setActiveFilter(tab.id)}
-                  className={`filter-tab rounded-full border px-4 py-2.5 text-[0.72rem] font-semibold tracking-widest uppercase transition-[background,border-color,color,box-shadow] md:px-5 ${
+                  className={`filter-tab inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2.5 text-[0.72rem] font-semibold tracking-widest uppercase transition-[background,border-color,color,box-shadow] md:px-5 ${
                     isActive
                       ? "border-teal bg-teal/10 text-ivory"
                       : "border-border text-slate-text hover:border-teal/50 hover:text-ivory"
                   }`}
                 >
+                  {icon ? <BrandIcon name={icon} size={16} className={isActive ? "text-teal" : "text-slate-text"} /> : null}
                   {t(`filters.${tab.id}`)}
                   <span
-                    className={`ml-2 text-[0.65rem] ${isActive ? "text-cream/70" : "text-muted"}`}
+                    className={`text-[0.65rem] ${isActive ? "text-ivory/70" : "text-slate-text"}`}
                   >
                     {count}
                   </span>

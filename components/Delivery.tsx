@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import BrandIcon, { type BrandIconName } from "@/components/BrandIcon";
 import Reveal from "@/components/Reveal";
 import {
   GOOGLE_BUSINESS_URL,
@@ -6,6 +7,8 @@ import {
 } from "@/lib/constants";
 import { buildWhatsAppMessageUrl } from "@/lib/whatsapp";
 import { deliveryPerks, deliveryZones } from "@/lib/data";
+
+const DELIVERY_ICONS: BrandIconName[] = ["delivery", "helmet", "pin"];
 
 export default async function Delivery() {
   const t = await getTranslations("delivery");
@@ -31,9 +34,11 @@ export default async function Delivery() {
               {deliveryPerks.map((perk, index) => (
                 <Reveal key={perk.title} delay={((index % 3) + 1) as 1 | 2 | 3}>
                   <div className="flex gap-5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-gold/20 bg-gold-soft text-xl">
-                      {perk.icon}
-                    </div>
+                    <BrandIcon
+                      name={DELIVERY_ICONS[index] ?? "delivery"}
+                      size={40}
+                      framed
+                    />
                     <div>
                       <h4 className="font-head text-base font-bold text-cream">
                         {t(`perks.${index}.title`)}
@@ -68,7 +73,7 @@ export default async function Delivery() {
                   <span className="font-head text-sm font-bold text-cream">
                     G-DRIVE Bike Rental Bali
                   </span>
-                  <span className="text-[0.65rem] tracking-widest text-gold uppercase">
+                  <span className="text-[0.65rem] tracking-widest text-teal uppercase">
                     {t("viewOnGoogle")}
                   </span>
                 </a>
@@ -77,7 +82,7 @@ export default async function Delivery() {
                 {deliveryZones.map((zone, index) => (
                   <div
                     key={zone.name}
-                    className="delivery-zone-row flex flex-col gap-2 rounded-lg border-l-2 border-gold bg-black/30 px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                    className="delivery-zone-row flex flex-col gap-2 rounded-lg border-l-2 border-teal bg-surface-2 px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                   >
                     <span className="min-w-0 font-medium leading-snug text-cream">
                       {t(`zones.${index}.name`)}
@@ -96,7 +101,7 @@ export default async function Delivery() {
                         {t(`zones.${index}.price`)}
                       </a>
                     ) : (
-                      <span className="shrink-0 self-start font-semibold tabular-nums text-gold sm:self-center">
+                      <span className="shrink-0 self-start font-semibold tabular-nums text-teal sm:self-center">
                         {t(`zones.${index}.price`)}
                       </span>
                     )}
