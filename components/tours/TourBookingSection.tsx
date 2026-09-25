@@ -22,9 +22,9 @@ export default async function TourBookingSection({ title, slug }: TourBookingSec
   );
 
   return (
-    <section className="bg-[#070b10] py-16 pb-28 md:py-20 md:pb-20">
+    <section className="bg-charcoal py-16 pb-28 md:py-20 md:pb-20">
       <div className="section-inner">
-        <div className="rounded-2xl border border-brand-tint/40 bg-[rgba(11,61,46,0.2)] p-8 text-center md:p-10">
+        <div className="rounded-2xl border border-brand-tint/40 bg-forest/20 p-8 text-center md:p-10">
           <h2 className="font-head text-2xl font-extrabold text-cream md:text-3xl">
             {t("readyTitle")}
           </h2>

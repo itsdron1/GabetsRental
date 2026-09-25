@@ -84,7 +84,7 @@ export default function DatePickerField({
         <div
           id={dialogId}
           role="dialog"
-          className="date-picker-popover absolute top-[calc(100%+6px)] left-0 z-30 w-[min(100%,20.5rem)] max-w-[calc(100vw-2rem)] rounded-xl border border-border bg-[#0c1018] p-3 shadow-xl"
+          className="date-picker-popover absolute top-[calc(100%+6px)] left-0 z-30 w-[min(100%,20.5rem)] max-w-[calc(100vw-2rem)] rounded-xl border border-border bg-surface-2 p-3 shadow-xl"
         >
           <DayPicker
             mode="single"

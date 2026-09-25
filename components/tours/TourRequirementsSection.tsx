@@ -40,7 +40,7 @@ export default async function TourRequirementsSection({
           <RequirementCard title={t("safety")} items={safetyRequirements} />
         </div>
       </section>
-      <section className="bg-[#070b10] py-12 md:py-14">
+      <section className="bg-charcoal py-12 md:py-14">
         <div className="section-inner">
           <RequirementCard title={t("rider")} items={riderRequirements} />
         </div>

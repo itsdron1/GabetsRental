@@ -76,7 +76,7 @@ export default function WhatsAppPhoneField({
             </span>
           </button>
           {open && (
-            <div className="absolute top-[calc(100%+6px)] left-0 z-20 w-[min(280px,80vw)] overflow-hidden rounded-lg border border-border bg-[#0c1018] shadow-xl">
+            <div className="absolute top-[calc(100%+6px)] left-0 z-20 w-[min(280px,80vw)] overflow-hidden rounded-lg border border-border bg-surface-2 shadow-xl">
               <input
                 type="search"
                 value={query}

@@ -38,7 +38,7 @@ export default function TourGallery({ images, premium = false }: TourGalleryProp
             key={`${img.src}-${index}`}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className="group relative aspect-[4/3] cursor-zoom-in overflow-hidden rounded-xl border border-border bg-[#0f1419]"
+            className="group relative aspect-[4/3] cursor-zoom-in overflow-hidden rounded-xl border border-border bg-surface-1"
             aria-label={img.alt}
           >
             <Image
@@ -54,11 +54,11 @@ export default function TourGallery({ images, premium = false }: TourGalleryProp
             {premium && (
               <>
                 <span
-                  className="pointer-events-none absolute inset-0 bg-[#080b0f]/20"
+                  className="pointer-events-none absolute inset-0 bg-charcoal/20"
                   aria-hidden
                 />
                 <span
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0d1117]/75 via-[#0d1117]/10 to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-1/75 via-surface-1/10 to-transparent"
                   aria-hidden
                 />
               </>

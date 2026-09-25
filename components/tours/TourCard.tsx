@@ -28,7 +28,7 @@ export default async function TourCard({ tour, index }: TourCardProps) {
       className="fleet-card group flex h-full flex-col overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-[#0f1419]">
+      <div className="relative aspect-[4/3] overflow-hidden bg-surface-1">
         <Image
           src={tour.cardImage}
           alt={cardAlt}
@@ -40,7 +40,7 @@ export default async function TourCard({ tour, index }: TourCardProps) {
           }`}
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-1 via-transparent to-transparent opacity-80" />
         <span className="absolute top-3.5 left-3.5 z-10 rounded bg-brand-tint px-2.5 py-1 text-[0.62rem] font-bold tracking-widest text-cream uppercase">
           {t(`types.${tour.type}`)}
         </span>

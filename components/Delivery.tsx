@@ -15,7 +15,7 @@ export default async function Delivery() {
   return (
     <section
       id="delivery"
-      className="section-deferred relative z-[1] bg-gradient-to-b from-bg to-[#070a0e]"
+      className="section-deferred relative z-[1] bg-charcoal"
     >
       <div className="section-inner">
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
@@ -50,7 +50,7 @@ export default async function Delivery() {
 
           <Reveal delay={2}>
             <div className="delivery-visual relative overflow-hidden rounded-2xl border border-border bg-glass p-8 md:p-10">
-              <div className="relative mb-7 aspect-[4/3] overflow-hidden rounded-[10px] border border-border bg-[#0c1018]">
+              <div className="relative mb-7 aspect-[4/3] overflow-hidden rounded-[10px] border border-border bg-surface-2">
                 <iframe
                   src={GOOGLE_MAPS_EMBED_URL}
                   title={t("mapTitle")}

@@ -53,7 +53,7 @@ export default async function TourDetailBody({ tour }: TourDetailBodyProps) {
         </div>
       </section>
       {related.length > 0 && (
-        <section className="bg-[#070b10] py-16 md:py-20">
+        <section className="bg-charcoal py-16 md:py-20">
           <div className="section-inner">
             <h2 className="section-title mb-8">{t("related")}</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

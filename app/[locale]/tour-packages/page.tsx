@@ -20,7 +20,7 @@ const TourPackagesHeroImage = dynamic(
   {
     loading: () => (
       <div
-        className="tour-hero-frame aspect-[4/3] rounded-2xl border border-border bg-[#0a0f14] md:aspect-[16/11]"
+        className="tour-hero-frame aspect-[4/3] rounded-2xl border border-border bg-surface-1 md:aspect-[16/11]"
         aria-hidden
       />
     ),
@@ -76,14 +76,14 @@ export default async function TourPackagesPage({ params }: PageProps) {
       />
       <Nav />
       <main className="relative z-[1] bg-surface pt-28 md:pt-32">
-        <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-[#0a0f14] to-surface">
+        <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-surface-1 to-surface">
           <div className="section-inner relative grid items-center gap-12 py-18 lg:grid-cols-[1.15fr_1fr]">
             <Reveal>
               <div className="section-tag">{t("tag")}</div>
               <h1 className="section-title max-w-[15ch]">{t("title")}</h1>
               <p className="section-subtitle mt-6 max-w-[58ch]">
                 {t("subtitleBefore")}{" "}
-                <Link href="/#fleet" className="text-gold transition-colors hover:text-cream">
+                <Link href="/#fleet" className="text-teal transition-colors hover:underline">
                   {t("fleetLink")}
                 </Link>{" "}
                 {t("subtitleAfter")}
@@ -122,7 +122,7 @@ export default async function TourPackagesPage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="bg-[#070b10] py-20">
+        <section className="bg-charcoal py-20">
           <div className="section-inner grid gap-6 md:grid-cols-3">
             <Reveal>
               <div className="why-card rounded-2xl border border-border bg-glass p-6">
@@ -163,11 +163,11 @@ export default async function TourPackagesPage({ params }: PageProps) {
               ))}
             </div>
             <Reveal delay={2} className="mt-10">
-              <div className="rounded-2xl border border-brand-tint/40 bg-[rgba(11,61,46,0.2)] p-6 text-center">
-                <p className="text-sm text-cream/85">{t("customCta")}</p>
+              <div className="rounded-2xl border border-teal/40 bg-forest/20 p-6 text-center">
+                <p className="text-sm text-ivory/85">{t("customCta")}</p>
                 <Link
                   href="/tour-packages/custom-tour"
-                  className="fleet-card-cta mt-4 inline-flex rounded-lg px-5 py-2.5 text-xs font-semibold tracking-wide text-cream uppercase"
+                  className="fleet-card-cta mt-4 inline-flex rounded-lg px-5 py-2.5 text-xs font-semibold tracking-wide uppercase"
                 >
                   {t("exploreCustom")}
                 </Link>

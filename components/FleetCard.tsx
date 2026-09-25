@@ -41,7 +41,7 @@ export default function FleetCard({ bike }: FleetCardProps) {
 
   return (
     <article className="fleet-card group flex h-full flex-col rounded-2xl">
-      <div className="fleet-card-media relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-t-2xl bg-[#0f1419]">
+      <div className="fleet-card-media relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-t-2xl bg-surface-1">
         <Image
           src={getBikeImagePath(bike)}
           alt={imageAlt}
@@ -52,13 +52,13 @@ export default function FleetCard({ bike }: FleetCardProps) {
           loading="lazy"
           className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-1 via-transparent to-transparent opacity-80" />
         {badge && (
-          <span className="absolute top-3.5 left-3.5 z-10 rounded bg-brand-tint px-2.5 py-1 text-[0.62rem] font-bold tracking-widest text-cream uppercase shadow-[0_4px_20px_rgba(11,61,46,0.5)]">
+          <span className="absolute top-3.5 left-3.5 z-10 rounded bg-forest px-2.5 py-1 text-[0.62rem] font-bold tracking-widest text-ivory uppercase">
             {badge}
           </span>
         )}
-        <span className="absolute top-3.5 right-3.5 z-10 rounded-full border border-white/10 bg-black/55 px-2.5 py-1 text-[0.62rem] font-medium tracking-widest text-cream/80 uppercase">
+        <span className="absolute top-3.5 right-3.5 z-10 rounded-full border border-border bg-charcoal/55 px-2.5 py-1 text-[0.62rem] font-medium tracking-widest text-slate-text uppercase">
           {String(t.raw(`filters.${bike.category}` as never))}
         </span>
       </div>

@@ -39,7 +39,7 @@ export default function TourRouteSection({ tour }: TourRouteSectionProps) {
   const activeRoute = hasTabs ? labeledRoutes[activeTab] : tour.routes[0];
 
   return (
-    <section className="bg-[#070b10] py-16 md:py-20">
+    <section className="bg-charcoal py-16 md:py-20">
       <div className="section-inner">
         <h2 className="section-title mb-8">{t("route")}</h2>
 
@@ -54,8 +54,8 @@ export default function TourRouteSection({ tour }: TourRouteSectionProps) {
                 onClick={() => setActiveTab(index)}
                 className={`filter-tab rounded-full border px-4 py-2.5 text-[0.72rem] font-semibold tracking-widest uppercase transition-all ${
                   activeTab === index
-                    ? "border-brand-tint bg-[rgba(11,61,46,0.35)] text-cream"
-                    : "border-border text-muted hover:border-brand-tint/50 hover:text-cream"
+                    ? "border-teal bg-teal/10 text-ivory"
+                    : "border-border text-slate-text hover:border-teal/50 hover:text-ivory"
                 }`}
               >
                 {route.label}

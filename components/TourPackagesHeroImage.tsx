@@ -32,7 +32,7 @@ export default function TourPackagesHeroImage() {
 
   return (
     <>
-      <div className="tour-hero-frame relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-[#0a0f14] md:aspect-[16/11]">
+      <div className="tour-hero-frame relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-surface-1 md:aspect-[16/11]">
         <button
           type="button"
           onClick={openLightbox}

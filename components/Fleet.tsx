@@ -42,7 +42,7 @@ export default function Fleet() {
   return (
     <section
       id="fleet"
-      className="section-deferred relative z-[1] overflow-hidden bg-surface before:absolute before:top-0 before:right-0 before:left-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-border before:to-transparent after:pointer-events-none after:absolute after:top-1/4 after:left-1/2 after:h-[420px] after:w-[420px] after:-translate-x-1/2 after:rounded-full after:bg-[radial-gradient(circle,rgba(11,61,46,0.12)_0%,transparent_70%)]"
+      className="section-deferred relative z-[1] overflow-hidden bg-surface-1 before:absolute before:top-0 before:right-0 before:left-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-border before:to-transparent after:pointer-events-none after:absolute after:top-1/4 after:left-1/2 after:h-[420px] after:w-[420px] after:-translate-x-1/2 after:rounded-full after:bg-teal/10"
     >
       <div className="section-inner relative">
         <Reveal className="mb-14 max-w-2xl">
@@ -53,12 +53,12 @@ export default function Fleet() {
             <BookingTrigger
               as="a"
               source="inline_link"
-              className="text-gold transition-colors hover:text-cream"
+              className="text-teal transition-colors hover:underline"
             >
               {t("bookLink")}
             </BookingTrigger>{" "}
             {t("subtitleMid")}{" "}
-            <Link href="/tour-packages" className="text-gold transition-colors hover:text-cream">
+            <Link href="/tour-packages" className="text-teal transition-colors hover:underline">
               {t("toursLink")}
             </Link>
             {t("subtitleAfter")}
@@ -106,8 +106,8 @@ export default function Fleet() {
                   onClick={() => setActiveFilter(tab.id)}
                   className={`filter-tab rounded-full border px-4 py-2.5 text-[0.72rem] font-semibold tracking-widest uppercase transition-[background,border-color,color,box-shadow] md:px-5 ${
                     isActive
-                      ? "border-brand-tint bg-[rgba(11,61,46,0.35)] text-cream shadow-[0_0_24px_rgba(11,61,46,0.35)]"
-                      : "border-border text-muted hover:border-brand-tint/50 hover:bg-[rgba(11,61,46,0.15)] hover:text-cream"
+                      ? "border-teal bg-teal/10 text-ivory"
+                      : "border-border text-slate-text hover:border-teal/50 hover:text-ivory"
                   }`}
                 >
                   {t(`filters.${tab.id}`)}
