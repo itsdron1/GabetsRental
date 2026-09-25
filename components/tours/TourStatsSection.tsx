@@ -52,7 +52,7 @@ export default async function TourStatsSection({ tour }: TourStatsSectionProps) 
             </div>
           ))}
         </dl>
-        {tour.priceNote && <p className="mt-4 text-sm text-gold">{tour.priceNote}</p>}
+        {tour.priceNote && <p className="mt-4 text-sm text-teal">{tour.priceNote}</p>}
       </div>
     </section>
   );

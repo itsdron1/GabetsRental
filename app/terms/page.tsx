@@ -26,7 +26,7 @@ export default async function TermsPage() {
             ЧЕРНОВИК — ТРЕБУЕТ ПРОВЕРКИ ЮРИСТОМ / DRAFT — REQUIRES LEGAL REVIEW
           </div>
           <p className="mb-2 text-sm text-muted">
-            <Link href="/" className="text-gold hover:text-cream">
+            <Link href="/" className="text-teal hover:underline">
               {t("backHome")}
             </Link>
           </p>

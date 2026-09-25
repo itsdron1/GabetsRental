@@ -18,11 +18,11 @@ export default function Booking() {
             <h2 className="section-title mb-5">{t("title")}</h2>
             <p className="mb-10 text-muted">
               {t("introBefore")}{" "}
-              <Link href="#fleet" className="text-gold transition-colors hover:text-cream">
+              <Link href="#fleet" className="text-teal transition-colors hover:underline">
                 {t("fleetLink")}
               </Link>
               {t("introMid")}{" "}
-              <Link href="/tour-packages" className="text-gold transition-colors hover:text-cream">
+              <Link href="/tour-packages" className="text-teal transition-colors hover:underline">
                 {t("toursLink")}
               </Link>
               {t("introAfter")}
@@ -30,7 +30,7 @@ export default function Booking() {
             <ul className="flex flex-col gap-4">
               {trustItems.map((item, index) => (
                 <li key={item} className="flex items-center gap-3.5 text-sm text-muted">
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
                   {t(`trust.${index}`)}
                 </li>
               ))}

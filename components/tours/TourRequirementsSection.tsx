@@ -13,7 +13,7 @@ function RequirementCard({
       <ul className="mt-4 flex flex-col gap-3">
         {items.map((item) => (
           <li key={item} className="flex items-start gap-3">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" aria-hidden />
             <span className="min-w-0 flex-1 text-sm leading-[1.7] text-cream/85">{item}</span>
           </li>
         ))}

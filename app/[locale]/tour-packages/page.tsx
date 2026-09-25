@@ -153,7 +153,7 @@ export default async function TourPackagesPage({ params }: PageProps) {
             <div className="flex flex-col gap-3">
               {faqs.map((item, index) => (
                 <Reveal key={item.q} delay={((index % 3) + 1) as 1 | 2 | 3}>
-                  <details className="rounded-xl border border-border bg-glass px-5 py-4">
+                  <details className="faq-item rounded-xl border border-border bg-surface-1 px-5 py-4">
                     <summary className="cursor-pointer list-none font-head text-base font-bold text-cream">
                       {item.q}
                     </summary>

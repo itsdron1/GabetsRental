@@ -264,7 +264,11 @@
   }
 
   .nav-bar-hero {
-    @apply border-transparent bg-black/30 backdrop-blur-md;
+    @apply border-transparent bg-charcoal/40 backdrop-blur-md;
+  }
+
+  .faq-item[open] {
+    @apply border-teal;
   }
 
   .fleet-card {
@@ -419,7 +423,7 @@
   }
 
   .fleet-rate-request {
-    @apply mt-1 inline-block text-[0.72rem] leading-relaxed text-gold underline-offset-2 transition-colors hover:text-cream hover:underline;
+    @apply mt-1 inline-block text-[0.72rem] leading-relaxed text-teal underline-offset-2 transition-colors hover:underline;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -525,7 +529,7 @@
   }
 
   .btn-primary {
-    @apply relative overflow-hidden rounded-lg bg-teal px-9 py-4 font-head text-[0.85rem] font-bold tracking-[0.08em] text-charcoal uppercase shadow-[0_8px_32px_rgb(20_156_144/0.28)] transition-all duration-350 hover:-translate-y-0.5 hover:bg-teal-hover hover:shadow-[0_10px_40px_rgb(20_156_144/0.4)];
+    @apply relative overflow-hidden rounded-lg bg-teal px-9 py-4 font-head text-[0.85rem] font-bold tracking-[0.08em] text-charcoal uppercase whitespace-nowrap shadow-[0_8px_32px_rgb(20_156_144/0.28)] transition-all duration-350 hover:-translate-y-0.5 hover:bg-teal-hover hover:shadow-[0_10px_40px_rgb(20_156_144/0.4)];
     transition-timing-function: var(--ease-smooth);
   }
 
@@ -586,7 +590,7 @@
   }
 
   .btn-ghost {
-    @apply rounded-lg border border-ivory/30 bg-transparent px-7 py-4 text-[0.85rem] font-medium tracking-[0.08em] text-ivory uppercase transition-all hover:border-teal hover:text-ivory;
+    @apply rounded-lg border border-ivory/30 bg-transparent px-7 py-4 text-[0.85rem] font-medium tracking-[0.08em] text-ivory uppercase whitespace-nowrap transition-all hover:border-teal hover:text-ivory;
   }
 
   .btn-nav {
