@@ -71,10 +71,10 @@ export default function FleetCard({ bike }: FleetCardProps) {
 
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-border/80 pt-4">
           <div className="min-w-0">
-            <span className="font-head text-xl leading-none font-extrabold text-gold md:text-2xl">
+            <span className="font-head text-xl leading-none font-extrabold text-petrol md:text-2xl">
               {formatBikePriceCompact(bike.priceIdr)}
             </span>
-            <span className="mt-0.5 block text-[0.68rem] tracking-wide text-muted">
+            <span className="mt-0.5 block text-[0.68rem] tracking-wide text-slate-text">
               {t("perDay", { price: formatIdrNumber(bike.priceIdr, locale) })}
             </span>
           </div>
@@ -84,7 +84,7 @@ export default function FleetCard({ bike }: FleetCardProps) {
               trackBookClick({ source: "bike_card", bikeModel: bike.name });
               openBooking({ bikeName: bike.name, trigger: e.currentTarget });
             }}
-            className="fleet-card-cta shrink-0 rounded-lg px-4 py-2.5 text-[0.75rem] font-semibold tracking-wide text-cream uppercase"
+            className="fleet-card-cta shrink-0 whitespace-nowrap rounded-lg px-4 py-2.5 text-[0.75rem] font-semibold tracking-[0.08em] uppercase"
           >
             {t("book")}
           </button>

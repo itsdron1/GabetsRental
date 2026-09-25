@@ -79,7 +79,7 @@ export default async function TourCard({ tour, index }: TourCardProps) {
 
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-border/80 pt-4">
           <div className="min-w-0">
-            <span className="font-head text-lg font-extrabold text-gold">
+            <span className="font-head text-lg font-extrabold text-petrol">
               {t("fromPrice", { price: formatTourFromPrice(tour.startingPrice, locale) })}
             </span>
             {tour.priceNote && (

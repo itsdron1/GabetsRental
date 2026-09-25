@@ -74,7 +74,7 @@ export default async function TourDetailHero({ tour }: TourDetailHeroProps) {
                 {t(`difficulties.${tour.difficulty}`)}
               </span>
             )}
-            <span className="font-head text-lg font-extrabold text-gold">
+            <span className="font-head text-lg font-extrabold text-petrol">
               {t("fromPrice", { price: formatTourFromPrice(tour.startingPrice, locale) })}
             </span>
           </div>

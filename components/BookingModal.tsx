@@ -65,7 +65,7 @@ export default function BookingModal() {
       <button
         type="button"
         aria-label={t("closeForm")}
-        className="booking-modal-backdrop absolute inset-0 bg-black/70"
+        className="booking-modal-backdrop absolute inset-0 bg-charcoal/80 backdrop-blur-md"
         onClick={closeBooking}
       />
       <div
@@ -73,10 +73,10 @@ export default function BookingModal() {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="booking-modal-panel relative z-10 flex h-full w-full flex-col overflow-y-auto bg-surface sm:h-auto sm:max-h-[min(92vh,880px)] sm:max-w-[560px] sm:rounded-2xl sm:border sm:border-border"
+        className="booking-modal-panel relative z-10 flex h-full w-full flex-col overflow-y-auto bg-surface-1 sm:h-auto sm:max-h-[min(92vh,880px)] sm:max-w-[560px] sm:rounded-2xl sm:border sm:border-border"
       >
-        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surface/95 px-5 py-4 backdrop-blur-md md:px-6">
-          <h2 id={titleId} className="font-head text-lg font-bold text-cream">
+        <div className="sticky top-0 z-10 flex items-center justify-between bg-forest px-5 py-4 md:px-6">
+          <h2 id={titleId} className="font-head text-lg font-bold text-ivory">
             {t("modalTitle")}
           </h2>
           <button

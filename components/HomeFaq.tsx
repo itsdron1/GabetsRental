@@ -14,7 +14,7 @@ export default async function HomeFaq() {
           <h2 className="section-title">{t("title")}</h2>
           <p className="section-subtitle">
             {t("subtitleBefore")}{" "}
-            <Link href="/tour-packages" className="text-gold transition-colors hover:text-cream">
+            <Link href="/tour-packages" className="text-teal transition-colors hover:underline">
               {t("toursLink")}
             </Link>
             {t("subtitleAfter")}
@@ -23,7 +23,7 @@ export default async function HomeFaq() {
         <div className="flex max-w-3xl flex-col gap-3">
           {items.map((item, index) => (
             <Reveal key={item.q} delay={((index % 3) + 1) as 1 | 2 | 3}>
-              <details className="rounded-xl border border-border bg-glass px-5 py-4">
+              <details className="faq-item rounded-xl border border-border bg-surface-1 px-5 py-4">
                 <summary className="cursor-pointer list-none font-head text-base font-bold text-cream">
                   {item.q}
                 </summary>
