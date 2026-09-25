@@ -153,16 +153,16 @@ export default async function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-border pt-7 text-center text-[0.78rem] text-cream/25 sm:flex-row sm:text-left">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-border pt-7 text-center text-[0.78rem] text-slate-text sm:flex-row sm:text-left">
           <span>{t("rights", { year })}</span>
           <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <LanguageSwitcher />
             <span aria-hidden>·</span>
-            <a href="/privacy-policy" className="transition-colors hover:text-cream/50">
+            <a href="/privacy-policy" className="text-slate-text transition-colors hover:text-ivory hover:underline">
               {t("privacy")}
             </a>
             <span aria-hidden>·</span>
-            <a href="/terms" className="transition-colors hover:text-cream/50">
+            <a href="/terms" className="text-slate-text transition-colors hover:text-ivory hover:underline">
               {t("terms")}
             </a>
             <span aria-hidden>·</span>

@@ -41,12 +41,12 @@ export default async function Hero() {
           </div>
         </Reveal>
 
-        <Reveal className="w-full px-5 pb-10 md:absolute md:right-8 md:bottom-10 md:w-auto md:px-0 md:pb-0" delay={2}>
-          <div className="ml-auto flex max-w-[1200px] items-stretch justify-end">
+        <Reveal className="w-full px-5 pb-36 md:absolute md:right-8 md:bottom-10 md:w-auto md:px-0 md:pb-0" delay={2}>
+          <div className="mr-16 flex max-w-[1200px] items-stretch justify-start md:mr-0 md:ml-auto md:justify-end">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="stat-item relative flex flex-col items-center px-3 text-center first:pl-0 last:pr-0 sm:px-5"
+                className="stat-item relative flex min-w-0 flex-col items-center px-2 text-center first:pl-0 last:pr-0 sm:px-5"
               >
                 <span className="font-head text-2xl leading-none font-extrabold text-petrol sm:text-3xl">
                   {stat.num}
