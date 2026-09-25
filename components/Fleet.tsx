@@ -51,7 +51,7 @@ export default function Fleet() {
   return (
     <section
       id="fleet"
-      className="section-deferred relative z-[1] overflow-hidden bg-surface-1 before:absolute before:top-0 before:right-0 before:left-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-border before:to-transparent after:pointer-events-none after:absolute after:top-1/4 after:left-1/2 after:h-[420px] after:w-[420px] after:-translate-x-1/2 after:rounded-full after:bg-teal/10"
+      className="section-deferred relative z-[1] overflow-hidden bg-surface-1 before:absolute before:top-0 before:right-0 before:left-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-border before:to-transparent"
     >
       <div className="section-inner relative">
         <Reveal className="mb-14 max-w-2xl">
