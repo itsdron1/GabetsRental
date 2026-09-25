@@ -4,8 +4,8 @@
   "description": "Premium motorcycle rental Bali — big bike, sport bike and superbike rental with island-wide delivery.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B3D2E",
-  "theme_color": "#0B3D2E",
+  "background_color": "#0B0F0E",
+  "theme_color": "#0B0F0E",
   "lang": "en",
   "categories": ["travel", "business"],
   "icons": [

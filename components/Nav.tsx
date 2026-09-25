@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { type MouseEvent, useEffect, useState } from "react";
 import BookingTrigger from "@/components/BookingTrigger";
 import { useBooking } from "@/components/BookingContext";
+import BrandLogo from "@/components/BrandLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { Link, usePathname } from "@/i18n/navigation";
 import { trackBookClick } from "@/lib/analytics";
@@ -72,12 +73,12 @@ export default function Nav() {
 
   const linkClassName = (active: boolean) =>
     `text-[0.8rem] font-medium tracking-[0.12em] uppercase transition-colors ${
-      active ? "text-cream" : "text-muted hover:text-cream"
+      active ? "text-ivory" : "text-slate-text hover:text-ivory"
     }`;
 
   const mobileLinkClassName = (active: boolean) =>
     `border-b border-border py-3.5 font-head text-xl font-bold transition-colors ${
-      active ? "text-gold" : "text-muted hover:text-gold"
+      active ? "text-teal" : "text-slate-text hover:text-ivory"
     }`;
 
   const handleInlineAnchor = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -95,16 +96,11 @@ export default function Nav() {
   return (
     <>
       <nav
-        className={`nav-bar fixed top-0 right-0 left-0 z-[100] flex items-center justify-between px-5 py-4 md:px-8 ${
-          scrolled ? "border-b border-border bg-bg/92 backdrop-blur-xl" : "nav-bar-hero"
+        className={`nav-bar fixed top-0 right-0 left-0 z-[100] flex items-center justify-between px-5 py-3 md:px-8 ${
+          scrolled ? "border-b border-border bg-charcoal/90 backdrop-blur-xl" : "nav-bar-hero"
         }`}
       >
-        <Link
-          href="/"
-          className="font-head text-xl font-extrabold tracking-[0.06em] text-cream"
-        >
-          {t("brand")} <span className="text-gold">{t("brandAccent")}</span> {t("brandPlace")}
-        </Link>
+        <BrandLogo size="header" priority />
 
         <ul className="hidden items-center gap-9 lg:flex">
           {navLinks.map((link) => (

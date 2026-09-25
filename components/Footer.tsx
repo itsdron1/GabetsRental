@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import BookingTrigger from "@/components/BookingTrigger";
+import BrandLogo from "@/components/BrandLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { Link } from "@/i18n/navigation";
 import {
@@ -29,14 +30,15 @@ export default async function Footer() {
       <div className="mx-auto max-w-[1200px]">
         <div className="mb-14 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <span className="mb-4 block font-head text-[1.4rem] font-extrabold tracking-[0.06em] text-cream">
-              G-DRIVE <span className="text-gold">Bike Rental</span> Bali
-            </span>
-            <p className="max-w-[300px] text-sm leading-relaxed text-muted">{t("blurb")}</p>
+            <BrandLogo size="footer" />
+            <p className="mt-4 text-[0.68rem] font-medium tracking-[0.3em] text-slate-text uppercase">
+              GOOD BIKES. BETTER STORIES.
+            </p>
+            <p className="mt-4 max-w-[300px] text-sm leading-relaxed text-slate-text">{t("blurb")}</p>
           </div>
 
           <div>
-            <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-gold uppercase">
+            <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-teal uppercase">
               {t("fleet")}
             </h4>
             <ul className="flex flex-col gap-2.5">
@@ -53,7 +55,7 @@ export default async function Footer() {
               <li>
                 <Link
                   href="/#fleet"
-                  className="text-sm font-medium text-gold transition-colors hover:text-cream"
+                  className="text-sm font-medium text-teal transition-colors hover:underline"
                 >
                   {t("viewFleet")}
                 </Link>
@@ -62,7 +64,7 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-gold uppercase">
+            <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-teal uppercase">
               {t("zones")}
             </h4>
             <ul className="flex flex-col gap-2.5">
@@ -88,7 +90,7 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-gold uppercase">
+            <h4 className="mb-5 font-head text-[0.72rem] font-bold tracking-[0.18em] text-teal uppercase">
               {t("contact")}
             </h4>
             <ul className="flex flex-col gap-2.5">
