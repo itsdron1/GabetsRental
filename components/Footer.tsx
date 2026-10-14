@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import { getTranslations } from "next-intl/server";
 import BookingTrigger from "@/components/BookingTrigger";
 import BrandLogo from "@/components/BrandLogo";
@@ -157,13 +158,13 @@ export default async function Footer() {
           <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <LanguageSwitcher />
             <span aria-hidden>·</span>
-            <a href="/privacy-policy" className="text-slate-text transition-colors hover:text-ivory hover:underline">
+            <NextLink href="/privacy-policy" className="text-slate-text transition-colors hover:text-ivory hover:underline">
               {t("privacy")}
-            </a>
+            </NextLink>
             <span aria-hidden>·</span>
-            <a href="/terms" className="text-slate-text transition-colors hover:text-ivory hover:underline">
+            <NextLink href="/terms" className="text-slate-text transition-colors hover:text-ivory hover:underline">
               {t("terms")}
-            </a>
+            </NextLink>
             <span aria-hidden>·</span>
             <span>{t("bottomNote")}</span>
           </span>

@@ -8,6 +8,7 @@ import Reveal from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import BrandIcon, { type BrandIconName } from "@/components/BrandIcon";
 import { bikes, filterTabs, type FilterTabId } from "@/lib/data";
+import { scrollToId } from "@/lib/scroll";
 
 const FILTER_ICONS: Partial<Record<FilterTabId, BrandIconName>> = {
   cruiser: "cruiser",
@@ -17,11 +18,14 @@ const FILTER_ICONS: Partial<Record<FilterTabId, BrandIconName>> = {
   scooter: "scooter",
 };
 
+const INITIAL_VISIBLE = 6;
+
 export default function Fleet() {
   const t = useTranslations("fleet");
   const locale = useLocale();
   const [activeFilter, setActiveFilter] = useState<FilterTabId>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [expanded, setExpanded] = useState(false);
   const deferredQuery = useDeferredValue(searchQuery);
 
   const visibleBikes = useMemo(() => {
@@ -39,6 +43,20 @@ export default function Fleet() {
       );
     });
   }, [activeFilter, deferredQuery, t]);
+
+  const isSearching = deferredQuery.trim() !== "";
+  const isLimited = !isSearching && visibleBikes.length > INITIAL_VISIBLE;
+  const shownBikes =
+    isLimited && !expanded ? visibleBikes.slice(0, INITIAL_VISIBLE) : visibleBikes;
+
+  const toggleExpanded = () => {
+    if (expanded) {
+      setExpanded(false);
+      scrollToId("fleet");
+    } else {
+      setExpanded(true);
+    }
+  };
 
   const counts = useMemo(() => {
     const map: Record<string, number> = { all: bikes.length };
@@ -92,7 +110,10 @@ export default function Fleet() {
             <input
               type="search"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setExpanded(false);
+              }}
               placeholder={t("searchPlaceholder")}
               autoComplete="off"
               className="input-field pl-10"
@@ -112,7 +133,10 @@ export default function Fleet() {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setActiveFilter(tab.id)}
+                  onClick={() => {
+                    setActiveFilter(tab.id);
+                    setExpanded(false);
+                  }}
                   className={`filter-tab inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2.5 text-[0.72rem] font-semibold tracking-widest uppercase transition-[background,border-color,color,box-shadow] md:px-5 ${
                     isActive
                       ? "border-teal bg-teal/10 text-ivory"
@@ -132,7 +156,11 @@ export default function Fleet() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3" role="tabpanel">
+        <div
+          id="fleet-grid"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3"
+          role="tabpanel"
+        >
           {visibleBikes.length === 0 ? (
             <p className="col-span-full py-16 text-center text-muted">
               {deferredQuery.trim()
@@ -140,9 +168,26 @@ export default function Fleet() {
                 : t("emptyCategory")}
             </p>
           ) : (
-            visibleBikes.map((bike) => <FleetCard key={bike.id} bike={bike} />)
+            shownBikes.map((bike) => <FleetCard key={bike.id} bike={bike} />)
           )}
         </div>
+
+        {isLimited ? (
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <p className="text-xs tracking-wide text-slate-text" aria-live="polite">
+              {t("shownOf", { shown: shownBikes.length, total: visibleBikes.length })}
+            </p>
+            <button
+              type="button"
+              onClick={toggleExpanded}
+              aria-expanded={expanded}
+              aria-controls="fleet-grid"
+              className="btn-ghost"
+            >
+              {expanded ? t("showLess") : t("showMore")}
+            </button>
+          </div>
+        ) : null}
       </div>
       <span className="sr-only">{locale}</span>
     </section>

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Delivery from "@/components/Delivery";
 import Fleet from "@/components/Fleet";
 import Footer from "@/components/Footer";
+import GoogleReviews from "@/components/GoogleReviews";
 import Hero from "@/components/Hero";
 import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
@@ -13,6 +14,7 @@ import { localizedPath } from "@/i18n/locale";
 import { isAppLocale } from "@/i18n/routing";
 import { bikes } from "@/lib/data";
 import { isMotorcycle } from "@/lib/fleet";
+import { getGoogleReviews } from "@/lib/google-reviews";
 import { bikeProductJsonLd, buildPageMetadata, faqPageJsonLd, localBusinessJsonLd } from "@/lib/seo";
 
 type PageProps = {
@@ -43,6 +45,7 @@ export default async function Home({ params }: PageProps) {
   const tFaq = await getTranslations("faq");
   const tSeo = await getTranslations("seo");
   const tFleet = await getTranslations("fleet");
+  const googleReviews = await getGoogleReviews();
   const faqs = tFaq.raw("items") as { q: string; a: string }[];
   const safeLocale = isAppLocale(locale) ? locale : "en";
   const productJsonLd = bikes.filter(isMotorcycle).map((bike) => {
@@ -65,7 +68,7 @@ export default async function Home({ params }: PageProps) {
 
   return (
     <>
-      <JsonLd data={[localBusinessJsonLd(tSeo("localBusinessDescription")), faqPageJsonLd(faqs)]} />
+      <JsonLd data={[localBusinessJsonLd(tSeo("localBusinessDescription"), googleReviews), faqPageJsonLd(faqs)]} />
       <JsonLd data={productJsonLd} />
       <Nav />
       <main className="relative z-[1]">
@@ -73,6 +76,7 @@ export default async function Home({ params }: PageProps) {
         <Fleet />
         <Delivery />
         <WhyUs />
+        <GoogleReviews />
         <HomeFaq />
       </main>
       <Footer />

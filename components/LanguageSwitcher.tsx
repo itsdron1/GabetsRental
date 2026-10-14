@@ -11,6 +11,10 @@ type LanguageSwitcherProps = {
 
 const LEGAL_PATHS = new Set(["/privacy-policy", "/terms"]);
 
+function setLocaleCookie(next: AppLocale) {
+  document.cookie = `NEXT_LOCALE=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
+}
+
 export default function LanguageSwitcher({ className = "" }: LanguageSwitcherProps) {
   const t = useTranslations("language");
   const locale = useLocale();
@@ -22,7 +26,7 @@ export default function LanguageSwitcher({ className = "" }: LanguageSwitcherPro
   const switchTo = (next: AppLocale) => {
     if (next === locale) return;
     if (isLegalPage) {
-      document.cookie = `NEXT_LOCALE=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
+      setLocaleCookie(next);
       window.location.reload();
       return;
     }

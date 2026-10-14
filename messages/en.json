@@ -3,6 +3,7 @@
     "home": "Home",
     "fleet": "Fleet",
     "whyUs": "Why Us",
+    "reviews": "Reviews",
     "tours": "Tour Packages",
     "book": "Book",
     "bookNow": "Book Now",
@@ -177,7 +178,10 @@
       "honda-brio-satya": "Economical city hatchback",
       "mitsubishi-xpander": "Spacious crossover MPV",
       "toyota-raize-gr-sport": "Compact turbo SUV"
-    }
+    },
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "shownOf": "Showing {shown} of {total}"
   },
   "delivery": {
     "tag": "Delivery",
@@ -259,6 +263,18 @@
         "text": "Rent for 1 day or 3 months. Long-term discounts kick in automatically — the longer you ride, the more you save."
       }
     ]
+  },
+  "reviews": {
+    "tag": "Reviews",
+    "title": "What riders say about us",
+    "subtitle": "Real feedback from riders on our Google Business profile.",
+    "basedOn": "Based on {count} Google reviews",
+    "ratingAria": "Rated {rating} out of 5",
+    "readMore": "Read more",
+    "readLess": "Show less",
+    "leaveReview": "Leave a review",
+    "allReviews": "All reviews on Google",
+    "sliderAria": "Customer reviews"
   },
   "booking": {
     "tag": "Reservations",

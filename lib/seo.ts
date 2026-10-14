@@ -5,7 +5,8 @@ import { localizedPath, OG_LOCALE } from "@/i18n/locale";
 import { locales, type AppLocale } from "@/i18n/routing";
 import { getBikeImagePath } from "@/lib/bike-images";
 import { CONTACT_EMAIL, FACEBOOK_URL, GOOGLE_BUSINESS_URL, INSTAGRAM_URL } from "@/lib/constants";
-import { SITE_URL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import type { GoogleReviewsData } from "@/lib/google-reviews";
+import { SITE_URL, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 /**
  * Google Search Console: add property for SITE_URL, then set in .env.local:
@@ -132,7 +133,48 @@ export function getBikeImageAlt(bike: Bike): string {
   return `${name} rental in Bali — premium motorcycle rental Bali`;
 }
 
-export function localBusinessJsonLd(description: string) {
+/**
+ * AggregateRating / Review markup — emitted only from real data.
+ * Placeholder summary or reviews (isPlaceholder) are skipped so no invented
+ * ratings reach structured data.
+ */
+function reviewsJsonLd(data?: GoogleReviewsData) {
+  if (!data) return {};
+  const realReviews = data.reviews.filter((review) => !review.isPlaceholder);
+  const hasRealSummary = !data.isPlaceholder && data.totalCount > 0 && data.rating > 0;
+
+  return {
+    ...(hasRealSummary
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: data.rating,
+            reviewCount: data.totalCount,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }
+      : {}),
+    ...(realReviews.length > 0
+      ? {
+          review: realReviews.map((review) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: review.authorName },
+            datePublished: review.date,
+            reviewBody: review.text,
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: review.rating,
+              bestRating: 5,
+              worstRating: 1,
+            },
+          })),
+        }
+      : {}),
+  };
+}
+
+export function localBusinessJsonLd(description: string, reviews?: GoogleReviewsData) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -196,6 +238,7 @@ export function localBusinessJsonLd(description: string) {
         serviceType: "Motorcycle rental and guided tours",
       },
     },
+    ...reviewsJsonLd(reviews),
   };
 }
 
