@@ -1,7 +1,6 @@
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import BookingShell from "@/components/BookingShell";
 import HtmlLang from "@/components/HtmlLang";
 import { routing } from "@/i18n/routing";
 
@@ -26,7 +25,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <HtmlLang locale={locale} />
-      <BookingShell>{children}</BookingShell>
+      {children}
     </NextIntlClientProvider>
   );
 }

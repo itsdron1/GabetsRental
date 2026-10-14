@@ -3,11 +3,10 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import type { Bike } from "@/lib/data";
-import { useBooking } from "@/components/BookingContext";
+import BookingTrigger from "@/components/BookingTrigger";
 import FleetSpecs from "@/components/FleetSpecs";
 import { getBikeImagePath } from "@/lib/bike-images";
 import { formatBikePriceCompact, formatIdrNumber } from "@/lib/format";
-import { trackBookClick } from "@/lib/analytics";
 import type { AppLocale } from "@/i18n/routing";
 
 type FleetCardProps = {
@@ -34,7 +33,6 @@ export default function FleetCard({ bike }: FleetCardProps) {
   const tSeo = useTranslations("seo");
   const locale = useLocale() as AppLocale;
   const imageAlt = bikeImageAlt(bike, tSeo);
-  const { openBooking } = useBooking();
   const tagline = String(t.raw(`taglines.${bike.id}` as never) ?? bike.tagline);
   const badge = bike.badge ? String(t.raw(`badges.${bike.badge}` as never) ?? bike.badge) : null;
   const showTagline = Boolean(tagline) && tagline !== bike.name;
@@ -78,16 +76,13 @@ export default function FleetCard({ bike }: FleetCardProps) {
               {t("perDay", { price: formatIdrNumber(bike.priceIdr, locale) })}
             </span>
           </div>
-          <button
-            type="button"
-            onClick={(e) => {
-              trackBookClick({ source: "bike_card", bikeModel: bike.name });
-              openBooking({ bikeName: bike.name, trigger: e.currentTarget });
-            }}
+          <BookingTrigger
+            source="bike_card"
+            bikeName={bike.name}
             className="fleet-card-cta shrink-0 whitespace-nowrap rounded-lg px-4 py-2.5 text-[0.75rem] font-semibold tracking-[0.08em] uppercase"
           >
             {t("book")}
-          </button>
+          </BookingTrigger>
         </div>
         <FleetSpecs bike={bike} />
       </div>

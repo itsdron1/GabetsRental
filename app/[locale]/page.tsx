@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Delivery from "@/components/Delivery";
 import Fleet from "@/components/Fleet";
@@ -15,8 +14,6 @@ import { isAppLocale } from "@/i18n/routing";
 import { bikes } from "@/lib/data";
 import { isMotorcycle } from "@/lib/fleet";
 import { bikeProductJsonLd, buildPageMetadata, faqPageJsonLd, localBusinessJsonLd } from "@/lib/seo";
-
-const Booking = dynamic(() => import("@/components/Booking"));
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -76,7 +73,6 @@ export default async function Home({ params }: PageProps) {
         <Fleet />
         <Delivery />
         <WhyUs />
-        <Booking />
         <HomeFaq />
       </main>
       <Footer />

@@ -1,51 +1,46 @@
 "use client";
 
 import { type MouseEvent, type ReactNode } from "react";
-import { useBooking } from "@/components/BookingContext";
-import { trackBookClick, type BookClickSource } from "@/lib/analytics";
+import { useTranslations } from "next-intl";
+import { trackBookClick, trackWhatsAppClick, type BookClickSource } from "@/lib/analytics";
+import { buildWhatsAppMessageUrl } from "@/lib/whatsapp";
 
 type BookingTriggerProps = {
   children: ReactNode;
   className?: string;
   bikeName?: string;
   source: BookClickSource;
-  as?: "button" | "a";
-  href?: string;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 };
 
+/** "Book" link: opens a WhatsApp chat with a prefilled message (no booking form). */
 export default function BookingTrigger({
   children,
   className,
   bikeName,
   source,
-  as = "button",
-  href = "#booking",
+  onClick,
 }: BookingTriggerProps) {
-  const { openBooking } = useBooking();
+  const t = useTranslations("common");
 
-  const handleClick = (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
-    e.preventDefault();
-    trackBookClick({
-      source,
-      ...(bikeName ? { bikeModel: bikeName } : {}),
-    });
-    openBooking({
-      bikeName,
-      trigger: e.currentTarget,
-    });
+  const message = bikeName ? t("whatsappBikePrefill", { bike: bikeName }) : t("whatsappPrefill");
+  const href = buildWhatsAppMessageUrl(message);
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    trackBookClick({ source, ...(bikeName ? { bikeModel: bikeName } : {}) });
+    trackWhatsAppClick(`book_${source}`);
+    onClick?.(e);
   };
 
-  if (as === "a") {
-    return (
-      <a href={href} className={className} onClick={handleClick}>
-        {children}
-      </a>
-    );
-  }
-
   return (
-    <button type="button" className={className} onClick={handleClick}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      onClick={handleClick}
+    >
       {children}
-    </button>
+    </a>
   );
 }

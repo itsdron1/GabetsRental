@@ -3,11 +3,9 @@
 import { useLocale, useTranslations } from "next-intl";
 import { type MouseEvent, useEffect, useState } from "react";
 import BookingTrigger from "@/components/BookingTrigger";
-import { useBooking } from "@/components/BookingContext";
 import BrandLogo from "@/components/BrandLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { Link, usePathname } from "@/i18n/navigation";
-import { trackBookClick } from "@/lib/analytics";
 import { scrollToId } from "@/lib/scroll";
 
 export default function Nav() {
@@ -15,7 +13,6 @@ export default function Nav() {
   const locale = useLocale();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const { openBooking } = useBooking();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -24,7 +21,6 @@ export default function Nav() {
     { href: "#fleet", label: t("fleet") },
     { href: "#why", label: t("whyUs") },
     { href: "/tour-packages", label: t("tours") },
-    { href: "#booking", label: t("book") },
   ];
 
   useEffect(() => {
@@ -45,15 +41,8 @@ export default function Nav() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const handleMobileNav = (href: string, trigger?: HTMLElement) => {
+  const handleMobileNav = (href: string) => {
     closeMenu();
-    if (href === "#booking") {
-      setTimeout(() => {
-        trackBookClick({ source: "nav" });
-        openBooking({ trigger });
-      }, 200);
-      return;
-    }
     if (href.startsWith("#") && isHomePage) {
       const id = href.replace("#", "");
       setTimeout(() => scrollToId(id), 200);
@@ -82,12 +71,6 @@ export default function Nav() {
     }`;
 
   const handleInlineAnchor = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href === "#booking") {
-      e.preventDefault();
-      trackBookClick({ source: "nav" });
-      openBooking({ trigger: e.currentTarget });
-      return;
-    }
     if (!href.startsWith("#") || !isHomePage) return;
     e.preventDefault();
     scrollToId(href.replace("#", ""));
@@ -114,6 +97,11 @@ export default function Nav() {
               </Link>
             </li>
           ))}
+          <li>
+            <BookingTrigger source="nav" className={linkClassName(false)}>
+              {t("book")}
+            </BookingTrigger>
+          </li>
         </ul>
 
         <div className="hidden items-center gap-5 lg:flex">
@@ -156,16 +144,19 @@ export default function Nav() {
             key={link.href}
             href={resolveHref(link.href)}
             onClick={(e) => {
-              if (link.href === "#booking" || (link.href.startsWith("#") && isHomePage)) {
+              if (link.href.startsWith("#") && isHomePage) {
                 e.preventDefault();
               }
-              handleMobileNav(link.href, e.currentTarget);
+              handleMobileNav(link.href);
             }}
             className={mobileLinkClassName(isActiveLink(link.href))}
           >
             {link.label}
           </Link>
         ))}
+        <BookingTrigger source="nav" className={mobileLinkClassName(false)} onClick={closeMenu}>
+          {t("book")}
+        </BookingTrigger>
         <div className="mt-6">
           <LanguageSwitcher />
         </div>

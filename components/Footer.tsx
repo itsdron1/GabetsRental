@@ -134,7 +134,6 @@ export default async function Footer() {
               </li>
               <li>
                 <BookingTrigger
-                  as="a"
                   source="footer"
                   className="text-sm text-muted transition-colors hover:text-cream"
                 >

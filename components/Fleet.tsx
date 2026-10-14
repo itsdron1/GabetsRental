@@ -60,7 +60,6 @@ export default function Fleet() {
           <p className="section-subtitle">
             {t("subtitleBefore")}{" "}
             <BookingTrigger
-              as="a"
               source="inline_link"
               className="text-teal transition-colors hover:underline"
             >
