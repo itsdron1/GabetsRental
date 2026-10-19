@@ -6,7 +6,6 @@ import JsonLd from "@/components/JsonLd";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import TourCard from "@/components/tours/TourCard";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link } from "@/i18n/navigation";
 import { localizedPath } from "@/i18n/locale";
 import { isAppLocale } from "@/i18n/routing";
@@ -177,7 +176,6 @@ export default async function TourPackagesPage({ params }: PageProps) {
         </section>
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

@@ -4,7 +4,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import Nav from "@/components/Nav";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import TourBreadcrumbs from "@/components/tours/TourBreadcrumbs";
 import TourDetailHero from "@/components/tours/TourDetailHero";
 import TourDetailBody from "@/components/tours/TourDetailBody";
@@ -92,7 +91,6 @@ export default async function TourDetailPage({ params }: PageProps) {
       </main>
       <TourStickyBookingBar title={tour.title} slug={tour.slug} />
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import BookingShell from "@/components/BookingShell";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -89,7 +88,6 @@ export default async function TermsPage() {
         </article>
       </main>
       <Footer />
-      <WhatsAppButton />
     </BookingShell>
   );
 }

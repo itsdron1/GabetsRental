@@ -9,7 +9,6 @@ import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
 import Nav from "@/components/Nav";
 import WhyUs from "@/components/WhyUs";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { localizedPath } from "@/i18n/locale";
 import { isAppLocale } from "@/i18n/routing";
 import { bikes } from "@/lib/data";
@@ -80,7 +79,6 @@ export default async function Home({ params }: PageProps) {
         <HomeFaq />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }
