@@ -9,7 +9,7 @@ export default function HeroActions() {
 
   return (
     <div className="flex flex-wrap items-center gap-4">
-      <button type="button" onClick={() => scrollToId("fleet")} className="btn-primary">
+      <button type="button" onClick={() => scrollToId("fleet-catalog")} className="btn-primary">
         {t("browseFleet")}
       </button>
       <BookingTrigger source="hero" className="btn-ghost">

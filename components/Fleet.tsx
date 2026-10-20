@@ -92,7 +92,7 @@ export default function Fleet() {
         </Reveal>
 
         <Reveal className="mb-6">
-          <label className="relative block max-w-md">
+          <label id="fleet-catalog" className="relative block max-w-md scroll-mt-24">
             <span className="sr-only">{t("searchLabel")}</span>
             <svg
               aria-hidden
