@@ -98,6 +98,7 @@ const SITE_ID_BY_FLEET_ID: Record<string, string> = {
 
 const INSERT_AFTER: Record<string, string> = {
   "harley-davidson-fat-boy": "harley-street-500",
+  "kawasaki-ninja-250": "kawasaki-ninja-250-abs-custom",
   "qj-motor-srv-250-at": "kawasaki-w175-black",
   "yamaha-nmax-155": "vespa-primavera-s",
 };
@@ -109,6 +110,7 @@ const CATEGORY_FIXES: Record<string, BikeCategory> = {
 
 const NEW_BIKE_TAGLINES: Record<string, string> = {
   "harley-davidson-fat-boy": "Harley-Davidson Fat Boy",
+  "kawasaki-ninja-250": "Twin-cylinder sportbike",
   "qj-motor-srv-250-at": "QJ Motor SRV 250 AT",
   "yamaha-nmax-155": "Yamaha NMAX Turbo",
 };
@@ -267,6 +269,25 @@ export function buildBikes(catalog: CatalogVehicle[]): Bike[] {
   }
 
   return [...motorcycles, ...cars];
+}
+
+/** Standard grid: 1 day / 2–3 / 4–6 / 7–29 days per day + 30-day total, no flat week price. */
+const STANDARD_TIER_RANGES: [number, number][] = [
+  [2, 3],
+  [4, 6],
+  [7, 29],
+];
+
+export function isStandardTierGrid(pricing: BikePricing): boolean {
+  return (
+    pricing.month !== null &&
+    pricing.week === null &&
+    pricing.tiers.length === STANDARD_TIER_RANGES.length &&
+    pricing.tiers.every(
+      (tier, i) =>
+        tier.minDays === STANDARD_TIER_RANGES[i][0] && tier.maxDays === STANDARD_TIER_RANGES[i][1],
+    )
+  );
 }
 
 export function isMotorcycle(bike: Bike): bike is Bike & {

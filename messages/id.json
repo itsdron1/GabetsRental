@@ -80,6 +80,15 @@
     "difficultyHelp": "Arti skala tingkat kesulitan",
     "difficultyTooltip": "Ini petunjuk memilih motor, bukan jaminan keselamatan. 1 — Cocok untuk pemula: hingga ~180 cc, ringan, tenaga halus atau matic. Cukup pengalaman dasar skuter/motor. 2 — Menengah: ~180–450 cc, berat dan tenaga sedang. Perlu riding harian yang percaya diri. 3 — Untuk yang berpengalaman: ~450–900 cc, atau cruiser berat di atas 200 kg. Perlu pengalaman motor berkapasitas besar. 4 — Khusus ahli: 900 cc+, supersport, atau cruiser di atas 300 kg. Hanya untuk rider berpengalaman.",
     "rateOnRequest": "Tarif mingguan/bulanan — tanya via WhatsApp",
+    "priceGrid": {
+      "oneDay": "1 hari",
+      "days2to3": "2–3 hari",
+      "days4to6": "4–6 hari",
+      "days7plus": "7+ hari",
+      "days30": "30 hari",
+      "total": "total",
+      "monthlyHint": "Mulai 2 minggu, tarif bulanan lebih hemat — tanya via WhatsApp"
+    },
     "baseModelNote": "Data model standar. Spesifikasi unit ini dikonfirmasi saat pemesanan.",
     "absFrontWheelOnly": "hanya roda depan",
     "engineBoredOut": "Mesin sudah di-bore up — kapasitas sebenarnya lebih besar dari standar.",
@@ -142,6 +151,7 @@
       "honda-cbr250rr-abs-spqs": "Sport twin andalan",
       "honda-cbr250rr-sp-abs": "Performa racikan trek",
       "kawasaki-ninja-250-abs-custom": "Sport twin berbalut custom",
+      "kawasaki-ninja-250": "Motor sport dua silinder",
       "kawasaki-w175-black-gloss": "Single retro berlapis gloss",
       "kawasaki-w175-black": "Cruiser klasik seri W",
       "kawasaki-z250sl-custom-black": "Naked sport yang ringan",

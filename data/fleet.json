@@ -38,14 +38,22 @@
         "maxDays": "number|null",
         "pricePerDay": "number"
       },
-      "onlyTheseFourHaveTierPricing": [
-        "kawasaki-klx230",
-        "qj-motor-srv-250-at",
-        "kawasaki-ninja-250-abs-custom",
-        "yamaha-nmax-155"
+      "standardTierGrid": {
+        "description": "Owner-confirmed grid since 2026-10: day = 1 day; tiers 2-3, 4-6 (day 6 included), 7-29 days per-day; month = total for 30 days. No flat week price.",
+        "bikes": [
+          "kawasaki-ninja-250",
+          "kawasaki-klx230",
+          "qj-motor-srv-250-at",
+          "yamaha-nmax-155",
+          "honda-crf150",
+          "qjmotor-tourino-250-dx"
+        ]
+      },
+      "legacyTierPricing": [
+        "kawasaki-ninja-250-abs-custom"
       ],
       "harleyFatBoyNote": "Day rate 2,500,000 IDR only; weekly and monthly are on request.",
-      "tierBoundaryRule": "Confirmed by the owner: the cheaper tier starts ON day 5, not day 6. So 2-4 days = mid tier, 5+ days = low tier.",
+      "tierBoundaryRule": "Standard grid (bikes in standardTierGrid): 2-3 / 4-6 / 7-29 days. Legacy rule — cheaper tier starts ON day 5 (2-4 mid, 5+ low) — now applies ONLY to kawasaki-ninja-250-abs-custom.",
       "absNullRule": "If specs.abs is null, the ABS row must be HIDDEN on that card — it means 'not confirmed', not 'no ABS'. Never render null as 'No'."
     },
     "researchPass": {
@@ -853,6 +861,53 @@
       "pricingUpdated": true
     },
     {
+      "id": "kawasaki-ninja-250",
+      "name": "Kawasaki Ninja 250",
+      "category": "sport",
+      "badge": "new",
+      "isNew": true,
+      "specs": {
+        "engineType": "Parallel-twin, liquid-cooled",
+        "displacementCc": 249,
+        "powerHp": 39,
+        "powerRpm": 12500,
+        "torqueNm": 23.5,
+        "torqueRpm": 10000,
+        "weightKg": 164,
+        "seatHeightMm": 795,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 14,
+        "abs": null
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 700000,
+        "tiers": [
+          {
+            "minDays": 2,
+            "maxDays": 3,
+            "pricePerDay": 600000
+          },
+          {
+            "minDays": 4,
+            "maxDays": 6,
+            "pricePerDay": 550000
+          },
+          {
+            "minDays": 7,
+            "maxDays": 29,
+            "pricePerDay": 450000
+          }
+        ],
+        "month": 6500000
+      },
+      "needsVerification": false,
+      "pricingUpdated": true,
+      "verifyNote": "Separate bike from kawasaki-ninja-250-abs-custom. ABS not confirmed — abs is null, so the ABS row is hidden on this card.",
+      "image": "/bikes/kawasaki-ninja-250.webp",
+      "imageProvided": true
+    },
+    {
       "id": "kawasaki-z250sl-custom-black",
       "name": "Kawasaki Z250SL Custom Black",
       "category": "sport",
@@ -1226,13 +1281,30 @@
       },
       "difficulty": 2,
       "pricing": {
-        "day": 650000,
-        "tiers": [],
-        "month": null
+        "day": 550000,
+        "tiers": [
+          {
+            "minDays": 2,
+            "maxDays": 3,
+            "pricePerDay": 500000
+          },
+          {
+            "minDays": 4,
+            "maxDays": 6,
+            "pricePerDay": 450000
+          },
+          {
+            "minDays": 7,
+            "maxDays": 29,
+            "pricePerDay": 400000
+          }
+        ],
+        "month": 6000000
       },
       "needsVerification": false,
       "sourceVerified": "Oto.com feature: 249cc liquid-cooled DOHC single, 26 hp @ 8000 rpm, 21 Nm @ 6000 rpm, 152 kg, 830 mm seat, 6-speed, 13 L, dual-channel ABS with switchable rear.",
-      "riderNote": "Tall seat at 830mm and switchable rear ABS for light off-road use."
+      "riderNote": "Tall seat at 830mm and switchable rear ABS for light off-road use.",
+      "pricingUpdated": true
     },
     {
       "id": "honda-crf150",
@@ -1253,12 +1325,29 @@
       },
       "difficulty": 2,
       "pricing": {
-        "day": 400000,
-        "tiers": [],
-        "month": null
+        "day": 500000,
+        "tiers": [
+          {
+            "minDays": 2,
+            "maxDays": 3,
+            "pricePerDay": 400000
+          },
+          {
+            "minDays": 4,
+            "maxDays": 6,
+            "pricePerDay": 350000
+          },
+          {
+            "minDays": 7,
+            "maxDays": 29,
+            "pricePerDay": 300000
+          }
+        ],
+        "month": 3500000
       },
       "needsVerification": false,
-      "riderNote": "Tall seat at 869mm — mention this for shorter riders."
+      "riderNote": "Tall seat at 869mm — mention this for shorter riders.",
+      "pricingUpdated": true
     },
     {
       "id": "yamaha-wr155",
@@ -1306,20 +1395,25 @@
       },
       "difficulty": 2,
       "pricing": {
-        "day": 650000,
+        "day": 750000,
         "tiers": [
           {
             "minDays": 2,
+            "maxDays": 3,
+            "pricePerDay": 650000
+          },
+          {
+            "minDays": 4,
             "maxDays": 6,
             "pricePerDay": 550000
           },
           {
             "minDays": 7,
-            "maxDays": null,
-            "pricePerDay": 400000
+            "maxDays": 29,
+            "pricePerDay": 450000
           }
         ],
-        "month": 6200000
+        "month": 6000000
       },
       "needsVerification": true,
       "pricingUpdated": true,
@@ -1507,16 +1601,25 @@
       },
       "difficulty": 1,
       "pricing": {
-        "day": 250000,
+        "day": 350000,
         "tiers": [
           {
+            "minDays": 2,
+            "maxDays": 3,
+            "pricePerDay": 250000
+          },
+          {
+            "minDays": 4,
+            "maxDays": 6,
+            "pricePerDay": 220000
+          },
+          {
             "minDays": 7,
-            "maxDays": null,
-            "pricePerDay": 214000
+            "maxDays": 29,
+            "pricePerDay": 200000
           }
         ],
-        "week": 1500000,
-        "month": 3000000
+        "month": 2500000
       },
       "needsVerification": true,
       "pricingUpdated": true,
@@ -1554,16 +1657,21 @@
       },
       "difficulty": 2,
       "pricing": {
-        "day": 550000,
+        "day": 650000,
         "tiers": [
           {
             "minDays": 2,
-            "maxDays": 4,
+            "maxDays": 3,
+            "pricePerDay": 550000
+          },
+          {
+            "minDays": 4,
+            "maxDays": 6,
             "pricePerDay": 500000
           },
           {
-            "minDays": 5,
-            "maxDays": null,
+            "minDays": 7,
+            "maxDays": 29,
             "pricePerDay": 450000
           }
         ],

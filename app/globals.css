@@ -422,6 +422,28 @@
     @apply mt-3 space-y-1 text-[0.78rem] text-cream/85;
   }
 
+  .fleet-price-table {
+    @apply w-full border-collapse;
+  }
+
+  .fleet-price-table th,
+  .fleet-price-table td {
+    @apply border-b border-border/60 py-1.5 align-baseline;
+  }
+
+  .fleet-price-table tr:last-child th,
+  .fleet-price-table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .fleet-price-table th {
+    @apply pr-3 text-left font-normal text-slate-text;
+  }
+
+  .fleet-price-table td {
+    @apply text-right font-medium whitespace-nowrap text-cream;
+  }
+
   .fleet-rate-request {
     @apply mt-1 inline-block text-[0.72rem] leading-relaxed text-teal underline-offset-2 transition-colors hover:underline;
   }

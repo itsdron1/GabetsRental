@@ -80,6 +80,15 @@
     "difficultyHelp": "What the difficulty scale means",
     "difficultyTooltip": "This is a hint for choosing a bike, not a safety guarantee. 1 — Beginner friendly: up to ~180 cc, light, forgiving power or automatic. Fine with basic scooter or motorcycle experience. 2 — Intermediate: ~180–450 cc, moderate weight and power. Needs confident everyday riding. 3 — Advanced: ~450–900 cc, or a heavy cruiser over 200 kg. Needs solid experience with large-capacity motorcycles. 4 — Expert only: 900 cc+, supersport, or a cruiser over 300 kg. Experienced riders only.",
     "rateOnRequest": "Weekly / monthly rate on request — ask us on WhatsApp",
+    "priceGrid": {
+      "oneDay": "1 day",
+      "days2to3": "2–3 days",
+      "days4to6": "4–6 days",
+      "days7plus": "7+ days",
+      "days30": "30 days",
+      "total": "total",
+      "monthlyHint": "From 2 weeks the monthly rate is cheaper — ask us on WhatsApp"
+    },
     "baseModelNote": "Base-model figures. Exact specs for this unit are confirmed at booking.",
     "absFrontWheelOnly": "front wheel only",
     "engineBoredOut": "Modified engine, bored out — actual displacement is higher than stock.",
@@ -142,6 +151,7 @@
       "honda-cbr250rr-abs-spqs": "Flagship twin-cylinder sport",
       "honda-cbr250rr-sp-abs": "Track-bred twin performance",
       "kawasaki-ninja-250-abs-custom": "Custom livery sport twin",
+      "kawasaki-ninja-250": "Twin-cylinder sportbike",
       "kawasaki-w175-black-gloss": "Gloss-finish retro single",
       "kawasaki-w175-black": "Classic W-series cruiser",
       "kawasaki-z250sl-custom-black": "Lightweight naked sport",

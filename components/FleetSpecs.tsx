@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Bike } from "@/lib/data";
-import { isMotorcycle } from "@/lib/fleet";
+import { isMotorcycle, isStandardTierGrid } from "@/lib/fleet";
 import { formatIdrNumber, formatSpecNumber } from "@/lib/format";
 import { trackSpecsExpand, trackWhatsAppClick } from "@/lib/analytics";
 import { buildWhatsAppMessageUrl } from "@/lib/whatsapp";
@@ -38,6 +38,26 @@ export default function FleetSpecs({ bike }: FleetSpecsProps) {
   const rateUrl = buildWhatsAppMessageUrl(
     tCommon("whatsappRatePrefill", { name: bike.name }),
   );
+
+  const standardGrid = isStandardTierGrid(pricing);
+  const gridRows =
+    standardGrid && pricing.month !== null
+      ? [
+          { key: "1", label: t("priceGrid.oneDay"), value: `${formatIdrNumber(pricing.day, locale)} IDR` },
+          ...pricing.tiers.map((tier, i) => ({
+            key: `${tier.minDays}-${tier.maxDays}`,
+            label: t(
+              (["priceGrid.days2to3", "priceGrid.days4to6", "priceGrid.days7plus"] as const)[i],
+            ),
+            value: `${formatIdrNumber(tier.pricePerDay, locale)} IDR ${t("perDayShort")}`,
+          })),
+          {
+            key: "30",
+            label: t("priceGrid.days30"),
+            value: `${formatIdrNumber(pricing.month, locale)} IDR ${t("priceGrid.total")}`,
+          },
+        ]
+      : null;
 
   const rows: { key: string; label: string; value: string; note?: string }[] = [
     {
@@ -187,35 +207,18 @@ export default function FleetSpecs({ bike }: FleetSpecsProps) {
             ) : null}
           </div>
 
-          <div className="fleet-pricing">
-            <p>
-              {formatIdrNumber(pricing.day, locale)} IDR {t("perDayShort")}
-            </p>
-            {pricing.tiers.map((tier) => {
-              const range =
-                tier.maxDays === null
-                  ? t("daysFrom", { min: formatSpecNumber(tier.minDays, locale) })
-                  : t("daysRange", {
-                      min: formatSpecNumber(tier.minDays, locale),
-                      max: formatSpecNumber(tier.maxDays, locale),
-                    });
-              return (
-                <p key={`${tier.minDays}-${tier.maxDays ?? "plus"}`}>
-                  {range} — {formatIdrNumber(tier.pricePerDay, locale)} IDR {t("perDayShort")}
-                </p>
-              );
-            })}
-            {pricing.week != null ? (
-              <p>
-                {formatIdrNumber(pricing.week, locale)} IDR {t("perWeekShort")}
-              </p>
-            ) : null}
-            {pricing.month != null ? (
-              <p>
-                {formatIdrNumber(pricing.month, locale)} IDR {t("perMonthShort")}
-              </p>
-            ) : null}
-            {pricing.week == null || pricing.month == null ? (
+          {gridRows ? (
+            <div className="fleet-pricing">
+              <table className="fleet-price-table">
+                <tbody>
+                  {gridRows.map((row) => (
+                    <tr key={row.key}>
+                      <th scope="row">{row.label}</th>
+                      <td>{row.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
               <a
                 href={rateUrl}
                 target="_blank"
@@ -223,10 +226,51 @@ export default function FleetSpecs({ bike }: FleetSpecsProps) {
                 className="fleet-rate-request"
                 onClick={() => trackWhatsAppClick("fleet_specs")}
               >
-                {t("rateOnRequest")}
+                {t("priceGrid.monthlyHint")}
               </a>
-            ) : null}
-          </div>
+            </div>
+          ) : (
+            <div className="fleet-pricing">
+              <p>
+                {formatIdrNumber(pricing.day, locale)} IDR {t("perDayShort")}
+              </p>
+              {pricing.tiers.map((tier) => {
+                const range =
+                  tier.maxDays === null
+                    ? t("daysFrom", { min: formatSpecNumber(tier.minDays, locale) })
+                    : t("daysRange", {
+                        min: formatSpecNumber(tier.minDays, locale),
+                        max: formatSpecNumber(tier.maxDays, locale),
+                      });
+                return (
+                  <p key={`${tier.minDays}-${tier.maxDays ?? "plus"}`}>
+                    {range} — {formatIdrNumber(tier.pricePerDay, locale)} IDR {t("perDayShort")}
+                  </p>
+                );
+              })}
+              {pricing.week != null ? (
+                <p>
+                  {formatIdrNumber(pricing.week, locale)} IDR {t("perWeekShort")}
+                </p>
+              ) : null}
+              {pricing.month != null ? (
+                <p>
+                  {formatIdrNumber(pricing.month, locale)} IDR {t("perMonthShort")}
+                </p>
+              ) : null}
+              {pricing.week == null || pricing.month == null ? (
+                <a
+                  href={rateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="fleet-rate-request"
+                  onClick={() => trackWhatsAppClick("fleet_specs")}
+                >
+                  {t("rateOnRequest")}
+                </a>
+              ) : null}
+            </div>
+          )}
         </div>
       </div>
     </div>
