@@ -54,7 +54,9 @@
       ],
       "harleyFatBoyNote": "Day rate 2,500,000 IDR only; weekly and monthly are on request.",
       "tierBoundaryRule": "Standard grid (bikes in standardTierGrid): 2-3 / 4-6 / 7-29 days. Legacy rule — cheaper tier starts ON day 5 (2-4 mid, 5+ low) — now applies ONLY to kawasaki-ninja-250-abs-custom.",
-      "absNullRule": "If specs.abs is null, the ABS row must be HIDDEN on that card — it means 'not confirmed', not 'no ABS'. Never render null as 'No'."
+      "absNullRule": "If specs.abs is null, the ABS row must be HIDDEN on that card — it means 'not confirmed', not 'no ABS'. Never render null as 'No'.",
+      "depositRule": "pricing.deposit = refundable security deposit in IDR (optional). Shown as its own row in the price table.",
+      "monthlyPerkRule": "pricing.monthlyPerk = optional key of a gift included with a 30-day rental (translated in fleet.priceGrid.perks)."
     },
     "researchPass": {
       "date": "2026-09-21",
@@ -908,6 +910,44 @@
       "imageProvided": true
     },
     {
+      "id": "ktm-250-duke",
+      "name": "KTM 250 Duke",
+      "category": "sport",
+      "badge": "new",
+      "isNew": true,
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled, DOHC",
+        "displacementCc": 248.8,
+        "powerHp": 30,
+        "powerRpm": 9000,
+        "torqueNm": 24,
+        "torqueRpm": 7500,
+        "weightKg": 161,
+        "seatHeightMm": 830,
+        "transmission": "6-speed manual",
+        "fuelCapacityL": 13.4,
+        "abs": null
+      },
+      "difficulty": 2,
+      "pricing": {
+        "day": 700000,
+        "tiers": [
+          {
+            "minDays": 8,
+            "maxDays": null,
+            "pricePerDay": 500000
+          }
+        ],
+        "month": 9500000,
+        "deposit": 3500000
+      },
+      "needsVerification": true,
+      "pricingUpdated": true,
+      "verifyNote": "Owner confirmed KTM 250 Duke, 2017-2023 body (gen 2). Specs are gen-2 base-model figures (2024+ gen 3 differs: 249 cc, 15 L tank). ABS not confirmed for this unit — abs is null, ABS row hidden.",
+      "image": "/bikes/ktm-250-duke.webp",
+      "imageProvided": true
+    },
+    {
       "id": "kawasaki-z250sl-custom-black",
       "name": "Kawasaki Z250SL Custom Black",
       "category": "sport",
@@ -1634,6 +1674,39 @@
       ],
       "sourceVerified": "Owner confirmed 2026 NMAX Turbo with ABS. Yamaha Indonesia official product page: 155cc Blue Core VVA + YECVT, 11.3 kW (15.4 PS) @ 8000 rpm, 14.2 Nm @ 6500 rpm, 135 kg, 770 mm seat, 7.1 L, dual-channel ABS + TCS.",
       "image": "/bikes/yamaha-nmax-155.webp",
+      "imageProvided": true
+    },
+    {
+      "id": "honda-pcx-160",
+      "name": "Honda PCX 160",
+      "category": "scooter",
+      "badge": "new",
+      "isNew": true,
+      "specs": {
+        "engineType": "Single-cylinder, liquid-cooled, eSP+ 4-valve",
+        "displacementCc": 156.9,
+        "powerHp": 15.8,
+        "powerRpm": 8500,
+        "torqueNm": 14.7,
+        "torqueRpm": 6500,
+        "weightKg": 132,
+        "seatHeightMm": 764,
+        "transmission": "CVT automatic",
+        "fuelCapacityL": 8.1,
+        "abs": null
+      },
+      "difficulty": 1,
+      "pricing": {
+        "day": 350000,
+        "tiers": [],
+        "month": 3500000,
+        "deposit": 2000000,
+        "monthlyPerk": "helmetsRaincoat"
+      },
+      "needsVerification": true,
+      "pricingUpdated": true,
+      "verifyNote": "Owner confirmed PCX 160 (2021+ body). Indonesia sells CBS and ABS variants (131 / 132 kg); ABS not confirmed for this unit — abs is null, ABS row hidden. Monthly rental includes 2 helmets + raincoat as a gift.",
+      "image": "/bikes/honda-pcx-160.webp",
       "imageProvided": true
     },
     {

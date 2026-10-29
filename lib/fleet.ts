@@ -21,11 +21,17 @@ export type BikePricingTier = {
   pricePerDay: number;
 };
 
+export type BikeMonthlyPerk = "helmetsRaincoat";
+
 export type BikePricing = {
   day: number;
   tiers: BikePricingTier[];
   week: number | null;
   month: number | null;
+  /** Refundable security deposit, IDR */
+  deposit: number | null;
+  /** Gift included with a 30-day rental */
+  monthlyPerk: BikeMonthlyPerk | null;
 };
 
 export type BikeDifficulty = 1 | 2 | 3 | 4;
@@ -58,6 +64,8 @@ type FleetPricing = {
   tiers?: FleetPricingTier[];
   week?: number | null;
   month?: number | null;
+  deposit?: number | null;
+  monthlyPerk?: string | null;
 };
 
 type FleetBikeRecord = {
@@ -78,6 +86,7 @@ type FleetBikeRecord = {
 };
 
 type FleetFile = {
+  _meta?: { _pricingModel?: { legacyTierPricing?: string[] } };
   bikes: FleetBikeRecord[];
 };
 
@@ -99,6 +108,8 @@ const SITE_ID_BY_FLEET_ID: Record<string, string> = {
 const INSERT_AFTER: Record<string, string> = {
   "harley-davidson-fat-boy": "harley-street-500",
   "kawasaki-ninja-250": "kawasaki-ninja-250-abs-custom",
+  "ktm-250-duke": "kawasaki-ninja-250",
+  "honda-pcx-160": "yamaha-nmax-155",
   "qj-motor-srv-250-at": "kawasaki-w175-black",
   "yamaha-nmax-155": "vespa-primavera-s",
 };
@@ -111,6 +122,8 @@ const CATEGORY_FIXES: Record<string, BikeCategory> = {
 const NEW_BIKE_TAGLINES: Record<string, string> = {
   "harley-davidson-fat-boy": "Harley-Davidson Fat Boy",
   "kawasaki-ninja-250": "Twin-cylinder sportbike",
+  "ktm-250-duke": "Agile street naked",
+  "honda-pcx-160": "Premium comfort scooter",
   "qj-motor-srv-250-at": "QJ Motor SRV 250 AT",
   "yamaha-nmax-155": "Yamaha NMAX Turbo",
 };
@@ -147,6 +160,10 @@ function mapEngineNote(note: string | undefined): BikeEngineNote | undefined {
   return undefined;
 }
 
+function mapMonthlyPerk(value: string | null | undefined): BikeMonthlyPerk | null {
+  return value === "helmetsRaincoat" ? value : null;
+}
+
 function mapPricing(pricing: FleetPricing): BikePricing {
   return {
     day: pricing.day,
@@ -157,6 +174,8 @@ function mapPricing(pricing: FleetPricing): BikePricing {
     })),
     week: pricing.week ?? null,
     month: pricing.month ?? null,
+    deposit: pricing.deposit ?? null,
+    monthlyPerk: mapMonthlyPerk(pricing.monthlyPerk),
   };
 }
 
@@ -288,6 +307,19 @@ export function isStandardTierGrid(pricing: BikePricing): boolean {
         tier.minDays === STANDARD_TIER_RANGES[i][0] && tier.maxDays === STANDARD_TIER_RANGES[i][1],
     )
   );
+}
+
+/** Bikes that keep the old line-by-line price list (listed in fleet.json _meta). */
+const LEGACY_PRICE_LIST = new Set(
+  asFleetFile(fleetFile)._meta?._pricingModel?.legacyTierPricing ?? [],
+);
+
+/**
+ * Price table (1 day / tiers / 30 days total) is used when the monthly total is known
+ * and there is no flat weekly price; legacy bikes keep their old list.
+ */
+export function hasPriceTable(bikeId: string, pricing: BikePricing): boolean {
+  return pricing.month !== null && pricing.week === null && !LEGACY_PRICE_LIST.has(bikeId);
 }
 
 export function isMotorcycle(bike: Bike): bike is Bike & {

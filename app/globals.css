@@ -444,6 +444,10 @@
     @apply text-right font-medium whitespace-nowrap text-cream;
   }
 
+  .fleet-price-perk {
+    @apply text-[0.72rem] leading-relaxed text-cream/85;
+  }
+
   .fleet-rate-request {
     @apply mt-1 inline-block text-[0.72rem] leading-relaxed text-teal underline-offset-2 transition-colors hover:underline;
   }

@@ -87,7 +87,14 @@
       "days7plus": "от 7 дней",
       "days30": "30 дней",
       "total": "итого",
-      "monthlyHint": "От двух недель выгоднее месячный тариф — уточните в WhatsApp"
+      "monthlyHint": "От двух недель выгоднее месячный тариф — уточните в WhatsApp",
+      "daysFrom": "от {min} дней",
+      "daysRange": "{min}–{max} дней",
+      "deposit": "Залог",
+      "perks": {
+        "helmetsRaincoat": "Аренда на 30 дней: 2 шлема и дождевик в подарок"
+      },
+      "askWhatsApp": "Долгосрочная аренда — уточните в WhatsApp"
     },
     "baseModelNote": "Данные базовой модели. Точные характеристики этого байка уточняются при бронировании.",
     "absFrontWheelOnly": "только переднее колесо",
@@ -152,6 +159,7 @@
       "honda-cbr250rr-sp-abs": "Трек в крови",
       "kawasaki-ninja-250-abs-custom": "Кастомный спорт twin",
       "kawasaki-ninja-250": "Двухцилиндровый спортбайк",
+      "ktm-250-duke": "Лёгкий городской нейкед",
       "kawasaki-w175-black-gloss": "Ретро-сингл в глянце",
       "kawasaki-w175-black": "Классика линейки W",
       "kawasaki-z250sl-custom-black": "Лёгкий нейкед",
@@ -180,6 +188,7 @@
       "harley-davidson-fat-boy": "Harley-Davidson Fat Boy",
       "qj-motor-srv-250-at": "QJ Motor SRV 250 AT",
       "yamaha-nmax-155": "Yamaha NMAX Turbo",
+      "honda-pcx-160": "Комфортный премиум-скутер",
       "toyota-avanza": "Удобный 7-местный MPV",
       "toyota-agya-gr-sport": "Компактный городской хэтчбек",
       "toyota-avanza-new": "Просторный семейный MPV",

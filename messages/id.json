@@ -87,7 +87,14 @@
       "days7plus": "7+ hari",
       "days30": "30 hari",
       "total": "total",
-      "monthlyHint": "Mulai 2 minggu, tarif bulanan lebih hemat — tanya via WhatsApp"
+      "monthlyHint": "Mulai 2 minggu, tarif bulanan lebih hemat — tanya via WhatsApp",
+      "daysFrom": "{min}+ hari",
+      "daysRange": "{min}–{max} hari",
+      "deposit": "Deposit",
+      "perks": {
+        "helmetsRaincoat": "Sewa 30 hari: gratis 2 helm dan jas hujan"
+      },
+      "askWhatsApp": "Sewa jangka panjang? Tanya via WhatsApp"
     },
     "baseModelNote": "Data model standar. Spesifikasi unit ini dikonfirmasi saat pemesanan.",
     "absFrontWheelOnly": "hanya roda depan",
@@ -152,6 +159,7 @@
       "honda-cbr250rr-sp-abs": "Performa racikan trek",
       "kawasaki-ninja-250-abs-custom": "Sport twin berbalut custom",
       "kawasaki-ninja-250": "Motor sport dua silinder",
+      "ktm-250-duke": "Naked street yang lincah",
       "kawasaki-w175-black-gloss": "Single retro berlapis gloss",
       "kawasaki-w175-black": "Cruiser klasik seri W",
       "kawasaki-z250sl-custom-black": "Naked sport yang ringan",
@@ -180,6 +188,7 @@
       "harley-davidson-fat-boy": "Harley-Davidson Fat Boy",
       "qj-motor-srv-250-at": "QJ Motor SRV 250 AT",
       "yamaha-nmax-155": "Yamaha NMAX Turbo",
+      "honda-pcx-160": "Skuter premium yang nyaman",
       "toyota-avanza": "MPV 7 kursi yang nyaman",
       "toyota-agya-gr-sport": "Hatchback kota yang ringkas",
       "toyota-avanza-new": "MPV keluarga yang lapang",

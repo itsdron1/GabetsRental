@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Bike } from "@/lib/data";
-import { isMotorcycle, isStandardTierGrid } from "@/lib/fleet";
+import { hasPriceTable, isMotorcycle, isStandardTierGrid, type BikePricingTier } from "@/lib/fleet";
 import { formatIdrNumber, formatSpecNumber } from "@/lib/format";
 import { trackSpecsExpand, trackWhatsAppClick } from "@/lib/analytics";
 import { buildWhatsAppMessageUrl } from "@/lib/whatsapp";
@@ -40,15 +40,27 @@ export default function FleetSpecs({ bike }: FleetSpecsProps) {
   );
 
   const standardGrid = isStandardTierGrid(pricing);
+  const tierLabel = (tier: BikePricingTier) => {
+    if (tier.minDays === 2 && tier.maxDays === 3) return t("priceGrid.days2to3");
+    if (tier.minDays === 4 && tier.maxDays === 6) return t("priceGrid.days4to6");
+    if (tier.minDays === 7 && (tier.maxDays === 29 || tier.maxDays === null)) {
+      return t("priceGrid.days7plus");
+    }
+    if (tier.maxDays === null || tier.maxDays >= 29) {
+      return t("priceGrid.daysFrom", { min: formatSpecNumber(tier.minDays, locale) });
+    }
+    return t("priceGrid.daysRange", {
+      min: formatSpecNumber(tier.minDays, locale),
+      max: formatSpecNumber(tier.maxDays, locale),
+    });
+  };
   const gridRows =
-    standardGrid && pricing.month !== null
+    hasPriceTable(bike.id, pricing) && pricing.month !== null
       ? [
           { key: "1", label: t("priceGrid.oneDay"), value: `${formatIdrNumber(pricing.day, locale)} IDR` },
-          ...pricing.tiers.map((tier, i) => ({
-            key: `${tier.minDays}-${tier.maxDays}`,
-            label: t(
-              (["priceGrid.days2to3", "priceGrid.days4to6", "priceGrid.days7plus"] as const)[i],
-            ),
+          ...pricing.tiers.map((tier) => ({
+            key: `${tier.minDays}-${tier.maxDays ?? "plus"}`,
+            label: tierLabel(tier),
             value: `${formatIdrNumber(tier.pricePerDay, locale)} IDR ${t("perDayShort")}`,
           })),
           {
@@ -56,6 +68,15 @@ export default function FleetSpecs({ bike }: FleetSpecsProps) {
             label: t("priceGrid.days30"),
             value: `${formatIdrNumber(pricing.month, locale)} IDR ${t("priceGrid.total")}`,
           },
+          ...(pricing.deposit !== null
+            ? [
+                {
+                  key: "deposit",
+                  label: t("priceGrid.deposit"),
+                  value: `${formatIdrNumber(pricing.deposit, locale)} IDR`,
+                },
+              ]
+            : []),
         ]
       : null;
 
@@ -219,6 +240,9 @@ export default function FleetSpecs({ bike }: FleetSpecsProps) {
                   ))}
                 </tbody>
               </table>
+              {pricing.monthlyPerk ? (
+                <p className="fleet-price-perk">{t(`priceGrid.perks.${pricing.monthlyPerk}`)}</p>
+              ) : null}
               <a
                 href={rateUrl}
                 target="_blank"
@@ -226,7 +250,7 @@ export default function FleetSpecs({ bike }: FleetSpecsProps) {
                 className="fleet-rate-request"
                 onClick={() => trackWhatsAppClick("fleet_specs")}
               >
-                {t("priceGrid.monthlyHint")}
+                {standardGrid ? t("priceGrid.monthlyHint") : t("priceGrid.askWhatsApp")}
               </a>
             </div>
           ) : (

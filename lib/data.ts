@@ -40,6 +40,7 @@ export type {
   BikeAbsNote,
   BikeDifficulty,
   BikeEngineNote,
+  BikeMonthlyPerk,
   BikePricing,
   BikePricingTier,
   BikeSpecs,
