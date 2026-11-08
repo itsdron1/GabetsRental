@@ -114,6 +114,19 @@ const INSERT_AFTER: Record<string, string> = {
   "yamaha-nmax-155": "vespa-primavera-s",
 };
 
+/** Pinned to the top of the catalog in this order (site ids); everything else keeps its order. */
+const FEATURED_ORDER = [
+  "harley-davidson-fat-boy",
+  "qj-motor-srv-250-at",
+  "ktm-250-duke",
+  "kawasaki-ninja-250",
+  "kawasaki-klx230",
+  "qjmotor-tourino-250-dx-abs",
+  "honda-crf150",
+  "yamaha-nmax-155",
+  "honda-pcx-160",
+];
+
 /** dataIssuesFound: Byson is a street naked, not enduro. JSON still lists enduro. */
 const CATEGORY_FIXES: Record<string, BikeCategory> = {
   "yamaha-byson-f1": "sport",
@@ -287,7 +300,12 @@ export function buildBikes(catalog: CatalogVehicle[]): Bike[] {
     else motorcycles.push(bike);
   }
 
-  return [...motorcycles, ...cars];
+  const featured = FEATURED_ORDER.map((id) => motorcycles.find((bike) => bike.id === id)).filter(
+    (bike): bike is Bike => bike !== undefined,
+  );
+  const rest = motorcycles.filter((bike) => !FEATURED_ORDER.includes(bike.id));
+
+  return [...featured, ...rest, ...cars];
 }
 
 /** Standard grid: 1 day / 2–3 / 4–6 / 7–29 days per day + 30-day total, no flat week price. */
