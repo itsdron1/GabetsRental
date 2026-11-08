@@ -18,7 +18,7 @@ const FILTER_ICONS: Partial<Record<FilterTabId, BrandIconName>> = {
   scooter: "scooter",
 };
 
-const INITIAL_VISIBLE = 6;
+const INITIAL_VISIBLE = 9;
 
 export default function Fleet() {
   const t = useTranslations("fleet");
