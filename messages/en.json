@@ -1263,5 +1263,72 @@
         ]
       }
     }
+  },
+  "privacy": {
+    "metaTitle": "Privacy Policy",
+    "metaDescription": "Privacy policy for G-DRIVE Bike Rental Bali — how we collect and use booking and contact data.",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: November 20, 2026 · G-DRIVE Bike Rental Bali",
+    "intro": "This Privacy Policy describes how G-DRIVE Bike Rental Bali, operating in Bali, Indonesia (\"we\", \"us\"), collects and uses personal information when you use gdrivebikerentalbali.com or contact us to rent a motorcycle or book a tour.",
+    "collect": {
+      "title": "Information we collect",
+      "items": [
+        "Name and WhatsApp / phone number submitted via the booking form",
+        "Optional delivery address, hotel, or villa details",
+        "Pick-up / return dates and selected bike or tour",
+        "Optional special requests and email correspondence",
+        "Technical data such as browser type and pages visited (via analytics tools if enabled)"
+      ]
+    },
+    "use": {
+      "title": "How we use your information",
+      "items": [
+        "To confirm and manage motorcycle / car rentals and guided tours",
+        "To communicate via WhatsApp, email, or phone about your booking",
+        "To arrange delivery and pickup across Bali",
+        "To improve our website and advertising performance (aggregated analytics)"
+      ]
+    },
+    "cookies": {
+      "title": "Cookies, analytics and advertising",
+      "paragraphs": [
+        "We use Google Analytics and Google Ads (via Google Tag Manager) to understand how visitors use our website and to measure and improve our advertising. These services use cookies and similar technologies to collect information such as pages visited, device and browser type, approximate location and how you arrived at our site.",
+        "We use Google Analytics features based on advertising, including Google signals, demographics and interests reporting, and remarketing. This means Google may associate your visit with your Google account if you are signed in and have enabled ad personalization, and we may show you our ads on other websites after you visit our site. Google signals data is used only in aggregated form; we never receive information that identifies you personally."
+      ],
+      "controlsIntro": "You can control this at any time:",
+      "controls": [
+        {
+          "text": "Manage or turn off personalized ads in your Google account",
+          "url": "https://adssettings.google.com"
+        },
+        {
+          "text": "Opt out of Google Analytics on all websites",
+          "url": "https://tools.google.com/dlpage/gaoptout"
+        },
+        {
+          "text": "Block or delete cookies in your browser settings."
+        }
+      ],
+      "learnMore": {
+        "text": "To learn how Google uses information from sites that use its services, visit",
+        "url": "https://policies.google.com/technologies/partner-sites"
+      }
+    },
+    "sharing": {
+      "title": "Sharing",
+      "text": "We do not sell your personal data. We may share information with service providers who process bookings or host our website (e.g. hosting, email delivery) only as needed to operate the service, or when required by Indonesian law."
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "text": "Booking confirmations and support often happen on WhatsApp. Messages you send are also subject to WhatsApp's own privacy terms (Meta Platforms)."
+    },
+    "retention": {
+      "title": "Retention & your rights",
+      "text": "We keep booking records as long as needed for operations and legal compliance. You may request access, correction, or deletion of your personal data by contacting us via WhatsApp or email listed on the website."
+    },
+    "contact": {
+      "title": "Contact",
+      "text": "G-DRIVE Bike Rental Bali · Bali, Indonesia · See the Contact section on our homepage for current WhatsApp and email."
+    }
   }
 }

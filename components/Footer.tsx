@@ -158,9 +158,9 @@ export default async function Footer() {
           <span className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <LanguageSwitcher />
             <span aria-hidden>·</span>
-            <NextLink href="/privacy-policy" className="text-slate-text transition-colors hover:text-ivory hover:underline">
+            <Link href="/privacy-policy" className="text-slate-text transition-colors hover:text-ivory hover:underline">
               {t("privacy")}
-            </NextLink>
+            </Link>
             <span aria-hidden>·</span>
             <NextLink href="/terms" className="text-slate-text transition-colors hover:text-ivory hover:underline">
               {t("terms")}

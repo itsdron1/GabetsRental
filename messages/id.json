@@ -1262,5 +1262,72 @@
         ]
       }
     }
+  },
+  "privacy": {
+    "metaTitle": "Kebijakan Privasi",
+    "metaDescription": "Kebijakan privasi G-DRIVE Bike Rental Bali — cara kami mengumpulkan dan menggunakan data pemesanan dan kontak.",
+    "title": "Kebijakan Privasi",
+    "lastUpdated": "Terakhir diperbarui: 20 November 2026 · G-DRIVE Bike Rental Bali",
+    "intro": "Kebijakan Privasi ini menjelaskan bagaimana G-DRIVE Bike Rental Bali, yang beroperasi di Bali, Indonesia (\"kami\"), mengumpulkan dan menggunakan informasi pribadi saat Anda menggunakan gdrivebikerentalbali.com atau menghubungi kami untuk menyewa motor atau memesan tur.",
+    "collect": {
+      "title": "Informasi yang kami kumpulkan",
+      "items": [
+        "Nama dan nomor WhatsApp / telepon yang dikirim melalui formulir pemesanan",
+        "Alamat pengantaran, hotel, atau vila (opsional)",
+        "Tanggal pengambilan / pengembalian serta motor atau tur yang dipilih",
+        "Permintaan khusus dan korespondensi email (opsional)",
+        "Data teknis seperti jenis browser dan halaman yang dikunjungi (melalui alat analitik jika diaktifkan)"
+      ]
+    },
+    "use": {
+      "title": "Cara kami menggunakan informasi Anda",
+      "items": [
+        "Untuk mengonfirmasi dan mengelola sewa motor / mobil serta tur berpemandu",
+        "Untuk berkomunikasi melalui WhatsApp, email, atau telepon terkait pemesanan Anda",
+        "Untuk mengatur pengantaran dan penjemputan di seluruh Bali",
+        "Untuk meningkatkan situs web dan performa iklan kami (analitik agregat)"
+      ]
+    },
+    "cookies": {
+      "title": "Cookie, analitik, dan iklan",
+      "paragraphs": [
+        "Kami menggunakan Google Analytics dan Google Ads (melalui Google Tag Manager) untuk memahami cara pengunjung menggunakan situs kami serta untuk mengukur dan meningkatkan iklan kami. Layanan ini menggunakan cookie dan teknologi serupa untuk mengumpulkan informasi seperti halaman yang dikunjungi, jenis perangkat dan browser, perkiraan lokasi, serta bagaimana Anda sampai ke situs kami.",
+        "Kami menggunakan fitur Google Analytics berbasis iklan, termasuk Google Signals, laporan demografi dan minat, serta pemasaran ulang (remarketing). Artinya, Google dapat mengaitkan kunjungan Anda dengan akun Google Anda jika Anda masuk dan mengaktifkan personalisasi iklan, dan kami dapat menampilkan iklan kami kepada Anda di situs lain setelah Anda mengunjungi situs kami. Data Google Signals hanya digunakan dalam bentuk agregat; kami tidak pernah menerima informasi yang mengidentifikasi Anda secara pribadi."
+      ],
+      "controlsIntro": "Anda dapat mengaturnya kapan saja:",
+      "controls": [
+        {
+          "text": "Kelola atau nonaktifkan iklan yang dipersonalisasi di akun Google Anda",
+          "url": "https://adssettings.google.com"
+        },
+        {
+          "text": "Nonaktifkan Google Analytics di semua situs",
+          "url": "https://tools.google.com/dlpage/gaoptout"
+        },
+        {
+          "text": "Blokir atau hapus cookie melalui pengaturan browser Anda."
+        }
+      ],
+      "learnMore": {
+        "text": "Untuk mengetahui cara Google menggunakan informasi dari situs yang menggunakan layanannya, kunjungi",
+        "url": "https://policies.google.com/technologies/partner-sites"
+      }
+    },
+    "sharing": {
+      "title": "Berbagi informasi",
+      "text": "Kami tidak menjual data pribadi Anda. Kami dapat membagikan informasi kepada penyedia layanan yang memproses pemesanan atau meng-hosting situs kami (misalnya hosting, pengiriman email) hanya sejauh diperlukan untuk menjalankan layanan, atau jika diwajibkan oleh hukum Indonesia."
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "text": "Konfirmasi pemesanan dan dukungan sering dilakukan melalui WhatsApp. Pesan yang Anda kirim juga tunduk pada ketentuan privasi WhatsApp sendiri (Meta Platforms)."
+    },
+    "retention": {
+      "title": "Penyimpanan & hak Anda",
+      "text": "Kami menyimpan catatan pemesanan selama diperlukan untuk operasional dan kepatuhan hukum. Anda dapat meminta akses, koreksi, atau penghapusan data pribadi Anda dengan menghubungi kami melalui WhatsApp atau email yang tercantum di situs web."
+    },
+    "contact": {
+      "title": "Kontak",
+      "text": "G-DRIVE Bike Rental Bali · Bali, Indonesia · Lihat bagian Kontak di beranda kami untuk WhatsApp dan email terbaru."
+    }
   }
 }

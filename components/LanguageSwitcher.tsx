@@ -9,7 +9,7 @@ type LanguageSwitcherProps = {
   className?: string;
 };
 
-const LEGAL_PATHS = new Set(["/privacy-policy", "/terms"]);
+const LEGAL_PATHS = new Set(["/terms"]);
 
 function setLocaleCookie(next: AppLocale) {
   document.cookie = `NEXT_LOCALE=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;

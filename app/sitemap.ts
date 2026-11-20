@@ -22,12 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...tours.flatMap((tour) =>
       localized(`/tour-packages/${tour.slug}`, "monthly", 0.8),
     ),
-    {
-      url: absoluteUrl("/privacy-policy"),
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    ...localized("/privacy-policy", "yearly", 0.3),
     {
       url: absoluteUrl("/terms"),
       lastModified: now,
