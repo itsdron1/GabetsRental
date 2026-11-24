@@ -118,6 +118,7 @@ const INSERT_AFTER: Record<string, string> = {
 const FEATURED_ORDER = [
   "harley-davidson-fat-boy",
   "qj-motor-srv-250-at",
+  "yamaha-xmax-250",
   "ktm-250-duke",
   "kawasaki-ninja-250",
   "kawasaki-klx230",
